@@ -46,7 +46,10 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.YELLOW_LILY, "Yellow Rose Bush");
         addBlock(ModBlocks.PINK_LILY, "Pink Rose Bush");
 
-        addBlock(ModBlocks.LAVENDER, "Lavender Flower");
+        addBlock(ModBlocks.LAVENDER, "Lavender");
+
+        addBlock(ModBlocks.MOSSY_STONE, "Mossy Stone");
+        addBlock(ModBlocks.MOSSY_ANDESITE, "Mossy Andesite");
         
         add("entity.redwood_forest.redwood_boat", "Redwood Boat");
         add("entity.redwood_forest.redwood_chest_boat", "Redwood Boat with Chest");

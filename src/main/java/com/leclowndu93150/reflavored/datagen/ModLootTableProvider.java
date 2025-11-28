@@ -57,6 +57,9 @@ public class ModLootTableProvider extends LootTableProvider {
             dropSelf(ModBlocks.REDWOOD_TRAPDOOR.get());
             dropSelf(ModBlocks.REDWOOD_SAPLING.get());
 
+            dropSelf(ModBlocks.MOSSY_STONE.get());
+            dropSelf(ModBlocks.MOSSY_ANDESITE.get());
+
             add(ModBlocks.REDWOOD_SLAB.get(), block -> createSlabItemTable(ModBlocks.REDWOOD_SLAB.get()));
             add(ModBlocks.REDWOOD_DOOR.get(), block -> createDoorTable(ModBlocks.REDWOOD_DOOR.get()));
             

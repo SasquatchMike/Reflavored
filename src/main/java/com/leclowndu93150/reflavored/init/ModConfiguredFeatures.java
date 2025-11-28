@@ -11,6 +11,7 @@ import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
@@ -18,16 +19,18 @@ import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
-import net.minecraft.world.level.levelgen.feature.foliageplacers.MegaPineFoliagePlacer;
-import net.minecraft.world.level.levelgen.feature.foliageplacers.SpruceFoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.*;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.RuleBasedBlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.feature.treedecorators.AlterGroundDecorator;
+import net.minecraft.world.level.levelgen.feature.treedecorators.BeehiveDecorator;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.GiantTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 import java.util.List;
+import net.minecraft.world.level.levelgen.feature.configurations.DiskConfiguration;
 
 public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> REDWOOD = createKey("redwood");
@@ -44,6 +47,9 @@ public class ModConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_LAVENDER = createKey("patch_lavender");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_FIELD_FLOWERS = createKey("patch_field_flowers");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LAVENDER_ROCK = createKey("lavender_rock");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LAVENDER_ROCKY_PATCH = createKey("lavender_rocky_patch");
 
 
     public static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
@@ -77,13 +83,17 @@ public class ModConfiguredFeatures {
                         placedFeatures.getOrThrow(ModPlacedFeatures.REDWOOD_CHECKED)
                 ));
 
-        register(context, CYPRESSE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
-                BlockStateProvider.simple(Blocks.SPRUCE_LOG),
-                new StraightTrunkPlacer(1, 2, 1),
-                BlockStateProvider.simple(Blocks.SPRUCE_LEAVES),
-                new SpruceFoliagePlacer(UniformInt.of(1, 2), UniformInt.of(0, 1), UniformInt.of(1, 1)),
-                new TwoLayersFeatureSize(1, 0, 1)
-        ).ignoreVines().build());
+        register(context, CYPRESSE, Feature.TREE,
+                new TreeConfiguration.TreeConfigurationBuilder(
+                        BlockStateProvider.simple(Blocks.SPRUCE_LOG),
+                        new StraightTrunkPlacer(8, 2, 1),
+                        BlockStateProvider.simple(Blocks.SPRUCE_LEAVES),
+                        new SpruceFoliagePlacer(UniformInt.of(2, 3), UniformInt.of(0, 2), UniformInt.of(1, 2)),
+                        new TwoLayersFeatureSize(2, 0, 2)
+                )
+                        .decorators(List.of(new BeehiveDecorator(0.05F))).ignoreVines().build()
+                        );
+
 
         register(context, PATCH_DOUGLAS_IRIS, Feature.FLOWER,
                 new RandomPatchConfiguration(
@@ -157,6 +167,25 @@ public class ModConfiguredFeatures {
                 )
         );
 
+        register(context, LAVENDER_ROCK, Feature.BLOCK_PILE,
+                new BlockPileConfiguration(
+                        BlockStateProvider.simple(Blocks.STONE)
+                )
+        );
+
+        register(
+                context,
+                LAVENDER_ROCKY_PATCH,
+                Feature.DISK,
+                new DiskConfiguration(
+                        RuleBasedBlockStateProvider.simple(Blocks.STONE),
+                        BlockPredicate.matchesBlocks(
+                                List.of(Blocks.DIRT, Blocks.GRASS_BLOCK, Blocks.PODZOL, Blocks.COARSE_DIRT, Blocks.MYCELIUM)
+                        ),
+                        UniformInt.of(2, 3),
+                        4
+                )
+        );
     }
 
     private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(

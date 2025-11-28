@@ -25,9 +25,11 @@ import java.util.List;
 
 public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> REDWOOD_CHECKED = createKey("redwood_checked");
-    public static final ResourceKey<PlacedFeature> CYPRESSE_CHECKED = createKey("cypresse_checked");
     public static final ResourceKey<PlacedFeature> MEGA_REDWOOD_CHECKED = createKey("mega_redwood_checked");
     public static final ResourceKey<PlacedFeature> REDWOOD_TREES = createKey("redwood_trees");
+
+    public static final ResourceKey<PlacedFeature> CYPRESSE_CHECKED = createKey("cypresse_checked");
+    public static final ResourceKey<PlacedFeature> CYPRESSE_TREES = createKey("cypresse_trees");
 
     public static final ResourceKey<PlacedFeature> SPARSE_OLD_GROWTH_SPRUCE_TREES = createKey("sparse_old_growth_spruce_trees");
 
@@ -46,6 +48,9 @@ public class ModPlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> PATCH_FIELD_FLOWERS = createKey("patch_field_flowers");
 
+    public static final ResourceKey<PlacedFeature> LAVENDER_ROCK = createKey("lavender_rock");
+    public static final ResourceKey<PlacedFeature> LAVENDER_ROCKY_PATCH = createKey("lavender_rocky_patch");
+
 
     public static ResourceKey<PlacedFeature> createKey(String name) {
         return ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(Redflavored.MODID, name));
@@ -60,8 +65,6 @@ public class ModPlacedFeatures {
         register(context, MEGA_REDWOOD_CHECKED, configuredFeatures.getOrThrow(ModConfiguredFeatures.MEGA_REDWOOD),
                 PlacementUtils.filteredByBlockSurvival(ModBlocks.REDWOOD_SAPLING.get()));
 
-        register(context, CYPRESSE_CHECKED, configuredFeatures.getOrThrow(ModConfiguredFeatures.CYPRESSE),
-                PlacementUtils.filteredByBlockSurvival(ModBlocks.LAVENDER.get())); //using the lavender for testing only, //TODO replace with an actual sapling
 
         register(context, REDWOOD_TREES, configuredFeatures.getOrThrow(ModConfiguredFeatures.REDWOOD_TREES),
                 CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
@@ -82,6 +85,18 @@ public class ModPlacedFeatures {
                 SurfaceWaterDepthFilter.forMaxDepth(0),
                 PlacementUtils.HEIGHTMAP_OCEAN_FLOOR,
                 BiomeFilter.biome());
+
+        register(context, CYPRESSE_CHECKED, configuredFeatures.getOrThrow(ModConfiguredFeatures.CYPRESSE),
+                PlacementUtils.filteredByBlockSurvival(ModBlocks.LAVENDER.get())); //using the lavender for testing only, //TODO replace with an actual sapling
+
+        register(context, CYPRESSE_TREES,
+                configuredFeatures.getOrThrow(ModConfiguredFeatures.CYPRESSE),
+                CountPlacement.of(UniformInt.of(0, 2)),
+                InSquarePlacement.spread(),
+                SurfaceWaterDepthFilter.forMaxDepth(0),
+                PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                BiomeFilter.biome());
+
 
         register(context, BROWN_MUSHROOM_REDWOOD, configuredFeatures.getOrThrow(ModConfiguredFeatures.PATCH_BROWN_MUSHROOM),
                 RarityFilter.onAverageOnceEvery(4),
@@ -141,6 +156,23 @@ public class ModPlacedFeatures {
         register(context, PATCH_FIELD_FLOWERS,
                 configuredFeatures.getOrThrow(ModConfiguredFeatures.PATCH_FIELD_FLOWERS),
                 RarityFilter.onAverageOnceEvery(2),
+                InSquarePlacement.spread(),
+                PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                BiomeFilter.biome());
+
+
+        register(context,
+                LAVENDER_ROCK,
+                configuredFeatures.getOrThrow(ModConfiguredFeatures.LAVENDER_ROCK),
+                RarityFilter.onAverageOnceEvery(12),
+                InSquarePlacement.spread(),
+                PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                BiomeFilter.biome());
+
+        register(context,
+                LAVENDER_ROCKY_PATCH,
+                configuredFeatures.getOrThrow(ModConfiguredFeatures.LAVENDER_ROCKY_PATCH),
+                RarityFilter.onAverageOnceEvery(6),
                 InSquarePlacement.spread(),
                 PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
                 BiomeFilter.biome());

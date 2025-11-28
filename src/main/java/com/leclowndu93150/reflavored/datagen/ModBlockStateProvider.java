@@ -6,6 +6,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
@@ -120,9 +121,28 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 models().cross(blockTexture(ModBlocks.LAVENDER.get()).getPath(),
                         blockTexture(ModBlocks.LAVENDER.get())).renderType("cutout"));
 
+//        // Normal lavender glass
+//        simpleBlockWithItem(ModBlocks.LAVENDER_GLASS.get(),
+//                models().cubeAll(name(ModBlocks.LAVENDER_GLASS.get()), blockTexture(ModBlocks.LAVENDER_GLASS.get()))
+//                        .renderType("translucent"));
+//
+//        // Top-tex lavender glass, you will likely use a custom model instead of cubeAll later
+//        simpleBlockWithItem(ModBlocks.LAVENDER_GLASS_TOP.get(),
+//                models().cubeAll(name(ModBlocks.LAVENDER_GLASS_TOP.get()), blockTexture(ModBlocks.LAVENDER_GLASS_TOP.get()))
+//                        .renderType("translucent"));
+//
+//        // Glazed terracotta, behaves like vanilla glazed terracotta
+//        simpleBlockWithItem(ModBlocks.LAVENDER_GLAZED_TERRACOTTA.get(),
+//                models().cubeAll(name(ModBlocks.LAVENDER_GLAZED_TERRACOTTA.get()),
+//                        blockTexture(ModBlocks.LAVENDER_GLAZED_TERRACOTTA.get())));
+
         pottedPlantBlock(ModBlocks.POTTED_DOUGLAS_IRIS.get(), blockTexture(ModBlocks.DOUGLAS_IRIS.get()));
         pottedPlantBlock(ModBlocks.POTTED_TRILLIUM.get(), blockTexture(ModBlocks.TRILLIUM.get()));
         pottedPlantBlock(ModBlocks.POTTED_LAVENDER.get(), blockTexture(ModBlocks.LAVENDER.get()));
+
+        simpleBlockWithItem(ModBlocks.MOSSY_STONE.get(), cubeAll(ModBlocks.MOSSY_STONE.get()));
+        simpleBlockWithItem(ModBlocks.MOSSY_ANDESITE.get(), cubeAll(ModBlocks.MOSSY_ANDESITE.get()));
+
 
 //        // FD cabinet only if bound
 //        if (com.leclowndu93150.reflavored.compat.fd.FDCompat.REDWOOD_CABINET.isBound()) {
@@ -148,6 +168,64 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 .renderType("cutout");
         simpleBlock(potBlock, model);
     }
+
+//    private void candleBlock(CandleBlock block) {
+//        String baseName = name(block);
+//
+//        // Models use vanilla candle templates; you only supply the texture.
+//        ModelFile one = models().candle(baseName, blockTexture(block));
+//        ModelFile two = models().candle(baseName + "_two_candles", blockTexture(block));
+//        ModelFile three = models().candle(baseName + "_three_candles", blockTexture(block));
+//        ModelFile four = models().candle(baseName + "_four_candles", blockTexture(block));
+//
+//        getVariantBuilder(block).forAllStates(state -> {
+//            int candles = state.getValue(BlockStateProperties.CANDLES);
+//            boolean lit = state.getValue(BlockStateProperties.LIT);
+//            ModelFile model = switch (candles) {
+//                case 1 -> one;
+//                case 2 -> two;
+//                case 3 -> three;
+//                default -> four;
+//            };
+//
+//            // If you want a different look when lit, you could choose different models here
+//            // based on `lit`, for example using templates pointing to "_lit" textures.
+//
+//            return ConfiguredModel.builder()
+//                    .modelFile(model)
+//                    .build();
+//        });
+//    }
+//
+//    private void bedBlock(BedBlock block, String textureBaseName) {
+//        // textureBaseName is "lavender_bed"
+//        ResourceLocation texture = modLoc("block/" + textureBaseName);
+//
+//        // Models
+//        ModelFile head = models().bed(textureBaseName + "_head", texture);
+//        ModelFile foot = models().bed(textureBaseName + "_foot", texture);
+//
+//        getVariantBuilder(block).forAllStates(state -> {
+//            var facing = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
+//            var part = state.getValue(BlockStateProperties.BED_PART);
+//
+//            ModelFile modelFile = part == BedPart.HEAD ? head : foot;
+//            int yRot = switch (facing) {
+//                case NORTH -> 180;
+//                case SOUTH -> 0;
+//                case WEST -> 90;
+//                case EAST -> 270;
+//                default -> 0;
+//            };
+//
+//            return ConfiguredModel.builder()
+//                    .modelFile(modelFile)
+//                    .rotationY(yRot)
+//                    .build();
+//        });
+//    }
+
+
 
 //    private void cabinetBlock(Block block, String modelBaseName) {
 //        ModelFile closed = models().withExistingParent(modelBaseName, modLoc("block/" + modelBaseName));
