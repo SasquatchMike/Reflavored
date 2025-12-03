@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "candles=1": { "model": "reflavored:block/lavender_candle" },
+    "candles=2": { "model": "reflavored:block/lavender_candle_two_candles" },
+    "candles=3": { "model": "reflavored:block/lavender_candle_three_candles" },
+    "candles=4": { "model": "reflavored:block/lavender_candle_four_candles" }
+  }
+}

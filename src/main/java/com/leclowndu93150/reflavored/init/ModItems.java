@@ -49,5 +49,16 @@ public class ModItems {
     public static final DeferredItem<BlockItem> PINK_LILY = ITEMS.register("pink_rose_bush",
             () -> new DoubleHighBlockItem(ModBlocks.PINK_LILY.get(), new Item.Properties()));
 
+    // In your ModItems class
+    public static final DeferredItem<BlockItem> LAVENDER_CANDLE = ITEMS.register("lavender_candle",
+            () -> new BlockItem(ModBlocks.LAVENDER_CANDLE.get(), new Item.Properties()));
+
+    public static final DeferredItem<BedItem> LAVENDER_BED = ITEMS.register("lavender_bed",
+            () -> new BedItem(ModBlocks.LAVENDER_BED.get(), new Item.Properties()));
+
+    public static final DeferredItem<BlockItem> LAVENDER_SHULKER_BOX = ITEMS.register("lavender_shulker_box",
+            () -> new BlockItem(ModBlocks.LAVENDER_SHULKER_BOX.get(), new Item.Properties()));
+
+
     public static final DeferredItem<BlockItem> LAVENDER = ITEMS.registerSimpleBlockItem("lavender", ModBlocks.LAVENDER);
 }

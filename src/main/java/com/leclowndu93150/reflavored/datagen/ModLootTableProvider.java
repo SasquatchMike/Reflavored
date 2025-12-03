@@ -20,6 +20,7 @@ import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
+import net.minecraft.world.level.storage.loot.functions.ApplyExplosionDecay;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
@@ -44,6 +45,44 @@ public class ModLootTableProvider extends LootTableProvider {
 
         @Override
         protected void generate() {
+            this.add(ModBlocks.LAVENDER_CANDLE.get(),
+                    LootTable.lootTable()
+                            .withPool(
+                                   LootPool.lootPool()
+                                            .setRolls(ConstantValue.exactly(1))
+                                            .add(LootItem.lootTableItem(ModBlocks.LAVENDER_CANDLE.get())
+                                                    .apply(SetItemCountFunction.setCount(ConstantValue.exactly(2))
+                                                            .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.LAVENDER_CANDLE.get())
+                                                                    .setProperties(StatePropertiesPredicate.Builder.properties()
+                                                                            .hasProperty(BlockStateProperties.CANDLES, 2)
+                                                                    )
+                                                            )
+                                                    )
+                                                    .apply(SetItemCountFunction.setCount(ConstantValue.exactly(3))
+                                                            .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.LAVENDER_CANDLE.get())
+                                                                    .setProperties(StatePropertiesPredicate.Builder.properties()
+                                                                            .hasProperty(BlockStateProperties.CANDLES, 3)
+                                                                    )
+                                                            )
+                                                    )
+                                                    .apply(SetItemCountFunction.setCount(ConstantValue.exactly(4))
+                                                            .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.LAVENDER_CANDLE.get())
+                                                                    .setProperties(StatePropertiesPredicate.Builder.properties()
+                                                                            .hasProperty(BlockStateProperties.CANDLES, 4)
+                                                                    )
+                                                            )
+                                                    )
+                                                    .apply(ApplyExplosionDecay.explosionDecay())
+                                            )
+                            )
+            );
+
+
+            dropSelf(ModBlocks.LAVENDER_BED.get());
+
+            // Lavender Shulker Box drops itself
+            dropSelf(ModBlocks.LAVENDER_SHULKER_BOX.get());
+
             dropSelf(ModBlocks.REDWOOD_LOG.get());
             dropSelf(ModBlocks.REDWOOD_WOOD.get());
             dropSelf(ModBlocks.STRIPPED_REDWOOD_LOG.get());

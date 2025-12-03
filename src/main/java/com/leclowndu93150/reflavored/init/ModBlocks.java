@@ -5,14 +5,11 @@ import com.leclowndu93150.reflavored.block.*;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
-
-import java.util.EnumMap;
 
 public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Redflavored.MODID);
@@ -103,75 +100,68 @@ public class ModBlocks {
             }
     );
 
+/*
+    public static final DeferredBlock<Block> LAVENDER_WOOL = BLOCKS.registerSimpleBlock(
+            "lavender_wool",
+            BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)
+    );
 
-//    public static final DeferredBlock<Block> LAVENDER_WOOL = BLOCKS.registerSimpleBlock(
-//            "lavender_wool",
-//            BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)
-//    );
-//
-//    public static final DeferredBlock<Block> LAVENDER_TERRACOTTA = BLOCKS.registerSimpleBlock(
-//            "lavender_terracotta",
-//            BlockBehaviour.Properties.ofFullCopy(Blocks.TERRACOTTA)
-//    );
-//
-//    public static final DeferredBlock<Block> LAVENDER_CONCRETE = BLOCKS.registerSimpleBlock(
-//            "lavender_concrete",
-//            BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE)
-//    );
-//
-//    public static final DeferredBlock<ConcretePowderBlock> LAVENDER_CONCRETE_POWDER = BLOCKS.register(
-//            "lavender_concrete_powder",
-//            () -> new ConcretePowderBlock(
-//                    Blocks.WHITE_CONCRETE,
-//                    BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE_POWDER)
-//            )
-//    );
-//
-//    public static final DeferredBlock<StainedGlassBlock> LAVENDER_GLASS = BLOCKS.register(
-//            "lavender_glass",
-//            () -> new StainedGlassBlock(
-//                    DyeColor.PURPLE,
-//                    BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_STAINED_GLASS)
-//            )
-//    );
-//
-//    public static final DeferredBlock<StainedGlassBlock> LAVENDER_GLASS_TOP = BLOCKS.register(
-//            "lavender_glass_top",
-//            () -> new StainedGlassBlock(
-//                    DyeColor.PURPLE,
-//                    BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_STAINED_GLASS)
-//            )
-//    );
-//
-//    public static final DeferredBlock<GlazedTerracottaBlock> LAVENDER_GLAZED_TERRACOTTA = BLOCKS.register(
-//            "lavender_glazed_terracotta",
-//            () -> new GlazedTerracottaBlock(
-//                    BlockBehaviour.Properties.ofFullCopy(Blocks.PURPLE_GLAZED_TERRACOTTA)
-//            )
-//    );
-//
-//    public static final DeferredBlock<CandleBlock> LAVENDER_CANDLE = BLOCKS.register(
-//            "lavender_candle",
-//            () -> new CandleBlock(
-//                    BlockBehaviour.Properties.ofFullCopy(Blocks.CANDLE)
-//            )
-//    );
-//
-//    public static final DeferredBlock<BedBlock> LAVENDER_BED = BLOCKS.register(
-//            "lavender_bed",
-//            () -> new BedBlock(
-//                    DyeColor.PURPLE,
-//                    BlockBehaviour.Properties.ofFullCopy(Blocks.PURPLE_BED)
-//            )
-//    );
-//
-//    public static final DeferredBlock<ShulkerBoxBlock> LAVENDER_SHULKER_BOX = BLOCKS.register(
-//            "lavender_shulker_box",
-//            () -> new ShulkerBoxBlock(
-//                    DyeColor.PURPLE,
-//                    BlockBehaviour.Properties.ofFullCopy(Blocks.SHULKER_BOX)
-//            )
-//    );
+    public static final DeferredBlock<Block> LAVENDER_TERRACOTTA = BLOCKS.registerSimpleBlock(
+            "lavender_terracotta",
+            BlockBehaviour.Properties.ofFullCopy(Blocks.TERRACOTTA)
+    );
+
+    public static final DeferredBlock<Block> LAVENDER_CONCRETE = BLOCKS.registerSimpleBlock(
+            "lavender_concrete",
+            BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE)
+    );
+
+    public static final DeferredBlock<ConcretePowderBlock> LAVENDER_CONCRETE_POWDER = BLOCKS.register(
+            "lavender_concrete_powder",
+            () -> new ConcretePowderBlock(
+                    Blocks.WHITE_CONCRETE,
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE_POWDER)
+            )
+    );
+
+    public static final DeferredBlock<StainedGlassBlock> LAVENDER_GLASS = BLOCKS.register(
+            "lavender_glass",
+            () -> new StainedGlassBlock(
+                    DyeColor.PURPLE,
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_STAINED_GLASS)
+            )
+    );
+
+    public static final DeferredBlock<StainedGlassBlock> LAVENDER_GLASS_TOP = BLOCKS.register(
+            "lavender_glass_top",
+            () -> new StainedGlassBlock(
+                    DyeColor.PURPLE,
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_STAINED_GLASS)
+            )
+    );
+
+    public static final DeferredBlock<GlazedTerracottaBlock> LAVENDER_GLAZED_TERRACOTTA = BLOCKS.register(
+            "lavender_glazed_terracotta",
+            () -> new GlazedTerracottaBlock(
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.PURPLE_GLAZED_TERRACOTTA)
+            )
+    );*/
+
+    public static final DeferredBlock<LavenderCandleBlock> LAVENDER_CANDLE = BLOCKS.register(
+            "lavender_candle",
+            () -> new LavenderCandleBlock(
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.CANDLE)
+            )
+    );
+
+    public static final DeferredBlock<LavenderBedBlock> LAVENDER_BED = BLOCKS.register(
+            "lavender_bed",
+            () -> new LavenderBedBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PURPLE_BED))
+    );
+    public static final DeferredBlock<LavenderShulkerBoxBlock> LAVENDER_SHULKER_BOX = BLOCKS.register(
+            "lavender_shulker_box",
+            () -> new LavenderShulkerBoxBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SHULKER_BOX))
+    );
 
 
 

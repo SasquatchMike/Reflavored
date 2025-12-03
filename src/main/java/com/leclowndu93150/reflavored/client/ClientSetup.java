@@ -1,16 +1,16 @@
 package com.leclowndu93150.reflavored.client;
 
 import com.leclowndu93150.reflavored.Redflavored;
-import com.leclowndu93150.reflavored.client.renderer.ModBoatRenderer;
-import com.leclowndu93150.reflavored.client.renderer.ModChestBoatRenderer;
-import com.leclowndu93150.reflavored.client.renderer.ModFoxRenderer;
+import com.leclowndu93150.reflavored.client.renderer.*;
 import com.leclowndu93150.reflavored.init.ModBlockEntities;
 import com.leclowndu93150.reflavored.init.ModBlocks;
 import com.leclowndu93150.reflavored.init.ModBoats;
 import com.leclowndu93150.reflavored.init.ModWoodTypes;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
+import net.minecraft.client.renderer.blockentity.ShulkerBoxRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.FoliageColor;
@@ -41,6 +41,10 @@ public class ClientSetup {
         
         event.registerBlockEntityRenderer(ModBlockEntities.MOD_SIGN.get(), SignRenderer::new);
         event.registerBlockEntityRenderer(ModBlockEntities.MOD_HANGING_SIGN.get(), HangingSignRenderer::new);
+
+
+        event.registerBlockEntityRenderer(ModBlockEntities.LAVENDER_SHULKER_BOX.get(), LavenderShulkerBoxRenderer::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.LAVENDER_BED.get(), LavenderBedRenderer::new);
     }
 
     @SubscribeEvent
