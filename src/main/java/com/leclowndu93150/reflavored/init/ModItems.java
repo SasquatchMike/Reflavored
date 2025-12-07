@@ -25,6 +25,8 @@ public class ModItems {
     public static final DeferredItem<BlockItem> REDWOOD_BUTTON = ITEMS.registerSimpleBlockItem("redwood_button", ModBlocks.REDWOOD_BUTTON);
     public static final DeferredItem<BlockItem> REDWOOD_SAPLING = ITEMS.registerSimpleBlockItem("redwood_sapling", ModBlocks.REDWOOD_SAPLING);
 
+    public static final DeferredItem<Item> LAVENDER_DYE = ITEMS.registerItem("lavender_dye", properties -> new Item(properties));
+
     public static final DeferredItem<SignItem> REDWOOD_SIGN = ITEMS.register("redwood_sign",
             () -> new SignItem(new Item.Properties().stacksTo(16), ModBlocks.REDWOOD_SIGN.get(), ModBlocks.REDWOOD_WALL_SIGN.get()));
 
@@ -49,7 +51,6 @@ public class ModItems {
     public static final DeferredItem<BlockItem> PINK_LILY = ITEMS.register("pink_rose_bush",
             () -> new DoubleHighBlockItem(ModBlocks.PINK_LILY.get(), new Item.Properties()));
 
-    // In your ModItems class
     public static final DeferredItem<BlockItem> LAVENDER_CANDLE = ITEMS.register("lavender_candle",
             () -> new BlockItem(ModBlocks.LAVENDER_CANDLE.get(), new Item.Properties()));
 

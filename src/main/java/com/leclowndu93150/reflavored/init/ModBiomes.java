@@ -60,6 +60,7 @@ public class ModBiomes {
         generationBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, placedFeatures.getOrThrow(ModPlacedFeatures.GRANITE_ROCK));
         generationBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, placedFeatures.getOrThrow(ModPlacedFeatures.GRANITE_ROCKY_PATCH));
 
+        generationBuilder.addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS,placedFeatures.getOrThrow(ModPlacedFeatures.GRANITE_BOULDER));
         generationBuilder.addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, MiscOverworldPlacements.DISK_CLAY);
         generationBuilder.addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, MiscOverworldPlacements.DISK_SAND);
         generationBuilder.addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, MiscOverworldPlacements.DISK_GRAVEL);

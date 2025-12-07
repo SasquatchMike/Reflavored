@@ -40,6 +40,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.REDWOOD_BOAT.get());
                         output.accept(ModItems.REDWOOD_CHEST_BOAT.get());
                         output.accept(ModItems.LAVENDER.get());
+                        output.accept(ModItems.LAVENDER_DYE.get());
                         output.accept(ModItems.LAVENDER_BED.get());
                         output.accept(ModItems.LAVENDER_CANDLE.get());
                         output.accept(ModItems.LAVENDER_SHULKER_BOX.get());

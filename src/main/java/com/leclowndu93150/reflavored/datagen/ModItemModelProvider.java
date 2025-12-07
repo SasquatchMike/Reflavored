@@ -56,6 +56,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         generatedItem(ModItems.PINK_LILY);
         generatedItem(ModItems.LAVENDER);
 
+        generatedItem(ModItems.LAVENDER_DYE);
+
 //        // FD cabinet item model only if bound
 //        if (com.leclowndu93150.reflavored.compat.fd.FDCompat.REDWOOD_CABINET.isBound()) {
 //            withExistingParent("redwood_cabinet", modLoc("block/redwood_cabinet"));

@@ -58,6 +58,7 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.PINK_LILY, "Pink Rose Bush");
 
         addBlock(ModBlocks.LAVENDER, "Lavender");
+        addItem(ModItems.LAVENDER_DYE, "Lavender Dye");
 
         addBlock(ModBlocks.MOSSY_STONE, "Mossy Stone");
         addBlock(ModBlocks.MOSSY_ANDESITE, "Mossy Andesite");

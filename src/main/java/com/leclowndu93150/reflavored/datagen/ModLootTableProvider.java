@@ -80,7 +80,6 @@ public class ModLootTableProvider extends LootTableProvider {
 
             dropSelf(ModBlocks.LAVENDER_BED.get());
 
-            // Lavender Shulker Box drops itself
             dropSelf(ModBlocks.LAVENDER_SHULKER_BOX.get());
 
             dropSelf(ModBlocks.REDWOOD_LOG.get());

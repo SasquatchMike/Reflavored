@@ -56,6 +56,9 @@ public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> GRANITE_ROCK = createKey("granite_rock");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GRANITE_ROCKY_PATCH = createKey("granite_rocky_patch");
 
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GRANITE_BOULDER = createKey("granite_boulder");
+
+
 
     public static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(Redflavored.MODID, name));
@@ -236,6 +239,11 @@ public class ModConfiguredFeatures {
                         2
                 )
         );
+
+        register(context, GRANITE_BOULDER, Feature.FOREST_ROCK,
+                new BlockStateConfiguration(Blocks.GRANITE.defaultBlockState())
+        );
+
     }
 
 

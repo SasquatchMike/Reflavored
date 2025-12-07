@@ -54,6 +54,9 @@ public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> GRANITE_ROCK = createKey("granite_rock");
     public static final ResourceKey<PlacedFeature> GRANITE_ROCKY_PATCH = createKey("granite_rocky_patch");
 
+    public static final ResourceKey<PlacedFeature> GRANITE_BOULDER = createKey("granite_boulder");
+
+
 
     public static ResourceKey<PlacedFeature> createKey(String name) {
         return ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(Redflavored.MODID, name));
@@ -195,6 +198,16 @@ public class ModPlacedFeatures {
                 InSquarePlacement.spread(),
                 PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
                 BiomeFilter.biome());
+
+        register(
+                context,
+                GRANITE_BOULDER,
+                configuredFeatures.getOrThrow(ModConfiguredFeatures.GRANITE_BOULDER),
+                RarityFilter.onAverageOnceEvery(10),          // 1 per ~10 chunks on average
+                InSquarePlacement.spread(),                   // spread within the chunk
+                PlacementUtils.HEIGHTMAP_WORLD_SURFACE,       // sit on the terrain
+                BiomeFilter.biome()                           // respect the biome
+        );
 
 
     }
