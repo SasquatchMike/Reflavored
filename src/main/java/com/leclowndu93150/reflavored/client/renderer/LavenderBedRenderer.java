@@ -1,5 +1,6 @@
 package com.leclowndu93150.reflavored.client.renderer;
 
+import com.leclowndu93150.reflavored.Redflavored;
 import com.leclowndu93150.reflavored.block.entity.LavenderBedBlockEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -25,7 +26,7 @@ public class LavenderBedRenderer implements BlockEntityRenderer<LavenderBedBlock
 
     public static final Material LAVENDER_BED_TEXTURE = new Material(
             Sheets.BED_SHEET,
-            ResourceLocation.fromNamespaceAndPath("reflavored", "block/lavender_bed")
+            ResourceLocation.fromNamespaceAndPath(Redflavored.MODID, "textures/block/lavender_bed.png")
     );
 
     public LavenderBedRenderer(BlockEntityRendererProvider.Context context) {
@@ -39,10 +40,6 @@ public class LavenderBedRenderer implements BlockEntityRenderer<LavenderBedBlock
         boolean isHead = state.getValue(BedBlock.PART) == BedPart.HEAD;
         ModelPart part = isHead ? this.headRoot : this.footRoot;
         Direction direction = state.getValue(BedBlock.FACING);
-        Block block = bedEntity.getBlockState().getBlock();
-
-        System.out.println("[DEBUG] Rendering bed box:");
-        System.out.println("  Block:   " + block.getDescriptionId() + " (" + block + ")");
 
         renderPiece(poseStack, bufferSource, part, direction, LAVENDER_BED_TEXTURE, packedLight, packedOverlay, !isHead);
     }

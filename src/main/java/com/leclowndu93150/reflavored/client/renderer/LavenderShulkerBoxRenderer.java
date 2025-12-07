@@ -1,7 +1,6 @@
 package com.leclowndu93150.reflavored.client.renderer;
 
 import com.leclowndu93150.reflavored.block.entity.LavenderShulkerBoxBlockEntity;
-import com.leclowndu93150.reflavored.init.ModBlocks;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.ShulkerModel;
@@ -13,11 +12,11 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ShulkerBoxBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class LavenderShulkerBoxRenderer implements BlockEntityRenderer<LavenderShulkerBoxBlockEntity> {
+    private static final ResourceLocation LAVENDER_TEXTURE = ResourceLocation.fromNamespaceAndPath("reflavored", "textures/entity/shulker/lavender_shulker_box");
     private final ShulkerModel<?> model;
 
     public LavenderShulkerBoxRenderer(BlockEntityRendererProvider.Context context) {
@@ -26,11 +25,8 @@ public class LavenderShulkerBoxRenderer implements BlockEntityRenderer<LavenderS
 
     @Override
     public void render(LavenderShulkerBoxBlockEntity blockEntity, float partialTick, PoseStack stack, MultiBufferSource buffer, int packedLight, int packedOverlay) {
-        ResourceLocation texture = ResourceLocation.fromNamespaceAndPath("reflavored", "block/lavender_shulker_box");
+        ResourceLocation texture = ResourceLocation.fromNamespaceAndPath("reflavored", "textures/entity/shulker/lavender_shulker_box");
 
-        System.out.println("[DEBUG] Rendering shulker box:");
-        System.out.println("  Block:   " + blockEntity.getBlockState().getBlock().getDescriptionId() + " (" + blockEntity.getBlockState().getBlock() + ")");
-        System.out.println("  Texture: " + texture);
 
         Direction direction = Direction.UP;
         BlockState state = blockEntity.getLevel().getBlockState(blockEntity.getBlockPos());

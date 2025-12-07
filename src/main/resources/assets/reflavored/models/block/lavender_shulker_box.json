@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/shulker_box",
+  "parent": "minecraft:block/template_shulker_box",
   "textures": {
     "particle": "reflavored:block/lavender_shulker_box"
   }
