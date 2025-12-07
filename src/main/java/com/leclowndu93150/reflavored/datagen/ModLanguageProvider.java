@@ -16,6 +16,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add("itemGroup." + Redflavored.MODID, "Reflavored");
 
         add("biome.reflavored.redwood_forest", "Redwood Forest");
+        add("biome.reflavored.lavender_fields", "Lavender Fields");
 
         addBlock(ModBlocks.REDWOOD_LOG, "Redwood Log");
         addBlock(ModBlocks.REDWOOD_WOOD, "Redwood Wood");
@@ -32,6 +33,16 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.REDWOOD_TRAPDOOR, "Redwood Trapdoor");
         addBlock(ModBlocks.REDWOOD_PRESSURE_PLATE, "Redwood Pressure Plate");
         addBlock(ModBlocks.REDWOOD_BUTTON, "Redwood Button");
+
+        addBlock(ModBlocks.LAVENDER_WOOL, "Lavender Wool");
+        addBlock(ModBlocks.LAVENDER_TERRACOTTA, "Lavender Terracotta");
+        addBlock(ModBlocks.LAVENDER_GLAZED_TERRACOTTA, "Lavender Glazed Terracotta");
+        addBlock(ModBlocks.LAVENDER_CONCRETE, "Lavender Concrete");
+        addBlock(ModBlocks.LAVENDER_CONCRETE_POWDER, "Lavender Concrete Powder");
+
+        addBlock(ModBlocks.LAVENDER_BED, "Lavender Bed");
+        addBlock(ModBlocks.LAVENDER_CANDLE, "Lavender Candle");
+        addBlock(ModBlocks.LAVENDER_SHULKER_BOX, "Lavender Shulker Box");
 
         addItem(ModItems.REDWOOD_SIGN, "Redwood Sign");
         addItem(ModItems.REDWOOD_HANGING_SIGN, "Redwood Hanging Sign");

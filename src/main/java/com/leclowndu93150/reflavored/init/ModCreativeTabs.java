@@ -40,6 +40,14 @@ public class ModCreativeTabs {
                         output.accept(ModItems.REDWOOD_BOAT.get());
                         output.accept(ModItems.REDWOOD_CHEST_BOAT.get());
                         output.accept(ModItems.LAVENDER.get());
+                        output.accept(ModItems.LAVENDER_BED.get());
+                        output.accept(ModItems.LAVENDER_CANDLE.get());
+                        output.accept(ModItems.LAVENDER_SHULKER_BOX.get());
+                        output.accept(ModItems.LAVENDER_WOOL.get());
+                        output.accept(ModItems.LAVENDER_TERRACOTTA.get());
+                        output.accept(ModItems.LAVENDER_GLAZED_TERRACOTTA.get());
+                        output.accept(ModItems.LAVENDER_CONCRETE.get());
+                        output.accept(ModItems.LAVENDER_CONCRETE_POWDER.get());
                     })
                     .build());
 }

@@ -59,6 +59,12 @@ public class ModItems {
     public static final DeferredItem<BlockItem> LAVENDER_SHULKER_BOX = ITEMS.register("lavender_shulker_box",
             () -> new BlockItem(ModBlocks.LAVENDER_SHULKER_BOX.get(), new Item.Properties()));
 
+    public static final DeferredItem<BlockItem> LAVENDER_WOOL = ITEMS.registerSimpleBlockItem("lavender_wool", ModBlocks.LAVENDER_WOOL);
+    public static final DeferredItem<BlockItem> LAVENDER_TERRACOTTA = ITEMS.registerSimpleBlockItem("lavender_terracotta", ModBlocks.LAVENDER_TERRACOTTA);
+    public static final DeferredItem<BlockItem> LAVENDER_GLAZED_TERRACOTTA = ITEMS.registerSimpleBlockItem("lavender_glazed_terracotta", ModBlocks.LAVENDER_GLAZED_TERRACOTTA);
+    public static final DeferredItem<BlockItem> LAVENDER_CONCRETE = ITEMS.registerSimpleBlockItem("lavender_concrete", ModBlocks.LAVENDER_CONCRETE);
+    public static final DeferredItem<BlockItem> LAVENDER_CONCRETE_POWDER = ITEMS.registerSimpleBlockItem("lavender_concrete_powder", ModBlocks.LAVENDER_CONCRETE_POWDER);
+
 
     public static final DeferredItem<BlockItem> LAVENDER = ITEMS.registerSimpleBlockItem("lavender", ModBlocks.LAVENDER);
 }

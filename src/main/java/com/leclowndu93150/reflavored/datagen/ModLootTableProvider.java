@@ -96,6 +96,15 @@ public class ModLootTableProvider extends LootTableProvider {
             dropSelf(ModBlocks.REDWOOD_TRAPDOOR.get());
             dropSelf(ModBlocks.REDWOOD_SAPLING.get());
 
+            dropSelf(ModBlocks.LAVENDER_BED.get());
+            dropSelf(ModBlocks.LAVENDER_CANDLE.get());
+            dropSelf(ModBlocks.LAVENDER_SHULKER_BOX.get());
+            dropSelf(ModBlocks.LAVENDER_WOOL.get());
+            dropSelf(ModBlocks.LAVENDER_TERRACOTTA.get());
+            dropSelf(ModBlocks.LAVENDER_GLAZED_TERRACOTTA.get());
+            dropSelf(ModBlocks.LAVENDER_CONCRETE.get());
+            dropSelf(ModBlocks.LAVENDER_CONCRETE_POWDER.get());
+
             dropSelf(ModBlocks.MOSSY_STONE.get());
             dropSelf(ModBlocks.MOSSY_ANDESITE.get());
 

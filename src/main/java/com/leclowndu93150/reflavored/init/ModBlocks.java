@@ -119,8 +119,8 @@ public class ModBlocks {
     public static final DeferredBlock<ConcretePowderBlock> LAVENDER_CONCRETE_POWDER = BLOCKS.register(
             "lavender_concrete_powder",
             () -> new ConcretePowderBlock(
-                    Blocks.WHITE_CONCRETE,
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE_POWDER)
+                    ModBlocks.LAVENDER_CONCRETE.get(),
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.MAGENTA_CONCRETE_POWDER)
             )
     );
 
@@ -162,7 +162,6 @@ public class ModBlocks {
             "lavender_shulker_box",
             () -> new LavenderShulkerBoxBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SHULKER_BOX))
     );
-
 
 
     public static final DeferredBlock<FlowerPotBlock> POTTED_DOUGLAS_IRIS =

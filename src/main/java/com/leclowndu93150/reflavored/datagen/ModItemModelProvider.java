@@ -32,6 +32,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         blockItem(ModBlocks.REDWOOD_PRESSURE_PLATE.get());
         blockItemWithSuffix(ModBlocks.REDWOOD_TRAPDOOR.get(), "_bottom");
 
+        blockItem(ModBlocks.LAVENDER_WOOL.get());
+        blockItem(ModBlocks.LAVENDER_TERRACOTTA.get());
+        blockItem(ModBlocks.LAVENDER_GLAZED_TERRACOTTA.get());
+        blockItem(ModBlocks.LAVENDER_CONCRETE.get());
+        blockItem(ModBlocks.LAVENDER_CONCRETE_POWDER.get());
+
         OurfenceInventory("redwood_fence", modLoc("block/redwood_planks"));
         OurbuttonInventory("redwood_button", modLoc("block/redwood_planks"));
 
