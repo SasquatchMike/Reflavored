@@ -77,11 +77,6 @@ public class ModLootTableProvider extends LootTableProvider {
                             )
             );
 
-
-            dropSelf(ModBlocks.LAVENDER_BED.get());
-
-            dropSelf(ModBlocks.LAVENDER_SHULKER_BOX.get());
-
             dropSelf(ModBlocks.REDWOOD_LOG.get());
             dropSelf(ModBlocks.REDWOOD_WOOD.get());
             dropSelf(ModBlocks.STRIPPED_REDWOOD_LOG.get());
@@ -120,6 +115,9 @@ public class ModLootTableProvider extends LootTableProvider {
 
             dropSelf(ModBlocks.DOUGLAS_IRIS.get());
             dropSelf(ModBlocks.TRILLIUM.get());
+
+            dropSelf(ModBlocks.GLACIER_LILY.get());
+            dropSelf(ModBlocks.PAINTBRUSH_FLOWER.get());
             
             add(ModBlocks.ALPINE_LILY.get(), block ->
                     LootTable.lootTable()
@@ -172,6 +170,11 @@ public class ModLootTableProvider extends LootTableProvider {
 
             add(ModBlocks.POTTED_LAVENDER.get(),
                     block -> createPotFlowerItemTable(ModBlocks.LAVENDER.get()));
+
+            add(ModBlocks.POTTED_GLACIER_LILY.get(),
+                    block -> createPotFlowerItemTable(ModBlocks.GLACIER_LILY.get()));
+            add(ModBlocks.POTTED_PAINTBRUSH_FLOWER.get(),
+                    block -> createPotFlowerItemTable(ModBlocks.PAINTBRUSH_FLOWER.get()));
 
 //            add(FDCompat.REDWOOD_CABINET.get(), this::createNameableBlockEntityTable);
 

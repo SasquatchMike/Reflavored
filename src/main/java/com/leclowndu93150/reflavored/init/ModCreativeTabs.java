@@ -49,6 +49,8 @@ public class ModCreativeTabs {
                         output.accept(ModItems.LAVENDER_GLAZED_TERRACOTTA.get());
                         output.accept(ModItems.LAVENDER_CONCRETE.get());
                         output.accept(ModItems.LAVENDER_CONCRETE_POWDER.get());
+                        output.accept(ModItems.GLACIER_LILY.get());
+                        output.accept(ModItems.PAINTBRUSH_FLOWER.get());
                     })
                     .build());
 }

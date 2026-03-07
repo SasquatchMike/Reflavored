@@ -121,6 +121,13 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 models().cross(blockTexture(ModBlocks.LAVENDER.get()).getPath(),
                         blockTexture(ModBlocks.LAVENDER.get())).renderType("cutout"));
 
+        simpleBlock(ModBlocks.GLACIER_LILY.get(),
+                models().cross(blockTexture(ModBlocks.GLACIER_LILY.get()).getPath(),
+                        blockTexture(ModBlocks.GLACIER_LILY.get())).renderType("cutout"));
+        simpleBlock(ModBlocks.PAINTBRUSH_FLOWER.get(),
+                models().cross(blockTexture(ModBlocks.PAINTBRUSH_FLOWER.get()).getPath(),
+                        blockTexture(ModBlocks.PAINTBRUSH_FLOWER.get())).renderType("cutout"));
+
 //        // Normal lavender glass
 //        simpleBlockWithItem(ModBlocks.LAVENDER_GLASS.get(),
 //                models().cubeAll(name(ModBlocks.LAVENDER_GLASS.get()), blockTexture(ModBlocks.LAVENDER_GLASS.get()))
@@ -140,6 +147,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         pottedPlantBlock(ModBlocks.POTTED_DOUGLAS_IRIS.get(), blockTexture(ModBlocks.DOUGLAS_IRIS.get()));
         pottedPlantBlock(ModBlocks.POTTED_TRILLIUM.get(), blockTexture(ModBlocks.TRILLIUM.get()));
         pottedPlantBlock(ModBlocks.POTTED_LAVENDER.get(), blockTexture(ModBlocks.LAVENDER.get()));
+        pottedPlantBlock(ModBlocks.POTTED_GLACIER_LILY.get(), blockTexture(ModBlocks.LAVENDER.get()));
+        pottedPlantBlock(ModBlocks.POTTED_PAINTBRUSH_FLOWER.get(), blockTexture(ModBlocks.LAVENDER.get()));
 
         simpleBlockWithItem(ModBlocks.MOSSY_STONE.get(), cubeAll(ModBlocks.MOSSY_STONE.get()));
         simpleBlockWithItem(ModBlocks.MOSSY_ANDESITE.get(), cubeAll(ModBlocks.MOSSY_ANDESITE.get()));

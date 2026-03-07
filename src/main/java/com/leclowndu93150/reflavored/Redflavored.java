@@ -42,6 +42,7 @@ public class Redflavored {
         ModCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
         ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
         ModBoats.ENTITY_TYPES.register(modEventBus);
+        ModFeatures.FEATURES.register(modEventBus);
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
 //        com.leclowndu93150.reflavored.compat.fd.FDCompatBootstrap.init(modEventBus);
 

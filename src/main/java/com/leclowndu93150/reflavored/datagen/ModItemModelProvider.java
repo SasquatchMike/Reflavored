@@ -56,6 +56,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         generatedItem(ModItems.PINK_LILY);
         generatedItem(ModItems.LAVENDER);
 
+        generatedItem(ModItems.GLACIER_LILY);
+        generatedItem(ModItems.PAINTBRUSH_FLOWER);
+
         generatedItem(ModItems.LAVENDER_DYE);
 
 //        // FD cabinet item model only if bound

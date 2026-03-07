@@ -49,8 +49,6 @@ public class LavenderBedRenderer implements BlockEntityRenderer<LavenderBedBlock
         ModelPart model = (part == BedPart.HEAD) ? this.headRoot : this.footRoot;
 
         poseStack.pushPose();
-
-        // Same transform as vanilla, but no extra offset for the other half
         poseStack.translate(0.0F, 0.5625F, 0.0F);
         poseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
         poseStack.translate(0.5F, 0.5F, 0.5F);

@@ -100,6 +100,7 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 dependencies {
     implementation "curse.maven:terrablender-neoforge-940057:6054947"
+    implementation "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
 //    implementation "curse.maven:farmers-delight-398521:6917256"
 
 }
@@ -140,6 +141,13 @@ publishing {
     repositories {
         maven {
             url "file://${project.projectDir}/repo"
+        }
+        maven {
+            name = 'GeckoLib'
+            url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+            content {
+                includeGroup("software.bernie.geckolib")
+            }
         }
     }
 }

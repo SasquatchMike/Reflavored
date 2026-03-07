@@ -16,6 +16,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.LakeFeature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
@@ -30,6 +31,7 @@ import net.minecraft.world.level.levelgen.feature.treedecorators.BeehiveDecorato
 import net.minecraft.world.level.levelgen.feature.trunkplacers.GiantTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
 import java.util.List;
 import net.minecraft.world.level.levelgen.feature.configurations.DiskConfiguration;
@@ -57,6 +59,20 @@ public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> GRANITE_ROCKY_PATCH = createKey("granite_rocky_patch");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GRANITE_BOULDER = createKey("granite_boulder");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GEOTHERMAL_MINERAL_PATCH = createKey("geothermal_mineral_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TUFF_ROCK = createKey("tuff_rock");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_GLACIER_LILY = createKey("patch_glacier_lily");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_PAINTBRUSH_FLOWER = createKey("patch_paintbrush_flower");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> OBSIDIAN_PATCH = createKey("obsidian_patch");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GEOTHERMAL_LAKE = createKey("geothermal_lake");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GEOTHERMAL_LAKEBED_DISK = createKey("geothermal_lakebed_disk");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GEOTHERMAL_OBSIDIAN_SHORE_PATCH = createKey("geothermal_obsidian_shore_patch");
+
+
 
 
 
@@ -176,7 +192,6 @@ public class ModConfiguredFeatures {
                 )
         );
 
-
         BlockStateProvider lavenderRocksProvider =
                 new WeightedStateProvider(
                         SimpleWeightedRandomList.<BlockState>builder()
@@ -243,6 +258,143 @@ public class ModConfiguredFeatures {
         register(context, GRANITE_BOULDER, Feature.FOREST_ROCK,
                 new BlockStateConfiguration(Blocks.GRANITE.defaultBlockState())
         );
+
+        BlockStateProvider mineralProvider =
+                new WeightedStateProvider(
+                        SimpleWeightedRandomList.<BlockState>builder()
+                                .add(Blocks.CALCITE.defaultBlockState(), 5)
+                                .add(Blocks.TUFF.defaultBlockState(), 3)
+                                .add(Blocks.SMOOTH_BASALT.defaultBlockState(), 1)
+                                .build()
+                );
+
+        RuleBasedBlockStateProvider mineralRuleProvider =
+                new RuleBasedBlockStateProvider(mineralProvider, java.util.List.of());
+
+        register(context, GEOTHERMAL_MINERAL_PATCH, Feature.DISK,
+                new DiskConfiguration(
+                        mineralRuleProvider,
+                        BlockPredicate.matchesBlocks(
+                                java.util.List.of(
+                                        Blocks.DIRT,
+                                        Blocks.GRASS_BLOCK,
+                                        Blocks.PODZOL,
+                                        Blocks.COARSE_DIRT,
+                                        Blocks.MUD
+                                )
+                        ),
+                        UniformInt.of(2, 4),
+                        3
+                )
+        );
+
+        register(context, TUFF_ROCK, Feature.BLOCK_PILE,
+                new BlockPileConfiguration(BlockStateProvider.simple(Blocks.TUFF))
+        );
+
+        register(context, PATCH_GLACIER_LILY, Feature.FLOWER,
+                new RandomPatchConfiguration(
+                        24,
+                        6,
+                        2,
+                        PlacementUtils.onlyWhenEmpty(
+                                Feature.SIMPLE_BLOCK,
+                                new SimpleBlockConfiguration(
+                                        BlockStateProvider.simple(ModBlocks.GLACIER_LILY.get())
+                                )
+                        )
+                ));
+
+        register(context, PATCH_PAINTBRUSH_FLOWER, Feature.FLOWER,
+                new RandomPatchConfiguration(
+                        24,
+                        6,
+                        2,
+                        PlacementUtils.onlyWhenEmpty(
+                                Feature.SIMPLE_BLOCK,
+                                new SimpleBlockConfiguration(
+                                        BlockStateProvider.simple(ModBlocks.PAINTBRUSH_FLOWER.get())
+                                )
+                        )
+                ));
+
+        register(context, OBSIDIAN_PATCH, Feature.DISK,
+                new DiskConfiguration(
+                        RuleBasedBlockStateProvider.simple(Blocks.OBSIDIAN),
+                        BlockPredicate.matchesBlocks(
+                                java.util.List.of(
+                                        Blocks.DIRT,
+                                        Blocks.GRASS_BLOCK,
+                                        Blocks.PODZOL,
+                                        Blocks.COARSE_DIRT,
+                                        Blocks.MUD,
+                                        Blocks.CLAY,
+                                        Blocks.GRAVEL,
+                                        Blocks.TUFF
+                                )
+                        ),
+                        UniformInt.of(2, 4),
+                        2
+                )
+        );
+
+        BlockStateProvider geothermalLakebedProvider =
+                new WeightedStateProvider(
+                        SimpleWeightedRandomList.<BlockState>builder()
+                                .add(Blocks.TUFF.defaultBlockState(), 4)
+                                .add(Blocks.CLAY.defaultBlockState(), 3)
+                                .add(Blocks.ANDESITE.defaultBlockState(), 3)
+                                .add(Blocks.GRAVEL.defaultBlockState(), 4)
+                                .build()
+                );
+
+        RuleBasedBlockStateProvider geothermalLakebedRuleProvider =
+                new RuleBasedBlockStateProvider(geothermalLakebedProvider, List.of());
+
+
+        register(context, GEOTHERMAL_LAKE,
+                Feature.LAKE,
+                new LakeFeature.Configuration(
+                        BlockStateProvider.simple(Blocks.WATER.defaultBlockState()),
+                        BlockStateProvider.simple(Blocks.AIR.defaultBlockState())
+                )
+        );
+
+
+        register(context, GEOTHERMAL_LAKEBED_DISK,
+                Feature.DISK,
+                new DiskConfiguration(
+                        geothermalLakebedRuleProvider,
+                        BlockPredicate.matchesBlocks(List.of(
+                                Blocks.DIRT,
+                                Blocks.GRASS_BLOCK,
+                                Blocks.COARSE_DIRT,
+                                Blocks.PODZOL,
+                                Blocks.STONE
+                        )),
+                        UniformInt.of(3, 6),
+                        2
+                )
+        );
+
+        register(context, GEOTHERMAL_OBSIDIAN_SHORE_PATCH,
+                Feature.DISK,
+                new DiskConfiguration(
+                        RuleBasedBlockStateProvider.simple(Blocks.OBSIDIAN),
+                        BlockPredicate.matchesBlocks(List.of(
+                                Blocks.DIRT,
+                                Blocks.GRASS_BLOCK,
+                                Blocks.COARSE_DIRT,
+                                Blocks.PODZOL,
+                                Blocks.STONE,
+                                Blocks.ANDESITE
+                        )),
+                        UniformInt.of(1, 3),
+                        1
+                )
+        );
+
+
 
     }
 

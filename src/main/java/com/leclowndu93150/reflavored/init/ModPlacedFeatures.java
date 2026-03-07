@@ -1,6 +1,7 @@
 package com.leclowndu93150.reflavored.init;
 
 import com.jcraft.jorbis.Block;
+import com.leclowndu93150.reflavored.Config;
 import com.leclowndu93150.reflavored.Redflavored;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
@@ -15,6 +16,7 @@ import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.util.valueproviders.WeightedListInt;
+import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
@@ -55,6 +57,19 @@ public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> GRANITE_ROCKY_PATCH = createKey("granite_rocky_patch");
 
     public static final ResourceKey<PlacedFeature> GRANITE_BOULDER = createKey("granite_boulder");
+
+    public static final ResourceKey<PlacedFeature> GEOTHERMAL_MINERAL_PATCH = createKey("geothermal_mineral_patch");
+    public static final ResourceKey<PlacedFeature> TUFF_ROCK = createKey("tuff_rock");
+
+    public static final ResourceKey<PlacedFeature> PATCH_GLACIER_LILY = createKey("patch_glacier_lily");
+    public static final ResourceKey<PlacedFeature> PATCH_PAINTBRUSH_FLOWER = createKey("patch_paintbrush_flower");
+    public static final ResourceKey<PlacedFeature> OBSIDIAN_PATCH = createKey("obsidian_patch");
+
+    public static final ResourceKey<PlacedFeature> GEOTHERMAL_LAKE = createKey("geothermal_lake");
+    public static final ResourceKey<PlacedFeature> GEOTHERMAL_LAKE_PLACED = createKey("geothermal_lake_placed");
+    public static final ResourceKey<PlacedFeature> GEOTHERMAL_LAKEBED_DISK_PLACED = createKey("geothermal_lakebed_disk_placed");
+    public static final ResourceKey<PlacedFeature> GEOTHERMAL_OBSIDIAN_SHORE_PATCH_PLACED = createKey("geothermal_obsidian_shore_patch_placed");
+
 
 
 
@@ -203,11 +218,83 @@ public class ModPlacedFeatures {
                 context,
                 GRANITE_BOULDER,
                 configuredFeatures.getOrThrow(ModConfiguredFeatures.GRANITE_BOULDER),
-                RarityFilter.onAverageOnceEvery(10),          // 1 per ~10 chunks on average
-                InSquarePlacement.spread(),                   // spread within the chunk
-                PlacementUtils.HEIGHTMAP_WORLD_SURFACE,       // sit on the terrain
-                BiomeFilter.biome()                           // respect the biome
+                RarityFilter.onAverageOnceEvery(10),
+                InSquarePlacement.spread(),
+                PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                BiomeFilter.biome());
+
+        register(context,
+                GEOTHERMAL_MINERAL_PATCH,
+                configuredFeatures.getOrThrow(ModConfiguredFeatures.GEOTHERMAL_MINERAL_PATCH),
+                RarityFilter.onAverageOnceEvery(3),
+                InSquarePlacement.spread(),
+                PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                BiomeFilter.biome()
         );
+
+        register(context,
+                TUFF_ROCK,
+                configuredFeatures.getOrThrow(ModConfiguredFeatures.TUFF_ROCK),
+                RarityFilter.onAverageOnceEvery(10),
+                InSquarePlacement.spread(),
+                PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                BiomeFilter.biome()
+        );
+
+        register(context, PATCH_GLACIER_LILY,
+                configuredFeatures.getOrThrow(ModConfiguredFeatures.PATCH_GLACIER_LILY),
+                RarityFilter.onAverageOnceEvery(4),
+                InSquarePlacement.spread(),
+                PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                BiomeFilter.biome());
+
+        register(context, PATCH_PAINTBRUSH_FLOWER,
+                configuredFeatures.getOrThrow(ModConfiguredFeatures.PATCH_PAINTBRUSH_FLOWER),
+                RarityFilter.onAverageOnceEvery(4),
+                InSquarePlacement.spread(),
+                PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                BiomeFilter.biome());
+
+        register(context, OBSIDIAN_PATCH,
+                configuredFeatures.getOrThrow(ModConfiguredFeatures.OBSIDIAN_PATCH),
+                RarityFilter.onAverageOnceEvery(5),
+                InSquarePlacement.spread(),
+                PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                BiomeFilter.biome());
+
+        register(context, GEOTHERMAL_LAKE,
+                configuredFeatures.getOrThrow(ModConfiguredFeatures.GEOTHERMAL_LAKE),
+                RarityFilter.onAverageOnceEvery(10),
+                InSquarePlacement.spread(),
+                PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                BiomeFilter.biome());
+
+        register(context,
+                GEOTHERMAL_LAKE_PLACED,
+                configuredFeatures.getOrThrow(ModConfiguredFeatures.GEOTHERMAL_LAKE),
+                RarityFilter.onAverageOnceEvery(24),
+                InSquarePlacement.spread(),
+                PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                BiomeFilter.biome()
+        );
+        register(context,
+                GEOTHERMAL_LAKEBED_DISK_PLACED,
+                configuredFeatures.getOrThrow(ModConfiguredFeatures.GEOTHERMAL_LAKEBED_DISK),
+                CountPlacement.of(12),
+                InSquarePlacement.spread(),
+                PlacementUtils.HEIGHTMAP_OCEAN_FLOOR,
+                BiomeFilter.biome()
+        );
+        register(context,
+                GEOTHERMAL_OBSIDIAN_SHORE_PATCH_PLACED,
+                configuredFeatures.getOrThrow(ModConfiguredFeatures.GEOTHERMAL_OBSIDIAN_SHORE_PATCH),
+                RarityFilter.onAverageOnceEvery(6),
+                InSquarePlacement.spread(),
+                PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                BiomeFilter.biome()
+        );
+
+
 
 
     }

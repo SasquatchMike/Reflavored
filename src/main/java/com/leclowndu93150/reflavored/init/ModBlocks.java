@@ -90,8 +90,7 @@ public class ModBlocks {
     public static final DeferredBlock<PinkLilyBlock> PINK_LILY = BLOCKS.register("pink_rose_bush",
             () -> new PinkLilyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SUNFLOWER)));
 
-    public static final DeferredBlock<BushBlock> LAVENDER = BLOCKS.register(
-            "lavender",
+    public static final DeferredBlock<BushBlock> LAVENDER = BLOCKS.register("lavender",
             () -> new BushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY)) {
                 @Override
                 protected MapCodec<? extends BushBlock> codec() {
@@ -99,6 +98,12 @@ public class ModBlocks {
                 }
             }
     );
+
+    public static final DeferredBlock<FlowerBlock> GLACIER_LILY = BLOCKS.register("glacier_lily",
+            () -> new FlowerBlock(BuiltInRegistries.MOB_EFFECT.wrapAsHolder(MobEffects.ABSORPTION.value()), 6.0F, BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY)));
+
+    public static final DeferredBlock<FlowerBlock> PAINTBRUSH_FLOWER = BLOCKS.register("paintbrush_flower",
+            () -> new FlowerBlock(BuiltInRegistries.MOB_EFFECT.wrapAsHolder(MobEffects.NIGHT_VISION.value()), 6.0F, BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY)));
 
 
     public static final DeferredBlock<Block> LAVENDER_WOOL = BLOCKS.registerSimpleBlock(
@@ -183,6 +188,19 @@ public class ModBlocks {
                     () -> new FlowerPotBlock(
                             () -> (FlowerPotBlock) Blocks.FLOWER_POT,
                             ModBlocks.LAVENDER,
+                            BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_POPPY)));
+
+    public static final DeferredBlock<FlowerPotBlock> POTTED_GLACIER_LILY =
+            BLOCKS.register("potted_glacier_lily",
+                    () -> new FlowerPotBlock(
+                            () -> (FlowerPotBlock) Blocks.FLOWER_POT,
+                            ModBlocks.GLACIER_LILY,
+                            BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_POPPY)));
+    public static final DeferredBlock<FlowerPotBlock> POTTED_PAINTBRUSH_FLOWER =
+            BLOCKS.register("potted_paintbrush_flower",
+                    () -> new FlowerPotBlock(
+                            () -> (FlowerPotBlock) Blocks.FLOWER_POT,
+                            ModBlocks.PAINTBRUSH_FLOWER,
                             BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_POPPY)));
 
     public static final DeferredBlock<Block> MOSSY_STONE = BLOCKS.registerSimpleBlock("mossy_stone",

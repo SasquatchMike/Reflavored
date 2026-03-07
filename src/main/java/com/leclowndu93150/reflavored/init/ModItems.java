@@ -41,6 +41,10 @@ public class ModItems {
 
     public static final DeferredItem<BlockItem> DOUGLAS_IRIS = ITEMS.registerSimpleBlockItem("douglas_iris", ModBlocks.DOUGLAS_IRIS);
     public static final DeferredItem<BlockItem> TRILLIUM = ITEMS.registerSimpleBlockItem("trillium", ModBlocks.TRILLIUM);
+
+    public static final DeferredItem<BlockItem> GLACIER_LILY = ITEMS.registerSimpleBlockItem("glacier_lily", ModBlocks.GLACIER_LILY);
+    public static final DeferredItem<BlockItem> PAINTBRUSH_FLOWER = ITEMS.registerSimpleBlockItem("paintbrush_flower", ModBlocks.PAINTBRUSH_FLOWER);
+
     public static final DeferredItem<BlockItem> ALPINE_LILY = ITEMS.register("alpine_lily",
             () -> new DoubleHighBlockItem(ModBlocks.ALPINE_LILY.get(), new Item.Properties()));
 
