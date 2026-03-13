@@ -1,13 +1,13 @@
 package com.leclowndu93150.reflavored.init;
 
-import com.leclowndu93150.reflavored.Redflavored;
+import com.leclowndu93150.reflavored.Reflavored;
 import com.leclowndu93150.reflavored.item.ModBoatItem;
 import net.minecraft.world.item.*;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ModItems {
-    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Redflavored.MODID);
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Reflavored.MODID);
 
     public static final DeferredItem<BlockItem> REDWOOD_LEAVES = ITEMS.registerSimpleBlockItem("redwood_leaves", ModBlocks.REDWOOD_LEAVES);
     public static final DeferredItem<BlockItem> REDWOOD_LOG = ITEMS.registerSimpleBlockItem("redwood_log", ModBlocks.REDWOOD_LOG);
@@ -25,7 +25,7 @@ public class ModItems {
     public static final DeferredItem<BlockItem> REDWOOD_BUTTON = ITEMS.registerSimpleBlockItem("redwood_button", ModBlocks.REDWOOD_BUTTON);
     public static final DeferredItem<BlockItem> REDWOOD_SAPLING = ITEMS.registerSimpleBlockItem("redwood_sapling", ModBlocks.REDWOOD_SAPLING);
 
-    public static final DeferredItem<Item> LAVENDER_DYE = ITEMS.registerItem("lavender_dye", properties -> new Item(properties));
+    public static final DeferredItem<Item> LAVENDER_DYE = ITEMS.registerItem("lavender_dye", Item::new);
 
     public static final DeferredItem<SignItem> REDWOOD_SIGN = ITEMS.register("redwood_sign",
             () -> new SignItem(new Item.Properties().stacksTo(16), ModBlocks.REDWOOD_SIGN.get(), ModBlocks.REDWOOD_WALL_SIGN.get()));
@@ -72,4 +72,6 @@ public class ModItems {
 
 
     public static final DeferredItem<BlockItem> LAVENDER = ITEMS.registerSimpleBlockItem("lavender", ModBlocks.LAVENDER);
+
+    public static final DeferredItem<SpawnEggItem> SKUNK_SPAWN_EGG = ITEMS.registerItem("skunk_spawn_egg", props -> new SpawnEggItem(ModEntities.SKUNK.get(), 0x302c28, 0xbdc0be, props));
 }

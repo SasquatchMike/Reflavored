@@ -1,6 +1,6 @@
 package com.leclowndu93150.reflavored.datagen;
 
-import com.leclowndu93150.reflavored.Redflavored;
+import com.leclowndu93150.reflavored.Reflavored;
 import com.leclowndu93150.reflavored.init.ModBlocks;
 import com.leclowndu93150.reflavored.init.ModItems;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -15,7 +15,7 @@ import net.neoforged.neoforge.registries.DeferredItem;
 
 public class ModItemModelProvider extends ItemModelProvider {
     public ModItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
-        super(output, Redflavored.MODID, existingFileHelper);
+        super(output, Reflavored.MODID, existingFileHelper);
     }
 
     @Override
@@ -60,6 +60,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         generatedItem(ModItems.PAINTBRUSH_FLOWER);
 
         generatedItem(ModItems.LAVENDER_DYE);
+
+        spawnEggItem(ModItems.SKUNK_SPAWN_EGG.get());
 
 //        // FD cabinet item model only if bound
 //        if (com.leclowndu93150.reflavored.compat.fd.FDCompat.REDWOOD_CABINET.isBound()) {

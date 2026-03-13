@@ -1,16 +1,14 @@
 package com.leclowndu93150.reflavored.client;
 
-import com.leclowndu93150.reflavored.Redflavored;
+import com.leclowndu93150.reflavored.Reflavored;
 import com.leclowndu93150.reflavored.client.renderer.*;
 import com.leclowndu93150.reflavored.init.ModBlockEntities;
 import com.leclowndu93150.reflavored.init.ModBlocks;
-import com.leclowndu93150.reflavored.init.ModBoats;
+import com.leclowndu93150.reflavored.init.ModEntities;
 import com.leclowndu93150.reflavored.init.ModWoodTypes;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.Sheets;
-import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
-import net.minecraft.client.renderer.blockentity.ShulkerBoxRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.FoliageColor;
@@ -21,7 +19,7 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 
-@EventBusSubscriber(modid = Redflavored.MODID, value = Dist.CLIENT)
+@EventBusSubscriber(modid = Reflavored.MODID, value = Dist.CLIENT)
 public class ClientSetup {
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
@@ -32,9 +30,9 @@ public class ClientSetup {
 
     @SubscribeEvent
     public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
-        event.registerEntityRenderer(ModBoats.REDWOOD_BOAT.get(),
+        event.registerEntityRenderer(ModEntities.REDWOOD_BOAT.get(),
                 context -> new ModBoatRenderer(context, false));
-        event.registerEntityRenderer(ModBoats.REDWOOD_CHEST_BOAT.get(),
+        event.registerEntityRenderer(ModEntities.REDWOOD_CHEST_BOAT.get(),
                 ModChestBoatRenderer::new);
         
         event.registerEntityRenderer(EntityType.FOX, ModFoxRenderer::new);

@@ -30,18 +30,19 @@ import terrablender.api.Regions;
 import java.util.HashMap;
 import java.util.Map;
 
-@Mod(Redflavored.MODID)
-public class Redflavored {
+@Mod(Reflavored.MODID)
+public class Reflavored {
     public static final String MODID = "reflavored";
     private static final Logger LOGGER = LogUtils.getLogger();
     private static final Map<Block, Block> MOD_STRIPPABLES = new HashMap<>();
 
-    public Redflavored(IEventBus modEventBus, ModContainer modContainer) {
+    public Reflavored(IEventBus modEventBus, ModContainer modContainer) {
         ModBlocks.BLOCKS.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
+        ModEffects.MOB_EFFECTS.register(modEventBus);
         ModCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
         ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
-        ModBoats.ENTITY_TYPES.register(modEventBus);
+        ModEntities.ENTITY_TYPES.register(modEventBus);
         ModFeatures.FEATURES.register(modEventBus);
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
 //        com.leclowndu93150.reflavored.compat.fd.FDCompatBootstrap.init(modEventBus);

@@ -2,7 +2,7 @@ package com.leclowndu93150.reflavored.item;
 
 import com.leclowndu93150.reflavored.entity.ModBoatEntity;
 import com.leclowndu93150.reflavored.entity.ModChestBoatEntity;
-import com.leclowndu93150.reflavored.init.ModBoats;
+import com.leclowndu93150.reflavored.init.ModEntities;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -83,9 +83,9 @@ public class ModBoatItem extends Item {
         Boat boat;
         
         if (hasChest) {
-            boat = new ModChestBoatEntity(ModBoats.REDWOOD_CHEST_BOAT.get(), level);
+            boat = new ModChestBoatEntity(ModEntities.REDWOOD_CHEST_BOAT.get(), level);
         } else {
-            boat = new ModBoatEntity(ModBoats.REDWOOD_BOAT.get(), level);
+            boat = new ModBoatEntity(ModEntities.REDWOOD_BOAT.get(), level);
         }
         
         boat.setPos(location.x, location.y, location.z);

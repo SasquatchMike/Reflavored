@@ -1,6 +1,6 @@
 package com.leclowndu93150.reflavored.datagen;
 
-import com.leclowndu93150.reflavored.Redflavored;
+import com.leclowndu93150.reflavored.Reflavored;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -11,7 +11,7 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 import java.util.concurrent.CompletableFuture;
 
-@EventBusSubscriber(modid = Redflavored.MODID)
+@EventBusSubscriber(modid = Reflavored.MODID)
 public class DataGenerators {
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {

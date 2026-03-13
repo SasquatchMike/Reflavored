@@ -1,17 +1,18 @@
 package com.leclowndu93150.reflavored.init;
 
-import com.leclowndu93150.reflavored.Redflavored;
+import com.leclowndu93150.reflavored.Reflavored;
 import com.leclowndu93150.reflavored.entity.ModBoatEntity;
 import com.leclowndu93150.reflavored.entity.ModChestBoatEntity;
+import com.leclowndu93150.reflavored.entity.SkunkEntity;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-public class ModBoats {
+public class ModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = 
-            DeferredRegister.create(Registries.ENTITY_TYPE, Redflavored.MODID);
+            DeferredRegister.create(Registries.ENTITY_TYPE, Reflavored.MODID);
 
     public static final DeferredHolder<EntityType<?>, EntityType<ModBoatEntity>> REDWOOD_BOAT = 
             ENTITY_TYPES.register("redwood_boat", 
@@ -26,4 +27,12 @@ public class ModBoats {
                             .sized(1.375F, 0.5625F)
                             .clientTrackingRange(10)
                             .build("redwood_chest_boat"));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<SkunkEntity>> SKUNK =
+            ENTITY_TYPES.register("skunk",
+                    () -> EntityType.Builder.of(SkunkEntity::new, MobCategory.CREATURE)
+                            .sized(1.25F, 0.625F)
+                            .eyeHeight(0.34375F)
+                            .clientTrackingRange(10)
+                            .build("skunk"));
 }

@@ -1,13 +1,7 @@
 package com.leclowndu93150.reflavored.init;
 
-import com.leclowndu93150.reflavored.Redflavored;
-import net.minecraft.client.particle.CherryParticle;
-import net.minecraft.client.particle.Particle;
-import net.minecraft.client.particle.ParticleDescription;
-import net.minecraft.client.particle.ParticleEngine;
+import com.leclowndu93150.reflavored.Reflavored;
 import net.minecraft.core.HolderGetter;
-import net.minecraft.core.particles.ParticleType;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
@@ -15,20 +9,13 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.Musics;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.util.ParticleUtils;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.*;
-import net.minecraft.world.level.block.CherryLeavesBlock;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
-import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.SpringFeature;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.data.worldgen.placement.MiscOverworldPlacements;
-
-
-import java.awt.*;
 
 public class ModBiomes {
     public static final ResourceKey<Biome> REDWOOD_FOREST = createKey("redwood_forest");
@@ -36,7 +23,7 @@ public class ModBiomes {
     public static final ResourceKey<Biome> GEOTHERMAL_TAIGA = createKey("geothermal_taiga");
 
     public static ResourceKey<Biome> createKey(String name) {
-        return ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(Redflavored.MODID, name));
+        return ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(Reflavored.MODID, name));
     }
 
     public static void bootstrap(BootstrapContext<Biome> context) {

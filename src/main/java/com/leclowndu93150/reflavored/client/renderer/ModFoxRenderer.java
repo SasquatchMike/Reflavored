@@ -1,6 +1,6 @@
 package com.leclowndu93150.reflavored.client.renderer;
 
-import com.leclowndu93150.reflavored.Redflavored;
+import com.leclowndu93150.reflavored.Reflavored;
 import com.leclowndu93150.reflavored.duck.IGreyFoxAccessor;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.FoxRenderer;
@@ -8,8 +8,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.animal.Fox;
 
 public class ModFoxRenderer extends FoxRenderer {
-    private static final ResourceLocation GREY_FOX_TEXTURE = ResourceLocation.fromNamespaceAndPath(Redflavored.MODID, "textures/entity/fox/grey_fox.png");
-    private static final ResourceLocation GREY_FOX_SLEEP_TEXTURE = ResourceLocation.fromNamespaceAndPath(Redflavored.MODID, "textures/entity/fox/sleeping_grey_fox.png");
+    private static final ResourceLocation GREY_FOX_TEXTURE = ResourceLocation.fromNamespaceAndPath(Reflavored.MODID, "textures/entity/fox/grey_fox.png");
+    private static final ResourceLocation GREY_FOX_SLEEP_TEXTURE = ResourceLocation.fromNamespaceAndPath(Reflavored.MODID, "textures/entity/fox/sleeping_grey_fox.png");
 
     public ModFoxRenderer(EntityRendererProvider.Context context) {
         super(context);

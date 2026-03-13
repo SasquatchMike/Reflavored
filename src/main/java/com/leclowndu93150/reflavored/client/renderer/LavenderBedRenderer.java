@@ -1,6 +1,6 @@
 package com.leclowndu93150.reflavored.client.renderer;
 
-import com.leclowndu93150.reflavored.Redflavored;
+import com.leclowndu93150.reflavored.Reflavored;
 import com.leclowndu93150.reflavored.block.entity.LavenderBedBlockEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -23,7 +23,7 @@ public class LavenderBedRenderer implements BlockEntityRenderer<LavenderBedBlock
 
     public static final Material LAVENDER_BED_TEXTURE = new Material(
             Sheets.BED_SHEET,
-            ResourceLocation.fromNamespaceAndPath(Redflavored.MODID, "entity/bed/lavender_bed")
+            ResourceLocation.fromNamespaceAndPath(Reflavored.MODID, "entity/bed/lavender_bed")
     );
 
     private final ModelPart headRoot;

@@ -1,6 +1,6 @@
 package com.leclowndu93150.reflavored.worldgen;
 
-import com.leclowndu93150.reflavored.Redflavored;
+import com.leclowndu93150.reflavored.Reflavored;
 import com.leclowndu93150.reflavored.init.ModBiomes;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.Registry;
@@ -16,7 +16,7 @@ import java.util.function.Consumer;
 
 public class ModRegion extends Region {
     public ModRegion(int weight) {
-        super(ResourceLocation.fromNamespaceAndPath(Redflavored.MODID, "overworld"), RegionType.OVERWORLD, weight);
+        super(ResourceLocation.fromNamespaceAndPath(Reflavored.MODID, "overworld"), RegionType.OVERWORLD, weight);
     }
 
     @Override

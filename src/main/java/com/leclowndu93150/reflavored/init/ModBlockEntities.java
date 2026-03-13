@@ -1,21 +1,19 @@
 package com.leclowndu93150.reflavored.init;
 
-import com.leclowndu93150.reflavored.Redflavored;
+import com.leclowndu93150.reflavored.Reflavored;
 import com.leclowndu93150.reflavored.block.entity.LavenderBedBlockEntity;
 import com.leclowndu93150.reflavored.block.entity.LavenderShulkerBoxBlockEntity;
 import com.leclowndu93150.reflavored.block.entity.ModHangingSignBlockEntity;
 import com.leclowndu93150.reflavored.block.entity.ModSignBlockEntity;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.block.entity.ShulkerBoxBlockEntity;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.function.Supplier;
 
 public class ModBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = 
-            DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, Redflavored.MODID);
+            DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, Reflavored.MODID);
 
     public static final Supplier<BlockEntityType<ModSignBlockEntity>> MOD_SIGN = BLOCK_ENTITIES.register("mod_sign",
             () -> BlockEntityType.Builder.of(ModSignBlockEntity::new,

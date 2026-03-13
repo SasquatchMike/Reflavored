@@ -1,6 +1,6 @@
 package com.leclowndu93150.reflavored.datagen;
 
-import com.leclowndu93150.reflavored.Redflavored;
+import com.leclowndu93150.reflavored.Reflavored;
 import com.leclowndu93150.reflavored.init.ModBlocks;
 import com.leclowndu93150.reflavored.init.ModItems;
 import net.minecraft.data.PackOutput;
@@ -8,12 +8,12 @@ import net.neoforged.neoforge.common.data.LanguageProvider;
 
 public class ModLanguageProvider extends LanguageProvider {
     public ModLanguageProvider(PackOutput output) {
-        super(output, Redflavored.MODID, "en_us");
+        super(output, Reflavored.MODID, "en_us");
     }
 
     @Override
     protected void addTranslations() {
-        add("itemGroup." + Redflavored.MODID, "Reflavored");
+        add("itemGroup." + Reflavored.MODID, "Reflavored");
 
         add("biome.reflavored.redwood_forest", "Redwood Forest");
         add("biome.reflavored.lavender_fields", "Lavender Fields");
@@ -66,7 +66,11 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.GLACIER_LILY, "Glacier Lily");
         addBlock(ModBlocks.PAINTBRUSH_FLOWER, "Paintbrush Flower");
 
+        addItem(ModItems.SKUNK_SPAWN_EGG, "Skunk Spawn Egg");
+
         add("entity.redwood_forest.redwood_boat", "Redwood Boat");
         add("entity.redwood_forest.redwood_chest_boat", "Redwood Boat with Chest");
+
+        add("effect." + Reflavored.MODID + ".stinky", "Stinky");
     }
 }

@@ -1,6 +1,6 @@
 package com.leclowndu93150.reflavored.client.renderer;
 
-import com.leclowndu93150.reflavored.Redflavored;
+import com.leclowndu93150.reflavored.Reflavored;
 import com.leclowndu93150.reflavored.entity.ModBoatEntity;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.client.model.ListModel;
@@ -22,7 +22,7 @@ public class ModBoatRenderer extends BoatRenderer {
     public Pair<ResourceLocation, ListModel<Boat>> getModelWithLocation(Boat boat) {
         if (boat instanceof ModBoatEntity) {
             Pair<ResourceLocation, ListModel<Boat>> vanillaPair = super.getModelWithLocation(boat);
-            ResourceLocation customTexture = ResourceLocation.fromNamespaceAndPath(Redflavored.MODID,
+            ResourceLocation customTexture = ResourceLocation.fromNamespaceAndPath(Reflavored.MODID,
                     "textures/entity/boat/redwood.png");
             return Pair.of(customTexture, vanillaPair.getSecond());
         }

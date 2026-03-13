@@ -1,6 +1,6 @@
 package com.leclowndu93150.reflavored.datagen;
 
-import com.leclowndu93150.reflavored.Redflavored;
+import com.leclowndu93150.reflavored.Reflavored;
 import com.leclowndu93150.reflavored.init.ModBiomes;
 import com.leclowndu93150.reflavored.init.ModConfiguredFeatures;
 import com.leclowndu93150.reflavored.init.ModPlacedFeatures;
@@ -20,6 +20,6 @@ public class ModWorldGenProvider extends DatapackBuiltinEntriesProvider {
             .add(Registries.BIOME, ModBiomes::bootstrap);
 
     public ModWorldGenProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
-        super(output, registries, BUILDER, Set.of(Redflavored.MODID));
+        super(output, registries, BUILDER, Set.of(Reflavored.MODID));
     }
 }
