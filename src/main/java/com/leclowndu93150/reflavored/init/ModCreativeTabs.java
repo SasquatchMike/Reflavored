@@ -5,6 +5,8 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.PotionContents;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -51,6 +53,9 @@ public class ModCreativeTabs {
                         output.accept(ModItems.LAVENDER_CONCRETE_POWDER.get());
                         output.accept(ModItems.GLACIER_LILY.get());
                         output.accept(ModItems.PAINTBRUSH_FLOWER.get());
+                        output.accept(PotionContents.createItemStack(Items.POTION, ModPotions.STINK_POTION));
+                        output.accept(PotionContents.createItemStack(Items.SPLASH_POTION, ModPotions.STINK_POTION));
+                        output.accept(PotionContents.createItemStack(Items.LINGERING_POTION, ModPotions.STINK_POTION));
                         output.accept(ModItems.SKUNK_SPAWN_EGG.get());
                     })
                     .build());

@@ -2,7 +2,11 @@ package com.leclowndu93150.reflavored.init;
 
 import com.leclowndu93150.reflavored.Reflavored;
 import com.leclowndu93150.reflavored.item.ModBoatItem;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.alchemy.Potion;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -69,7 +73,6 @@ public class ModItems {
     public static final DeferredItem<BlockItem> LAVENDER_GLAZED_TERRACOTTA = ITEMS.registerSimpleBlockItem("lavender_glazed_terracotta", ModBlocks.LAVENDER_GLAZED_TERRACOTTA);
     public static final DeferredItem<BlockItem> LAVENDER_CONCRETE = ITEMS.registerSimpleBlockItem("lavender_concrete", ModBlocks.LAVENDER_CONCRETE);
     public static final DeferredItem<BlockItem> LAVENDER_CONCRETE_POWDER = ITEMS.registerSimpleBlockItem("lavender_concrete_powder", ModBlocks.LAVENDER_CONCRETE_POWDER);
-
 
     public static final DeferredItem<BlockItem> LAVENDER = ITEMS.registerSimpleBlockItem("lavender", ModBlocks.LAVENDER);
 

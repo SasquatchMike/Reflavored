@@ -6,7 +6,7 @@ import net.minecraft.world.effect.MobEffectCategory;
 public class StinkEffect extends MobEffect {
 
     public StinkEffect() {
-        super(MobEffectCategory.NEUTRAL, 0x433c29);
+        super(MobEffectCategory.NEUTRAL, 0x6d4b29);
     }
 
 }

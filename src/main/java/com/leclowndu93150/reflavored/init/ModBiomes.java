@@ -67,6 +67,8 @@ public class ModBiomes {
                 new MobSpawnSettings.SpawnerData(EntityType.WOLF, 8, 4, 4));
         spawnBuilder.addSpawn(MobCategory.CREATURE,
                 new MobSpawnSettings.SpawnerData(EntityType.CHICKEN, 10, 4, 4));
+        spawnBuilder.addSpawn(MobCategory.CREATURE,
+                new MobSpawnSettings.SpawnerData(ModEntities.SKUNK.get(), 40, 2, 4));
         spawnBuilder.addSpawn(MobCategory.WATER_AMBIENT,
                 new MobSpawnSettings.SpawnerData(EntityType.SALMON, 15, 1, 5));
 
@@ -152,7 +154,7 @@ public class ModBiomes {
         BiomeGenerationSettings.Builder generationBuilder =
                 new BiomeGenerationSettings.Builder(placedFeatures, worldCarvers);
 
-        generationBuilder.addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS,
+        generationBuilder.addFeature(GenerationStep.Decoration.LAKES,
                 placedFeatures.getOrThrow(ModPlacedFeatures.GEOTHERMAL_LAKE));
 
         generationBuilder.addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS,

@@ -72,5 +72,9 @@ public class ModLanguageProvider extends LanguageProvider {
         add("entity.redwood_forest.redwood_chest_boat", "Redwood Boat with Chest");
 
         add("effect." + Reflavored.MODID + ".stinky", "Stinky");
+
+        add("item.minecraft.potion.effect.stink_potion", "Potion of Stink");
+        add("item.minecraft.splash_potion.effect.stink_potion", "Splash Potion of Stink");
+        add("item.minecraft.lingering_potion.effect.stink_potion", "Lingering Potion of Stink");
     }
 }
