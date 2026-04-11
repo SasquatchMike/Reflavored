@@ -14,15 +14,21 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
+import software.bernie.geckolib.animatable.GeoAnimatable;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animation.AnimatableManager;
+import software.bernie.geckolib.animation.AnimationController;
+import software.bernie.geckolib.animation.PlayState;
+import software.bernie.geckolib.animation.RawAnimation;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
 
 public class SkunkEntity extends PathfinderMob implements GeoEntity {
 
     private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCache(this);
+    private static final RawAnimation WALK = RawAnimation.begin().thenLoop("walk");
+    private static final RawAnimation SPRAY = RawAnimation.begin().thenPlay("spray");
 
     public SkunkEntity(EntityType<? extends SkunkEntity> type, Level level) {
         super(type, level);
@@ -40,7 +46,8 @@ public class SkunkEntity extends PathfinderMob implements GeoEntity {
 
     @Override
     public void registerControllers(final AnimatableManager.ControllerRegistrar controllers) {
-
+        controllers.add(new AnimationController<GeoEntity>(this, "Walking", animationState -> animationState.isMoving() ? animationState.setAndContinue(WALK) : PlayState.STOP));
+        controllers.add(new AnimationController<GeoAnimatable>(this, "Spray", animationState -> PlayState.STOP).triggerableAnim("spray", SPRAY));
     }
 
     @Override
@@ -58,7 +65,8 @@ public class SkunkEntity extends PathfinderMob implements GeoEntity {
         public void start() {
             super.start();
             DamageSource damageSource = this.mob.getLastDamageSource();
-            if (damageSource != null && damageSource.getEntity() instanceof LivingEntity livingEntity && !livingEntity.hasEffect(ModEffects.STINK_EFFECT)) {
+            if (damageSource != null && damageSource.getEntity() instanceof LivingEntity livingEntity && !livingEntity.hasEffect(ModEffects.STINK_EFFECT) && !this.mob.level().isClientSide) {
+                ((SkunkEntity) this.mob).triggerAnim("Spray", "spray");
                 livingEntity.addEffect(new MobEffectInstance(ModEffects.STINK_EFFECT, 600));
             }
         }
@@ -91,7 +99,8 @@ public class SkunkEntity extends PathfinderMob implements GeoEntity {
         @Override
         public void start() {
             super.start();
-            if (this.toAvoid != null && !this.toAvoid.hasEffect(ModEffects.STINK_EFFECT)) {
+            if (this.toAvoid != null && !this.toAvoid.hasEffect(ModEffects.STINK_EFFECT) && !this.mob.level().isClientSide) {
+                ((SkunkEntity) this.mob).triggerAnim("Spray", "spray");
                 this.toAvoid.addEffect(new MobEffectInstance(ModEffects.STINK_EFFECT, 600));
             }
         }
@@ -124,7 +133,8 @@ public class SkunkEntity extends PathfinderMob implements GeoEntity {
         @Override
         public void start() {
             super.start();
-            if (this.toAvoid != null && !this.toAvoid.hasEffect(ModEffects.STINK_EFFECT)) {
+            if (this.toAvoid != null && !this.toAvoid.hasEffect(ModEffects.STINK_EFFECT) && !this.mob.level().isClientSide) {
+                ((SkunkEntity) this.mob).triggerAnim("Spray", "spray");
                 this.toAvoid.addEffect(new MobEffectInstance(ModEffects.STINK_EFFECT, 600));
             }
         }

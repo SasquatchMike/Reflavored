@@ -19,6 +19,6 @@ public class SkunkModel extends GeoModel<SkunkEntity> {
 
     @Override
     public ResourceLocation getAnimationResource(SkunkEntity animatable) {
-        return null;
+        return ResourceLocation.fromNamespaceAndPath(Reflavored.MODID, "animations/skunk.animation.json");
     }
 }
