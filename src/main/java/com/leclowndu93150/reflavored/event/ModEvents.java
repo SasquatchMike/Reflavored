@@ -43,7 +43,7 @@ public class ModEvents {
             }
         }
         if (entity instanceof PathfinderMob mob) {
-            mob.goalSelector.addGoal(1, new AvoidStinkyGoal(mob));
+            mob.goalSelector.addGoal(2, new AvoidStinkyGoal(mob));
         }
     }
 
@@ -60,7 +60,7 @@ public class ModEvents {
 
     @SubscribeEvent
     private static void registerEntityAttributes(EntityAttributeCreationEvent event) {
-        event.put(ModEntities.SKUNK.get(), PathfinderMob.createMobAttributes().add(Attributes.MAX_HEALTH, 10).add(Attributes.MOVEMENT_SPEED, 0.3F).build());
+        event.put(ModEntities.SKUNK.get(), PathfinderMob.createMobAttributes().add(Attributes.MAX_HEALTH, 10).add(Attributes.MOVEMENT_SPEED, 0.25F).build());
     }
 
     @SubscribeEvent

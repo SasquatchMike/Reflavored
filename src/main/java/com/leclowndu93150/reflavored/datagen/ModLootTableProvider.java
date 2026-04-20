@@ -13,7 +13,9 @@ import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.storage.loot.LootPool;
@@ -90,7 +92,13 @@ public class ModLootTableProvider extends LootTableProvider {
             dropSelf(ModBlocks.REDWOOD_TRAPDOOR.get());
             dropSelf(ModBlocks.REDWOOD_SAPLING.get());
 
-            dropSelf(ModBlocks.LAVENDER_BED.get());
+            this.add(ModBlocks.LAVENDER_BED.get(), this.applyExplosionDecay(ModBlocks.LAVENDER_BED.get(), LootTable.lootTable()
+                    .withPool(LootPool.lootPool()
+                            .add(LootItem.lootTableItem(ModBlocks.LAVENDER_BED.get().asItem())
+                                    .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))
+                                            .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.LAVENDER_BED.get())
+                                                    .setProperties(StatePropertiesPredicate.Builder.properties()
+                                                            .hasProperty(BedBlock.PART, BedPart.HEAD))))))));
             dropSelf(ModBlocks.LAVENDER_CANDLE.get());
             dropSelf(ModBlocks.LAVENDER_SHULKER_BOX.get());
             dropSelf(ModBlocks.LAVENDER_WOOL.get());
