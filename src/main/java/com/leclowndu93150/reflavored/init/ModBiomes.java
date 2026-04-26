@@ -58,19 +58,13 @@ public class ModBiomes {
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
 
         spawnBuilder.addSpawn(MobCategory.CREATURE,
-                new MobSpawnSettings.SpawnerData(EntityType.FOX, 40, 2, 4));
+                new MobSpawnSettings.SpawnerData(EntityType.FOX, 20, 2, 3));
         spawnBuilder.addSpawn(MobCategory.CREATURE,
-                new MobSpawnSettings.SpawnerData(EntityType.RABBIT, 40, 2, 4));
+                new MobSpawnSettings.SpawnerData(EntityType.RABBIT, 30, 2, 4));
         spawnBuilder.addSpawn(MobCategory.CREATURE,
-                new MobSpawnSettings.SpawnerData(EntityType.SHEEP, 12, 4, 4));
+                new MobSpawnSettings.SpawnerData(ModEntities.SKUNK.get(), 18, 1, 2));
         spawnBuilder.addSpawn(MobCategory.CREATURE,
-                new MobSpawnSettings.SpawnerData(EntityType.WOLF, 8, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.CREATURE,
-                new MobSpawnSettings.SpawnerData(EntityType.CHICKEN, 10, 4, 4));
-        spawnBuilder.addSpawn(MobCategory.CREATURE,
-                new MobSpawnSettings.SpawnerData(ModEntities.SKUNK.get(), 40, 2, 4));
-        spawnBuilder.addSpawn(MobCategory.WATER_AMBIENT,
-                new MobSpawnSettings.SpawnerData(EntityType.SALMON, 15, 1, 5));
+                new MobSpawnSettings.SpawnerData(EntityType.WOLF, 6, 2, 4));
 
         spawnBuilder.addSpawn(MobCategory.MONSTER,
                 new MobSpawnSettings.SpawnerData(EntityType.CREEPER, 100, 4, 4));
@@ -161,9 +155,6 @@ public class ModBiomes {
                 placedFeatures.getOrThrow(ModPlacedFeatures.GEOTHERMAL_LAKE_PLACED));
 
         generationBuilder.addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS,
-                placedFeatures.getOrThrow(ModPlacedFeatures.GEOTHERMAL_LAKEBED_DISK_PLACED));
-
-        generationBuilder.addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS,
                 placedFeatures.getOrThrow(ModPlacedFeatures.GEOTHERMAL_OBSIDIAN_SHORE_PATCH_PLACED));
 
 
@@ -172,9 +163,6 @@ public class ModBiomes {
 
         generationBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
                 placedFeatures.getOrThrow(ModPlacedFeatures.SPARSE_OLD_GROWTH_SPRUCE_TREES));
-
-        generationBuilder.addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, MiscOverworldPlacements.DISK_CLAY);
-        generationBuilder.addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, MiscOverworldPlacements.DISK_GRAVEL);
 
         generationBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
                 placedFeatures.getOrThrow(ModPlacedFeatures.PATCH_GLACIER_LILY));
@@ -212,8 +200,8 @@ public class ModBiomes {
 
         spawnBuilder.addSpawn(MobCategory.WATER_AMBIENT,
                 new MobSpawnSettings.SpawnerData(EntityType.SALMON, 8, 1, 5));
-/*        spawnBuilder.addSpawn(MobCategory.WATER_AMBIENT,
-                new MobSpawnSettings.SpawnerData(ModEntities.CUTTHROAT_TROUT.get(), 12, 2, 6)); */
+        spawnBuilder.addSpawn(MobCategory.WATER_AMBIENT,
+                new MobSpawnSettings.SpawnerData(ModEntities.CUTTHROAT_TROUT.get(), 12, 2, 6));
 
         spawnBuilder.addSpawn(MobCategory.MONSTER,
                 new MobSpawnSettings.SpawnerData(EntityType.ZOMBIE, 95, 2, 4));

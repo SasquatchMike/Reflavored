@@ -81,7 +81,7 @@ public class Reflavored {
 
             fire.setFlammable(ModBlocks.REDWOOD_LEAVES.get(), 60, 30);
 
-            Regions.register(new ModRegion(5));
+            Regions.register(new ModRegion(2));
         });
     }
 

@@ -7,6 +7,7 @@ import com.leclowndu93150.reflavored.init.ModBlocks;
 import com.leclowndu93150.reflavored.init.ModEntities;
 import com.leclowndu93150.reflavored.init.ModWoodTypes;
 import net.minecraft.client.renderer.BiomeColors;
+import net.minecraft.client.renderer.entity.SalmonRenderer;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
@@ -34,6 +35,7 @@ public class ClientSetup {
                 context -> new ModBoatRenderer(context, false));
         event.registerEntityRenderer(ModEntities.REDWOOD_CHEST_BOAT.get(),
                 ModChestBoatRenderer::new);
+        event.registerEntityRenderer(ModEntities.CUTTHROAT_TROUT.get(), SalmonRenderer::new);
         
         event.registerEntityRenderer(EntityType.FOX, ModFoxRenderer::new);
         

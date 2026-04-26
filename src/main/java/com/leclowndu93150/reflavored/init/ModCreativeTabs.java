@@ -57,6 +57,7 @@ public class ModCreativeTabs {
                         output.accept(PotionContents.createItemStack(Items.SPLASH_POTION, ModPotions.STINK_POTION));
                         output.accept(PotionContents.createItemStack(Items.LINGERING_POTION, ModPotions.STINK_POTION));
                         output.accept(ModItems.SKUNK_SPAWN_EGG.get());
+                        output.accept(ModItems.CUTTHROAT_TROUT_SPAWN_EGG.get());
                     })
                     .build());
 }

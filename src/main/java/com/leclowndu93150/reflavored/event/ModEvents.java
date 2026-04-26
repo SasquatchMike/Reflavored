@@ -8,11 +8,15 @@ import com.leclowndu93150.reflavored.init.ModBiomes;
 import com.leclowndu93150.reflavored.init.ModBlocks;
 import com.leclowndu93150.reflavored.init.ModEntities;
 import net.minecraft.core.Holder;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.Fox;
+import net.minecraft.world.entity.animal.Salmon;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -61,11 +65,14 @@ public class ModEvents {
     @SubscribeEvent
     private static void registerEntityAttributes(EntityAttributeCreationEvent event) {
         event.put(ModEntities.SKUNK.get(), PathfinderMob.createMobAttributes().add(Attributes.MAX_HEALTH, 10).add(Attributes.MOVEMENT_SPEED, 0.25F).build());
+        event.put(ModEntities.CUTTHROAT_TROUT.get(), Salmon.createAttributes().build());
     }
 
     @SubscribeEvent
     private static void registerSpawnRules(RegisterSpawnPlacementsEvent event) {
-        event.register(ModEntities.SKUNK.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (entityType, serverLevelAccessor, mobSpawnType, blockPos, randomSource) -> serverLevelAccessor.getBlockState(blockPos.below()).is(Blocks.PODZOL), RegisterSpawnPlacementsEvent.Operation.OR);
+        event.register(ModEntities.SKUNK.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (entityType, serverLevelAccessor, mobSpawnType, blockPos, randomSource) -> serverLevelAccessor.getBlockState(blockPos.below()).is(BlockTags.ANIMALS_SPAWNABLE_ON), RegisterSpawnPlacementsEvent.Operation.OR);
+        event.register(ModEntities.CUTTHROAT_TROUT.get(), SpawnPlacementTypes.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (entityType, serverLevelAccessor, mobSpawnType, blockPos, randomSource) -> serverLevelAccessor.getFluidState(blockPos).is(FluidTags.WATER) && serverLevelAccessor.getFluidState(blockPos.below()).is(FluidTags.WATER), RegisterSpawnPlacementsEvent.Operation.OR);
+        event.register(EntityType.BEE, SpawnPlacementTypes.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (entityType, serverLevelAccessor, mobSpawnType, blockPos, randomSource) -> true, RegisterSpawnPlacementsEvent.Operation.OR);
     }
 
 }

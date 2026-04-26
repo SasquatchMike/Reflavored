@@ -7,6 +7,7 @@ import com.leclowndu93150.reflavored.entity.SkunkEntity;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.animal.Salmon;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -35,4 +36,11 @@ public class ModEntities {
                             .eyeHeight(0.34375F)
                             .clientTrackingRange(10)
                             .build("skunk"));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<Salmon>> CUTTHROAT_TROUT =
+            ENTITY_TYPES.register("cutthroat_trout",
+                    () -> EntityType.Builder.of(Salmon::new, MobCategory.WATER_AMBIENT)
+                            .sized(0.7F, 0.4F)
+                            .clientTrackingRange(8)
+                            .build("cutthroat_trout"));
 }

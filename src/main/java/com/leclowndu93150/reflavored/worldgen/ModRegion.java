@@ -21,9 +21,17 @@ public class ModRegion extends Region {
 
     @Override
     public void addBiomes(Registry<Biome> registry, Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper) {
-        this.addBiomeSimilar(mapper, Biomes.OLD_GROWTH_PINE_TAIGA, ModBiomes.REDWOOD_FOREST);
-        this.addBiomeSimilar(mapper, Biomes.SUNFLOWER_PLAINS, ModBiomes.LAVENDER_FIELDS);
-        this.addBiomeSimilar(mapper, Biomes.TAIGA, ModBiomes.GEOTHERMAL_TAIGA);
+        addBiomeIfPresent(registry, mapper, Biomes.OLD_GROWTH_PINE_TAIGA, ModBiomes.REDWOOD_FOREST);
+        addBiomeIfPresent(registry, mapper, Biomes.SUNFLOWER_PLAINS, ModBiomes.LAVENDER_FIELDS);
+        addBiomeIfPresent(registry, mapper, Biomes.TAIGA, ModBiomes.GEOTHERMAL_TAIGA);
     }
 
+    private void addBiomeIfPresent(Registry<Biome> registry,
+                                   Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper,
+                                   ResourceKey<Biome> similarTo,
+                                   ResourceKey<Biome> targetBiome) {
+        if (registry.containsKey(targetBiome)) {
+            this.addBiomeSimilar(mapper, similarTo, targetBiome);
+        }
+    }
 }

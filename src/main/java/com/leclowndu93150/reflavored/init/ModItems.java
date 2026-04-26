@@ -77,4 +77,5 @@ public class ModItems {
     public static final DeferredItem<BlockItem> LAVENDER = ITEMS.registerSimpleBlockItem("lavender", ModBlocks.LAVENDER);
 
     public static final DeferredItem<SpawnEggItem> SKUNK_SPAWN_EGG = ITEMS.registerItem("skunk_spawn_egg", props -> new SpawnEggItem(ModEntities.SKUNK.get(), 0x302c28, 0xbdc0be, props));
+    public static final DeferredItem<SpawnEggItem> CUTTHROAT_TROUT_SPAWN_EGG = ITEMS.registerItem("cutthroat_trout_spawn_egg", props -> new SpawnEggItem(ModEntities.CUTTHROAT_TROUT.get(), 0x7f5f42, 0xc53d2a, props));
 }

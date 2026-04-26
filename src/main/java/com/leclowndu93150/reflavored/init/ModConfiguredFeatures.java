@@ -15,7 +15,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.LakeFeature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
@@ -33,6 +32,7 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 import java.util.List;
 import net.minecraft.world.level.levelgen.feature.configurations.DiskConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
 public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> REDWOOD = createKey("redwood");
@@ -350,11 +350,8 @@ public class ModConfiguredFeatures {
 
 
         register(context, GEOTHERMAL_LAKE,
-                Feature.LAKE,
-                new LakeFeature.Configuration(
-                        BlockStateProvider.simple(Blocks.WATER.defaultBlockState()),
-                        BlockStateProvider.simple(Blocks.AIR.defaultBlockState())
-                )
+                ModFeatures.GEOTHERMAL_LAKE.get(),
+                NoneFeatureConfiguration.INSTANCE
         );
 
 

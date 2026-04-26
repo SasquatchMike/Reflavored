@@ -62,6 +62,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         generatedItem(ModItems.LAVENDER_DYE);
 
         spawnEggItem(ModItems.SKUNK_SPAWN_EGG.get());
+        spawnEggItem(ModItems.CUTTHROAT_TROUT_SPAWN_EGG.get());
 
 //        // FD cabinet item model only if bound
 //        if (com.leclowndu93150.reflavored.compat.fd.FDCompat.REDWOOD_CABINET.isBound()) {

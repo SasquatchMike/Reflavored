@@ -67,6 +67,9 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.PAINTBRUSH_FLOWER, "Paintbrush Flower");
 
         addItem(ModItems.SKUNK_SPAWN_EGG, "Skunk Spawn Egg");
+        addItem(ModItems.CUTTHROAT_TROUT_SPAWN_EGG, "Cutthroat Trout Spawn Egg");
+
+        add("entity." + Reflavored.MODID + ".cutthroat_trout", "Cutthroat Trout");
 
         add("entity.redwood_forest.redwood_boat", "Redwood Boat");
         add("entity.redwood_forest.redwood_chest_boat", "Redwood Boat with Chest");
