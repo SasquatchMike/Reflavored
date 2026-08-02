@@ -5,7 +5,9 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "FoxTypeMixin",
-    "RabbitTypeMixin"
+    "GeothermalPrecipitationMixin",
+    "RabbitTypeMixin",
+    "WolfVariantMixin"
   ],
   "client": [
   ],

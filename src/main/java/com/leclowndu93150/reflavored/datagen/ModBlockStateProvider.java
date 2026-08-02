@@ -143,13 +143,15 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlockWithItem(ModBlocks.LAVENDER_CONCRETE_POWDER.get(), cubeAll(ModBlocks.LAVENDER_CONCRETE_POWDER.get()));
 
         pottedPlantBlock(ModBlocks.POTTED_DOUGLAS_IRIS.get(), blockTexture(ModBlocks.DOUGLAS_IRIS.get()));
+        pottedPlantBlock(ModBlocks.POTTED_REDWOOD_SAPLING.get(), blockTexture(ModBlocks.REDWOOD_SAPLING.get()));
         pottedPlantBlock(ModBlocks.POTTED_TRILLIUM.get(), blockTexture(ModBlocks.TRILLIUM.get()));
         pottedPlantBlock(ModBlocks.POTTED_LAVENDER.get(), blockTexture(ModBlocks.LAVENDER.get()));
-        pottedPlantBlock(ModBlocks.POTTED_GLACIER_LILY.get(), blockTexture(ModBlocks.LAVENDER.get()));
-        pottedPlantBlock(ModBlocks.POTTED_PAINTBRUSH_FLOWER.get(), blockTexture(ModBlocks.LAVENDER.get()));
+        pottedPlantBlock(ModBlocks.POTTED_GLACIER_LILY.get(), blockTexture(ModBlocks.GLACIER_LILY.get()));
+        pottedPlantBlock(ModBlocks.POTTED_PAINTBRUSH_FLOWER.get(), blockTexture(ModBlocks.PAINTBRUSH_FLOWER.get()));
 
         simpleBlockWithItem(ModBlocks.MOSSY_STONE.get(), cubeAll(ModBlocks.MOSSY_STONE.get()));
         simpleBlockWithItem(ModBlocks.MOSSY_ANDESITE.get(), cubeAll(ModBlocks.MOSSY_ANDESITE.get()));
+        simpleBlockWithItem(ModBlocks.MOSSY_GRANITE.get(), cubeAll(ModBlocks.MOSSY_GRANITE.get()));
 
 
 //        // FD cabinet only if bound

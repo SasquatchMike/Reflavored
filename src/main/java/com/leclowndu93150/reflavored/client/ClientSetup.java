@@ -2,12 +2,12 @@ package com.leclowndu93150.reflavored.client;
 
 import com.leclowndu93150.reflavored.Reflavored;
 import com.leclowndu93150.reflavored.client.renderer.*;
+import com.leclowndu93150.reflavored.entity.client.skunk.SkunkRenderer;
 import com.leclowndu93150.reflavored.init.ModBlockEntities;
 import com.leclowndu93150.reflavored.init.ModBlocks;
 import com.leclowndu93150.reflavored.init.ModEntities;
 import com.leclowndu93150.reflavored.init.ModWoodTypes;
 import net.minecraft.client.renderer.BiomeColors;
-import net.minecraft.client.renderer.entity.SalmonRenderer;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
@@ -35,7 +35,9 @@ public class ClientSetup {
                 context -> new ModBoatRenderer(context, false));
         event.registerEntityRenderer(ModEntities.REDWOOD_CHEST_BOAT.get(),
                 ModChestBoatRenderer::new);
-        event.registerEntityRenderer(ModEntities.CUTTHROAT_TROUT.get(), SalmonRenderer::new);
+        event.registerEntityRenderer(ModEntities.CUTTHROAT_TROUT.get(), CutthroatTroutRenderer::new);
+        event.registerEntityRenderer(ModEntities.BISON.get(), BisonRenderer::new);
+        event.registerEntityRenderer(ModEntities.SKUNK.get(), SkunkRenderer::new);
         
         event.registerEntityRenderer(EntityType.FOX, ModFoxRenderer::new);
         

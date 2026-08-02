@@ -2,7 +2,6 @@ package com.leclowndu93150.reflavored.init;
 
 import com.leclowndu93150.reflavored.Reflavored;
 import com.leclowndu93150.reflavored.block.*;
-import com.mojang.serialization.MapCodec;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.level.block.*;
@@ -90,14 +89,8 @@ public class ModBlocks {
     public static final DeferredBlock<PinkLilyBlock> PINK_LILY = BLOCKS.register("pink_rose_bush",
             () -> new PinkLilyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SUNFLOWER)));
 
-    public static final DeferredBlock<BushBlock> LAVENDER = BLOCKS.register("lavender",
-            () -> new BushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY)) {
-                @Override
-                protected MapCodec<? extends BushBlock> codec() {
-                    return null;
-                }
-            }
-    );
+    public static final DeferredBlock<LavenderBlock> LAVENDER = BLOCKS.register("lavender",
+            () -> new LavenderBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY)));
 
     public static final DeferredBlock<FlowerBlock> GLACIER_LILY = BLOCKS.register("glacier_lily",
             () -> new FlowerBlock(BuiltInRegistries.MOB_EFFECT.wrapAsHolder(MobEffects.ABSORPTION.value()), 6.0F, BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY)));
@@ -176,6 +169,13 @@ public class ModBlocks {
                             ModBlocks.DOUGLAS_IRIS,
                             BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_POPPY)));
 
+    public static final DeferredBlock<FlowerPotBlock> POTTED_REDWOOD_SAPLING =
+            BLOCKS.register("potted_redwood_sapling",
+                    () -> new FlowerPotBlock(
+                            () -> (FlowerPotBlock) Blocks.FLOWER_POT,
+                            ModBlocks.REDWOOD_SAPLING,
+                            BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
+
     public static final DeferredBlock<FlowerPotBlock> POTTED_TRILLIUM =
             BLOCKS.register("potted_trillium",
                     () -> new FlowerPotBlock(
@@ -208,5 +208,8 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> MOSSY_ANDESITE = BLOCKS.registerSimpleBlock("mossy_andesite",
             BlockBehaviour.Properties.ofFullCopy(Blocks.ANDESITE));
+
+    public static final DeferredBlock<Block> MOSSY_GRANITE = BLOCKS.registerSimpleBlock("mossy_granite",
+            BlockBehaviour.Properties.ofFullCopy(Blocks.GRANITE));
 
 }

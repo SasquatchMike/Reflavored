@@ -1,0 +1,62 @@
+{
+  "entity.bison.ambient": {
+    "subtitle": "subtitles.reflavored.entity.bison.ambient",
+    "sounds": [
+      "reflavored:bison_idle1",
+      "reflavored:bison_idle2",
+      "reflavored:bison_idle3"
+    ]
+  },
+  "entity.bison.hurt": {
+    "subtitle": "subtitles.reflavored.entity.bison.hurt",
+    "sounds": [
+      "reflavored:bison_hurt1",
+      "reflavored:bison_hurt2"
+    ]
+  },
+  "entity.bison.death": {
+    "subtitle": "subtitles.reflavored.entity.bison.death",
+    "sounds": [
+      "reflavored:bison_hurt1",
+      "reflavored:bison_hurt2"
+    ]
+  },
+  "entity.bison.step": {
+    "subtitle": "subtitles.reflavored.entity.bison.step",
+    "sounds": [
+      "reflavored:bison_idle1"
+    ]
+  },
+  "music.redwood_forest": {
+    "sounds": [
+      {
+        "name": "reflavored:music/rustic",
+        "stream": true
+      },
+      {
+        "name": "minecraft:music.overworld.old_growth_taiga",
+        "type": "event"
+      }
+    ]
+  },
+  "music.lavender_fields": {
+    "sounds": [
+      {
+        "name": "reflavored:music/lavender_fields",
+        "stream": true
+      },
+      {
+        "name": "minecraft:music.overworld.flower_forest",
+        "type": "event"
+      }
+    ]
+  },
+  "music_disc.archies_lullaby": {
+    "sounds": [
+      {
+        "name": "reflavored:records/archies_lullaby",
+        "stream": true
+      }
+    ]
+  }
+}

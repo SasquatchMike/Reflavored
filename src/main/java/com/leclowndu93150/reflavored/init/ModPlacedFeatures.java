@@ -14,6 +14,7 @@ import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.util.valueproviders.WeightedListInt;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
 
@@ -50,6 +51,7 @@ public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> GRANITE_ROCKY_PATCH = createKey("granite_rocky_patch");
 
     public static final ResourceKey<PlacedFeature> GRANITE_BOULDER = createKey("granite_boulder");
+    public static final ResourceKey<PlacedFeature> MOSSY_GRANITE_BOULDER = createKey("mossy_granite_boulder");
 
     public static final ResourceKey<PlacedFeature> GEOTHERMAL_MINERAL_PATCH = createKey("geothermal_mineral_patch");
     public static final ResourceKey<PlacedFeature> TUFF_ROCK = createKey("tuff_rock");
@@ -89,6 +91,7 @@ public class ModPlacedFeatures {
                 InSquarePlacement.spread(),
                 SurfaceWaterDepthFilter.forMaxDepth(0),
                 PlacementUtils.HEIGHTMAP_OCEAN_FLOOR,
+                PlacementUtils.filteredByBlockSurvival(ModBlocks.REDWOOD_SAPLING.get()),
                 BiomeFilter.biome());
 
         register(context,
@@ -98,17 +101,19 @@ public class ModPlacedFeatures {
                 InSquarePlacement.spread(),
                 SurfaceWaterDepthFilter.forMaxDepth(0),
                 PlacementUtils.HEIGHTMAP_OCEAN_FLOOR,
+                PlacementUtils.filteredByBlockSurvival(Blocks.SPRUCE_SAPLING),
                 BiomeFilter.biome());
 
         register(context, CYPRESSE_CHECKED, configuredFeatures.getOrThrow(ModConfiguredFeatures.CYPRESSE),
-                PlacementUtils.filteredByBlockSurvival(ModBlocks.LAVENDER.get())); //using the lavender for testing only, //TODO replace with an actual sapling
+                PlacementUtils.filteredByBlockSurvival(Blocks.SPRUCE_SAPLING));
 
         register(context, CYPRESSE_TREES,
                 configuredFeatures.getOrThrow(ModConfiguredFeatures.CYPRESSE),
                 CountPlacement.of(UniformInt.of(0, 2)),
                 InSquarePlacement.spread(),
                 SurfaceWaterDepthFilter.forMaxDepth(0),
-                PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                PlacementUtils.HEIGHTMAP_OCEAN_FLOOR,
+                PlacementUtils.filteredByBlockSurvival(Blocks.SPRUCE_SAPLING),
                 BiomeFilter.biome());
 
 
@@ -216,6 +221,15 @@ public class ModPlacedFeatures {
                 PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
                 BiomeFilter.biome());
 
+        register(
+                context,
+                MOSSY_GRANITE_BOULDER,
+                configuredFeatures.getOrThrow(ModConfiguredFeatures.MOSSY_GRANITE_BOULDER),
+                RarityFilter.onAverageOnceEvery(14),
+                InSquarePlacement.spread(),
+                PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                BiomeFilter.biome());
+
         register(context,
                 GEOTHERMAL_MINERAL_PATCH,
                 configuredFeatures.getOrThrow(ModConfiguredFeatures.GEOTHERMAL_MINERAL_PATCH),
@@ -265,11 +279,12 @@ public class ModPlacedFeatures {
         register(context,
                 GEOTHERMAL_LAKE_PLACED,
                 configuredFeatures.getOrThrow(ModConfiguredFeatures.GEOTHERMAL_LAKE),
-                RarityFilter.onAverageOnceEvery(24),
+                RarityFilter.onAverageOnceEvery(12),
                 InSquarePlacement.spread(),
                 PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
                 BiomeFilter.biome()
         );
+
         register(context,
                 GEOTHERMAL_LAKEBED_DISK_PLACED,
                 configuredFeatures.getOrThrow(ModConfiguredFeatures.GEOTHERMAL_LAKEBED_DISK),

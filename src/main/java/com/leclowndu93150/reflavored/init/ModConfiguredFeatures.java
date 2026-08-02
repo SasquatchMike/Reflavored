@@ -56,6 +56,7 @@ public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> GRANITE_ROCKY_PATCH = createKey("granite_rocky_patch");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GRANITE_BOULDER = createKey("granite_boulder");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> MOSSY_GRANITE_BOULDER = createKey("mossy_granite_boulder");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GEOTHERMAL_MINERAL_PATCH = createKey("geothermal_mineral_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TUFF_ROCK = createKey("tuff_rock");
@@ -252,8 +253,19 @@ public class ModConfiguredFeatures {
                 )
         );
 
-        register(context, GRANITE_BOULDER, Feature.FOREST_ROCK,
-                new BlockStateConfiguration(Blocks.GRANITE.defaultBlockState())
+        BlockStateProvider graniteBoulderProvider = new WeightedStateProvider(
+                SimpleWeightedRandomList.<BlockState>builder()
+                        .add(Blocks.GRANITE.defaultBlockState(), 2)
+                        .add(ModBlocks.MOSSY_GRANITE.get().defaultBlockState(), 1)
+                        .build()
+        );
+
+        register(context, GRANITE_BOULDER, Feature.BLOCK_PILE,
+                new BlockPileConfiguration(graniteBoulderProvider)
+        );
+
+        register(context, MOSSY_GRANITE_BOULDER, Feature.FOREST_ROCK,
+                new BlockStateConfiguration(ModBlocks.MOSSY_GRANITE.get().defaultBlockState())
         );
 
         BlockStateProvider mineralProvider =
@@ -353,7 +365,6 @@ public class ModConfiguredFeatures {
                 ModFeatures.GEOTHERMAL_LAKE.get(),
                 NoneFeatureConfiguration.INSTANCE
         );
-
 
         register(context, GEOTHERMAL_LAKEBED_DISK,
                 Feature.DISK,

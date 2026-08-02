@@ -17,6 +17,7 @@ public class ModLanguageProvider extends LanguageProvider {
 
         add("biome.reflavored.redwood_forest", "Redwood Forest");
         add("biome.reflavored.lavender_fields", "Lavender Fields");
+        add("biome.reflavored.geothermal_taiga", "Geothermal Taiga");
 
         addBlock(ModBlocks.REDWOOD_LOG, "Redwood Log");
         addBlock(ModBlocks.REDWOOD_WOOD, "Redwood Wood");
@@ -62,14 +63,27 @@ public class ModLanguageProvider extends LanguageProvider {
 
         addBlock(ModBlocks.MOSSY_STONE, "Mossy Stone");
         addBlock(ModBlocks.MOSSY_ANDESITE, "Mossy Andesite");
+        addBlock(ModBlocks.MOSSY_GRANITE, "Mossy Granite");
 
         addBlock(ModBlocks.GLACIER_LILY, "Glacier Lily");
         addBlock(ModBlocks.PAINTBRUSH_FLOWER, "Paintbrush Flower");
 
+        addItem(ModItems.CUTTHROAT_TROUT, "Cutthroat Trout");
+        addItem(ModItems.COOKED_CUTTHROAT_TROUT, "Cooked Cutthroat Trout");
+        addItem(ModItems.CUTTHROAT_TROUT_BUCKET, "Bucket of Cutthroat Trout");
+        addItem(ModItems.MUSIC_DISC_ARCHIES_LULLABY, "Music Disc");
+        add("jukebox_song.reflavored.archies_lullaby", "KaktusDoesMusic - Archie’s Lullaby");
         addItem(ModItems.SKUNK_SPAWN_EGG, "Skunk Spawn Egg");
         addItem(ModItems.CUTTHROAT_TROUT_SPAWN_EGG, "Cutthroat Trout Spawn Egg");
+        addItem(ModItems.BISON_SPAWN_EGG, "Bison Spawn Egg");
 
         add("entity." + Reflavored.MODID + ".cutthroat_trout", "Cutthroat Trout");
+        add("entity." + Reflavored.MODID + ".bison", "Bison");
+
+        add("subtitles." + Reflavored.MODID + ".entity.bison.ambient", "Bison grunts");
+        add("subtitles." + Reflavored.MODID + ".entity.bison.hurt", "Bison hurts");
+        add("subtitles." + Reflavored.MODID + ".entity.bison.death", "Bison dies");
+        add("subtitles." + Reflavored.MODID + ".entity.bison.step", "Bison steps");
 
         add("entity.redwood_forest.redwood_boat", "Redwood Boat");
         add("entity.redwood_forest.redwood_chest_boat", "Redwood Boat with Chest");

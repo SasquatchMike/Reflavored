@@ -37,6 +37,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         blockItem(ModBlocks.LAVENDER_GLAZED_TERRACOTTA.get());
         blockItem(ModBlocks.LAVENDER_CONCRETE.get());
         blockItem(ModBlocks.LAVENDER_CONCRETE_POWDER.get());
+        blockItem(ModBlocks.MOSSY_STONE.get());
+        blockItem(ModBlocks.MOSSY_ANDESITE.get());
+        blockItem(ModBlocks.MOSSY_GRANITE.get());
 
         OurfenceInventory("redwood_fence", modLoc("block/redwood_planks"));
         OurbuttonInventory("redwood_button", modLoc("block/redwood_planks"));
@@ -61,8 +64,13 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         generatedItem(ModItems.LAVENDER_DYE);
 
-        spawnEggItem(ModItems.SKUNK_SPAWN_EGG.get());
-        spawnEggItem(ModItems.CUTTHROAT_TROUT_SPAWN_EGG.get());
+        generatedItem(ModItems.CUTTHROAT_TROUT);
+        generatedItem(ModItems.COOKED_CUTTHROAT_TROUT);
+        generatedItem(ModItems.CUTTHROAT_TROUT_BUCKET);
+        generatedItem(ModItems.MUSIC_DISC_ARCHIES_LULLABY);
+        generatedItem(ModItems.SKUNK_SPAWN_EGG);
+        generatedItem(ModItems.CUTTHROAT_TROUT_SPAWN_EGG);
+        generatedItem(ModItems.BISON_SPAWN_EGG);
 
 //        // FD cabinet item model only if bound
 //        if (com.leclowndu93150.reflavored.compat.fd.FDCompat.REDWOOD_CABINET.isBound()) {

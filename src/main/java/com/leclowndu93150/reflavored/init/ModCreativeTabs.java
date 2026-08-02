@@ -51,13 +51,21 @@ public class ModCreativeTabs {
                         output.accept(ModItems.LAVENDER_GLAZED_TERRACOTTA.get());
                         output.accept(ModItems.LAVENDER_CONCRETE.get());
                         output.accept(ModItems.LAVENDER_CONCRETE_POWDER.get());
+                        output.accept(ModItems.MOSSY_STONE.get());
+                        output.accept(ModItems.MOSSY_ANDESITE.get());
+                        output.accept(ModItems.MOSSY_GRANITE.get());
                         output.accept(ModItems.GLACIER_LILY.get());
                         output.accept(ModItems.PAINTBRUSH_FLOWER.get());
+                        output.accept(ModItems.CUTTHROAT_TROUT.get());
+                        output.accept(ModItems.COOKED_CUTTHROAT_TROUT.get());
+                        output.accept(ModItems.CUTTHROAT_TROUT_BUCKET.get());
+                        output.accept(ModItems.MUSIC_DISC_ARCHIES_LULLABY.get());
                         output.accept(PotionContents.createItemStack(Items.POTION, ModPotions.STINK_POTION));
                         output.accept(PotionContents.createItemStack(Items.SPLASH_POTION, ModPotions.STINK_POTION));
                         output.accept(PotionContents.createItemStack(Items.LINGERING_POTION, ModPotions.STINK_POTION));
                         output.accept(ModItems.SKUNK_SPAWN_EGG.get());
                         output.accept(ModItems.CUTTHROAT_TROUT_SPAWN_EGG.get());
+                        output.accept(ModItems.BISON_SPAWN_EGG.get());
                     })
                     .build());
 }

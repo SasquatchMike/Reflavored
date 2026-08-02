@@ -21,17 +21,25 @@ public class ModRegion extends Region {
 
     @Override
     public void addBiomes(Registry<Biome> registry, Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper) {
-        addBiomeIfPresent(registry, mapper, Biomes.OLD_GROWTH_PINE_TAIGA, ModBiomes.REDWOOD_FOREST);
-        addBiomeIfPresent(registry, mapper, Biomes.SUNFLOWER_PLAINS, ModBiomes.LAVENDER_FIELDS);
-        addBiomeIfPresent(registry, mapper, Biomes.TAIGA, ModBiomes.GEOTHERMAL_TAIGA);
-    }
+        this.addModifiedVanillaOverworldBiomes(mapper, builder -> {
+            if (registry.containsKey(ModBiomes.REDWOOD_FOREST)) {
+                builder.replaceBiome(Biomes.OLD_GROWTH_SPRUCE_TAIGA, ModBiomes.REDWOOD_FOREST);
+                builder.replaceBiome(Biomes.OLD_GROWTH_PINE_TAIGA, ModBiomes.REDWOOD_FOREST);
+            }
 
-    private void addBiomeIfPresent(Registry<Biome> registry,
-                                   Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper,
-                                   ResourceKey<Biome> similarTo,
-                                   ResourceKey<Biome> targetBiome) {
-        if (registry.containsKey(targetBiome)) {
-            this.addBiomeSimilar(mapper, similarTo, targetBiome);
-        }
+            if (registry.containsKey(ModBiomes.LAVENDER_FIELDS)) {
+                builder.replaceBiome(Biomes.TAIGA, ModBiomes.LAVENDER_FIELDS);
+                builder.replaceBiome(Biomes.FLOWER_FOREST, ModBiomes.LAVENDER_FIELDS);
+                builder.replaceBiome(Biomes.SUNFLOWER_PLAINS, ModBiomes.LAVENDER_FIELDS);
+            }
+
+            if (registry.containsKey(ModBiomes.GEOTHERMAL_TAIGA)) {
+                // Snowy taigas provide broad, connected cold-forest regions while
+                // groves extend the biome into the forested high-altitude band below
+                // mountain peaks.
+                builder.replaceBiome(Biomes.SNOWY_TAIGA, ModBiomes.GEOTHERMAL_TAIGA);
+                builder.replaceBiome(Biomes.GROVE, ModBiomes.GEOTHERMAL_TAIGA);
+            }
+        });
     }
 }

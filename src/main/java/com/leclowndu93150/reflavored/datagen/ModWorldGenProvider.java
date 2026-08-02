@@ -3,6 +3,7 @@ package com.leclowndu93150.reflavored.datagen;
 import com.leclowndu93150.reflavored.Reflavored;
 import com.leclowndu93150.reflavored.init.ModBiomes;
 import com.leclowndu93150.reflavored.init.ModConfiguredFeatures;
+import com.leclowndu93150.reflavored.init.ModJukeboxSongs;
 import com.leclowndu93150.reflavored.init.ModPlacedFeatures;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
@@ -17,7 +18,8 @@ public class ModWorldGenProvider extends DatapackBuiltinEntriesProvider {
     public static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
             .add(Registries.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap)
             .add(Registries.PLACED_FEATURE, ModPlacedFeatures::bootstrap)
-            .add(Registries.BIOME, ModBiomes::bootstrap);
+            .add(Registries.BIOME, ModBiomes::bootstrap)
+            .add(Registries.JUKEBOX_SONG, ModJukeboxSongs::bootstrap);
 
     public ModWorldGenProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries, BUILDER, Set.of(Reflavored.MODID));

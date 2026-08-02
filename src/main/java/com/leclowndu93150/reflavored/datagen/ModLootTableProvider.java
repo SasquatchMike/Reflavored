@@ -109,6 +109,7 @@ public class ModLootTableProvider extends LootTableProvider {
 
             dropSelf(ModBlocks.MOSSY_STONE.get());
             dropSelf(ModBlocks.MOSSY_ANDESITE.get());
+            dropSelf(ModBlocks.MOSSY_GRANITE.get());
 
             add(ModBlocks.REDWOOD_SLAB.get(), block -> createSlabItemTable(ModBlocks.REDWOOD_SLAB.get()));
             add(ModBlocks.REDWOOD_DOOR.get(), block -> createDoorTable(ModBlocks.REDWOOD_DOOR.get()));
@@ -172,6 +173,9 @@ public class ModLootTableProvider extends LootTableProvider {
 
             add(ModBlocks.POTTED_DOUGLAS_IRIS.get(),
                     block -> createPotFlowerItemTable(ModBlocks.DOUGLAS_IRIS.get()));
+
+            add(ModBlocks.POTTED_REDWOOD_SAPLING.get(),
+                    block -> createPotFlowerItemTable(ModBlocks.REDWOOD_SAPLING.get()));
 
             add(ModBlocks.POTTED_TRILLIUM.get(),
                     block -> createPotFlowerItemTable(ModBlocks.TRILLIUM.get()));

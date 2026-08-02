@@ -44,6 +44,8 @@ public class Reflavored {
         ModCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
         ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
         ModEntities.ENTITY_TYPES.register(modEventBus);
+        ModSounds.SOUND_EVENTS.register(modEventBus);
+        ModLootModifiers.LOOT_MODIFIER_SERIALIZERS.register(modEventBus);
         ModFeatures.FEATURES.register(modEventBus);
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
 //        com.leclowndu93150.reflavored.compat.fd.FDCompatBootstrap.init(modEventBus);
@@ -60,7 +62,11 @@ public class Reflavored {
             FlowerPotBlock pot = (FlowerPotBlock) Blocks.FLOWER_POT;
 
             pot.addPlant(ModBlocks.DOUGLAS_IRIS.getId(), ModBlocks.POTTED_DOUGLAS_IRIS);
+            pot.addPlant(ModBlocks.REDWOOD_SAPLING.getId(), ModBlocks.POTTED_REDWOOD_SAPLING);
             pot.addPlant(ModBlocks.TRILLIUM.getId(), ModBlocks.POTTED_TRILLIUM);
+            pot.addPlant(ModBlocks.LAVENDER.getId(), ModBlocks.POTTED_LAVENDER);
+            pot.addPlant(ModBlocks.GLACIER_LILY.getId(), ModBlocks.POTTED_GLACIER_LILY);
+            pot.addPlant(ModBlocks.PAINTBRUSH_FLOWER.getId(), ModBlocks.POTTED_PAINTBRUSH_FLOWER);
 
             FireBlock fire = (FireBlock) Blocks.FIRE;
 

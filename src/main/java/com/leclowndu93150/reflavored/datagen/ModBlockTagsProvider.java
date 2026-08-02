@@ -83,6 +83,43 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.REDWOOD_PRESSURE_PLATE.get())
                 .add(ModBlocks.REDWOOD_BUTTON.get());
 
+        tag(BlockTags.MINEABLE_WITH_PICKAXE)
+                .add(ModBlocks.MOSSY_STONE.get())
+                .add(ModBlocks.MOSSY_ANDESITE.get())
+                .add(ModBlocks.MOSSY_GRANITE.get());
+
+        tag(BlockTags.SMALL_FLOWERS)
+                .add(ModBlocks.DOUGLAS_IRIS.get())
+                .add(ModBlocks.TRILLIUM.get())
+                .add(ModBlocks.LAVENDER.get())
+                .add(ModBlocks.GLACIER_LILY.get())
+                .add(ModBlocks.PAINTBRUSH_FLOWER.get());
+
+        tag(BlockTags.TALL_FLOWERS)
+                .add(ModBlocks.ALPINE_LILY.get())
+                .add(ModBlocks.ORANGE_LILY.get())
+                .add(ModBlocks.YELLOW_LILY.get())
+                .add(ModBlocks.PINK_LILY.get());
+
+        tag(BlockTags.FLOWERS)
+                .add(ModBlocks.DOUGLAS_IRIS.get())
+                .add(ModBlocks.TRILLIUM.get())
+                .add(ModBlocks.LAVENDER.get())
+                .add(ModBlocks.GLACIER_LILY.get())
+                .add(ModBlocks.PAINTBRUSH_FLOWER.get())
+                .add(ModBlocks.ALPINE_LILY.get())
+                .add(ModBlocks.ORANGE_LILY.get())
+                .add(ModBlocks.YELLOW_LILY.get())
+                .add(ModBlocks.PINK_LILY.get());
+
+        tag(BlockTags.FLOWER_POTS)
+                .add(ModBlocks.POTTED_DOUGLAS_IRIS.get())
+                .add(ModBlocks.POTTED_REDWOOD_SAPLING.get())
+                .add(ModBlocks.POTTED_TRILLIUM.get())
+                .add(ModBlocks.POTTED_LAVENDER.get())
+                .add(ModBlocks.POTTED_GLACIER_LILY.get())
+                .add(ModBlocks.POTTED_PAINTBRUSH_FLOWER.get());
+
         tag(BlockTags.COMPLETES_FIND_TREE_TUTORIAL)
                 .add(ModBlocks.REDWOOD_LOG.get());
     }

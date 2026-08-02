@@ -7,6 +7,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import java.util.concurrent.CompletableFuture;
@@ -66,6 +67,37 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 
         tag(ItemTags.COMPLETES_FIND_TREE_TUTORIAL)
                 .add(ModItems.REDWOOD_LOG.get());
+
+        tag(ItemTags.FISHES)
+                .add(ModItems.CUTTHROAT_TROUT.get())
+                .add(ModItems.COOKED_CUTTHROAT_TROUT.get());
+
+        tag(Tags.Items.MUSIC_DISCS)
+                .add(ModItems.MUSIC_DISC_ARCHIES_LULLABY.get());
+
+        tag(ItemTags.SMALL_FLOWERS)
+                .add(ModItems.DOUGLAS_IRIS.get())
+                .add(ModItems.TRILLIUM.get())
+                .add(ModItems.LAVENDER.get())
+                .add(ModItems.GLACIER_LILY.get())
+                .add(ModItems.PAINTBRUSH_FLOWER.get());
+
+        tag(ItemTags.TALL_FLOWERS)
+                .add(ModItems.ALPINE_LILY.get())
+                .add(ModItems.ORANGE_LILY.get())
+                .add(ModItems.YELLOW_LILY.get())
+                .add(ModItems.PINK_LILY.get());
+
+        tag(ItemTags.FLOWERS)
+                .add(ModItems.DOUGLAS_IRIS.get())
+                .add(ModItems.TRILLIUM.get())
+                .add(ModItems.LAVENDER.get())
+                .add(ModItems.GLACIER_LILY.get())
+                .add(ModItems.PAINTBRUSH_FLOWER.get())
+                .add(ModItems.ALPINE_LILY.get())
+                .add(ModItems.ORANGE_LILY.get())
+                .add(ModItems.YELLOW_LILY.get())
+                .add(ModItems.PINK_LILY.get());
     }
 
 }

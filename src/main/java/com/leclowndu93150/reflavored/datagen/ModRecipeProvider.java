@@ -7,6 +7,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.ItemLike;
 
 import java.util.concurrent.CompletableFuture;
@@ -97,6 +98,35 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_flower", has(ModBlocks.LAVENDER.get()))
                 .save(recipeOutput, "lavender_dye_from_lavender_flower");
 
+        SimpleCookingRecipeBuilder.smelting(
+                        Ingredient.of(ModItems.CUTTHROAT_TROUT.get()),
+                        RecipeCategory.FOOD,
+                        ModItems.COOKED_CUTTHROAT_TROUT.get(),
+                        0.35F,
+                        200)
+                .unlockedBy(getHasName(ModItems.CUTTHROAT_TROUT.get()), has(ModItems.CUTTHROAT_TROUT.get()))
+                .save(recipeOutput, "cooked_cutthroat_trout_from_smelting");
+        SimpleCookingRecipeBuilder.smoking(
+                        Ingredient.of(ModItems.CUTTHROAT_TROUT.get()),
+                        RecipeCategory.FOOD,
+                        ModItems.COOKED_CUTTHROAT_TROUT.get(),
+                        0.35F,
+                        100)
+                .unlockedBy(getHasName(ModItems.CUTTHROAT_TROUT.get()), has(ModItems.CUTTHROAT_TROUT.get()))
+                .save(recipeOutput, "cooked_cutthroat_trout_from_smoking");
+
+        mossyStoneRecipe(recipeOutput, ModItems.MOSSY_STONE.get(), Blocks.STONE);
+        mossyStoneRecipe(recipeOutput, ModItems.MOSSY_ANDESITE.get(), Blocks.ANDESITE);
+        mossyStoneRecipe(recipeOutput, ModItems.MOSSY_GRANITE.get(), Blocks.GRANITE);
+
+    }
+
+    private static void mossyStoneRecipe(RecipeOutput output, ItemLike result, ItemLike baseBlock) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, result)
+                .requires(baseBlock)
+                .requires(Blocks.MOSS_BLOCK)
+                .unlockedBy(getHasName(baseBlock), has(baseBlock))
+                .save(output);
     }
 
     protected static void fence(RecipeOutput output, ItemLike fence, ItemLike planks) {

@@ -1,20 +1,31 @@
 package com.leclowndu93150.reflavored.entity;
 
 import com.leclowndu93150.reflavored.init.ModEffects;
+import com.leclowndu93150.reflavored.init.ModEntities;
+import com.leclowndu93150.reflavored.init.ModPotions;
 import net.minecraft.commands.arguments.EntityAnchorArgument;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.EntityTypeTags;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.ai.util.DefaultRandomPos;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoAnimatable;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
@@ -27,7 +38,7 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 import java.util.function.Predicate;
 
 
-public class SkunkEntity extends PathfinderMob implements GeoEntity {
+public class SkunkEntity extends Animal implements GeoEntity {
 
     private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCache(this);
     private static final RawAnimation WALK = RawAnimation.begin().thenLoop("walk");
@@ -42,10 +53,43 @@ public class SkunkEntity extends PathfinderMob implements GeoEntity {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(1, new SkunkSprayGoal(this));
         this.goalSelector.addGoal(2, new PanicGoal(this, 1.4F));
-        this.goalSelector.addGoal(3, new AvoidEntityGoal<>(this, Monster.class, 16.0F, 1.6F, 1.4F, livingEntity -> livingEntity.getType().is(EntityTypeTags.UNDEAD)));
-        this.goalSelector.addGoal(4, new AvoidPlayerGoal(this, 16.0F, 1.6F, 1.4F, Entity::isSprinting));
-        this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 1.4F));
-        this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
+        this.goalSelector.addGoal(3, new BreedGoal(this, 1.1D));
+        this.goalSelector.addGoal(4, new TemptGoal(this, 1.2D, stack -> stack.is(Items.SWEET_BERRIES), false));
+        this.goalSelector.addGoal(5, new AvoidEntityGoal<>(this, Monster.class, 16.0F, 1.6F, 1.4F, livingEntity -> livingEntity.getType().is(EntityTypeTags.UNDEAD)));
+        this.goalSelector.addGoal(6, new AvoidPlayerGoal(this, 16.0F, 1.6F, 1.4F, Entity::isSprinting));
+        this.goalSelector.addGoal(7, new FollowParentGoal(this, 1.15D));
+        this.goalSelector.addGoal(8, new WaterAvoidingRandomStrollGoal(this, 1.4F));
+        this.goalSelector.addGoal(9, new RandomLookAroundGoal(this));
+    }
+
+    @Override
+    public boolean isFood(ItemStack stack) {
+        return stack.is(Items.SWEET_BERRIES);
+    }
+
+    @Override
+    public InteractionResult mobInteract(Player player, InteractionHand hand) {
+        ItemStack heldStack = player.getItemInHand(hand);
+        if (heldStack.is(Items.GLASS_BOTTLE)) {
+            if (!this.level().isClientSide) {
+                ItemStack stinkPotion = PotionContents.createItemStack(Items.POTION, ModPotions.STINK_POTION);
+                if (!player.getAbilities().instabuild) {
+                    heldStack.shrink(1);
+                }
+                if (!player.getInventory().add(stinkPotion)) {
+                    player.drop(stinkPotion, false);
+                }
+            }
+            return InteractionResult.sidedSuccess(this.level().isClientSide);
+        }
+
+        return super.mobInteract(player, hand);
+    }
+
+    @Nullable
+    @Override
+    public AgeableMob getBreedOffspring(ServerLevel level, AgeableMob otherParent) {
+        return ModEntities.SKUNK.get().create(level);
     }
 
     @Override

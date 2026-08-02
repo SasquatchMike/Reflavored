@@ -1,17 +1,19 @@
 package com.leclowndu93150.reflavored.init;
 
 import com.leclowndu93150.reflavored.Reflavored;
+import com.leclowndu93150.reflavored.item.CustomSpawnEggItem;
 import com.leclowndu93150.reflavored.item.ModBoatItem;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.alchemy.Potion;
-import net.neoforged.neoforge.registries.DeferredHolder;
+import net.minecraft.world.level.material.Fluids;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Reflavored.MODID);
+    private static final FoodProperties CUTTHROAT_TROUT_FOOD = new FoodProperties.Builder().nutrition(2).saturationModifier(0.1F).build();
+    private static final FoodProperties COOKED_CUTTHROAT_TROUT_FOOD = new FoodProperties.Builder().nutrition(6).saturationModifier(0.8F).build();
 
     public static final DeferredItem<BlockItem> REDWOOD_LEAVES = ITEMS.registerSimpleBlockItem("redwood_leaves", ModBlocks.REDWOOD_LEAVES);
     public static final DeferredItem<BlockItem> REDWOOD_LOG = ITEMS.registerSimpleBlockItem("redwood_log", ModBlocks.REDWOOD_LOG);
@@ -76,6 +78,22 @@ public class ModItems {
 
     public static final DeferredItem<BlockItem> LAVENDER = ITEMS.registerSimpleBlockItem("lavender", ModBlocks.LAVENDER);
 
-    public static final DeferredItem<SpawnEggItem> SKUNK_SPAWN_EGG = ITEMS.registerItem("skunk_spawn_egg", props -> new SpawnEggItem(ModEntities.SKUNK.get(), 0x302c28, 0xbdc0be, props));
-    public static final DeferredItem<SpawnEggItem> CUTTHROAT_TROUT_SPAWN_EGG = ITEMS.registerItem("cutthroat_trout_spawn_egg", props -> new SpawnEggItem(ModEntities.CUTTHROAT_TROUT.get(), 0x7f5f42, 0xc53d2a, props));
+    public static final DeferredItem<BlockItem> MOSSY_STONE = ITEMS.registerSimpleBlockItem("mossy_stone", ModBlocks.MOSSY_STONE);
+    public static final DeferredItem<BlockItem> MOSSY_ANDESITE = ITEMS.registerSimpleBlockItem("mossy_andesite", ModBlocks.MOSSY_ANDESITE);
+    public static final DeferredItem<BlockItem> MOSSY_GRANITE = ITEMS.registerSimpleBlockItem("mossy_granite", ModBlocks.MOSSY_GRANITE);
+
+    public static final DeferredItem<Item> CUTTHROAT_TROUT = ITEMS.registerItem("cutthroat_trout", props -> new Item(props.food(CUTTHROAT_TROUT_FOOD)));
+    public static final DeferredItem<Item> COOKED_CUTTHROAT_TROUT = ITEMS.registerItem("cooked_cutthroat_trout", props -> new Item(props.food(COOKED_CUTTHROAT_TROUT_FOOD)));
+    public static final DeferredItem<Item> MUSIC_DISC_ARCHIES_LULLABY = ITEMS.registerItem("music_disc_archies_lullaby",
+            props -> new Item(props.stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(ModJukeboxSongs.ARCHIES_LULLABY)));
+    public static final DeferredItem<MobBucketItem> CUTTHROAT_TROUT_BUCKET = ITEMS.register("cutthroat_trout_bucket",
+            () -> new MobBucketItem(ModEntities.CUTTHROAT_TROUT.get(), Fluids.WATER, SoundEvents.BUCKET_FILL_FISH,
+                    new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+
+    public static final DeferredItem<CustomSpawnEggItem> SKUNK_SPAWN_EGG = ITEMS.registerItem("skunk_spawn_egg",
+            props -> new CustomSpawnEggItem(ModEntities.SKUNK, 0x302c28, 0xbdc0be, props));
+    public static final DeferredItem<CustomSpawnEggItem> CUTTHROAT_TROUT_SPAWN_EGG = ITEMS.registerItem("cutthroat_trout_spawn_egg",
+            props -> new CustomSpawnEggItem(ModEntities.CUTTHROAT_TROUT, 0x7f5f42, 0xc53d2a, props));
+    public static final DeferredItem<CustomSpawnEggItem> BISON_SPAWN_EGG = ITEMS.registerItem("bison_spawn_egg",
+            props -> new CustomSpawnEggItem(ModEntities.BISON, 0x4a2e1f, 0x8f6b49, props));
 }
