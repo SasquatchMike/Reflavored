@@ -14,7 +14,7 @@ public class ModCreativeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = 
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Reflavored.MODID);
 
-    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> REDWOOD_TAB = CREATIVE_MODE_TABS.register("redwood_tab",
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> REFLAVORED_TAB = CREATIVE_MODE_TABS.register("reflavored_tab",
             () -> CreativeModeTab.builder()
                     .title(Component.translatable("itemGroup." + Reflavored.MODID))
                     .icon(() -> new ItemStack(ModBlocks.REDWOOD_LOG.get()))
@@ -36,9 +36,12 @@ public class ModCreativeTabs {
                         output.accept(ModItems.REDWOOD_HANGING_SIGN.get());
                         output.accept(ModItems.REDWOOD_LEAVES.get());
                         output.accept(ModItems.REDWOOD_SAPLING.get());
+                        output.accept(ModItems.OAT_GRASS.get());
                         output.accept(ModItems.DOUGLAS_IRIS.get());
                         output.accept(ModItems.TRILLIUM.get());
                         output.accept(ModItems.ALPINE_LILY.get());
+                        output.accept(ModItems.KING_PROTEA.get());
+                        output.accept(ModItems.HEATH_ASTER.get());
                         output.accept(ModItems.REDWOOD_BOAT.get());
                         output.accept(ModItems.REDWOOD_CHEST_BOAT.get());
                         output.accept(ModItems.LAVENDER.get());

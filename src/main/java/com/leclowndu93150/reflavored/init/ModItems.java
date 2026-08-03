@@ -45,6 +45,8 @@ public class ModItems {
     public static final DeferredItem<ModBoatItem> REDWOOD_CHEST_BOAT = ITEMS.register("redwood_chest_boat",
             () -> new ModBoatItem(true, new Item.Properties().stacksTo(1)));
 
+    public static final DeferredItem<BlockItem> OAT_GRASS = ITEMS.registerItem("oat_grass", properties -> new DoubleHighBlockItem(ModBlocks.OAT_GRASS.get(), properties));
+
     public static final DeferredItem<BlockItem> DOUGLAS_IRIS = ITEMS.registerSimpleBlockItem("douglas_iris", ModBlocks.DOUGLAS_IRIS);
     public static final DeferredItem<BlockItem> TRILLIUM = ITEMS.registerSimpleBlockItem("trillium", ModBlocks.TRILLIUM);
 
@@ -60,6 +62,12 @@ public class ModItems {
             () -> new DoubleHighBlockItem(ModBlocks.YELLOW_LILY.get(), new Item.Properties()));
     public static final DeferredItem<BlockItem> PINK_LILY = ITEMS.register("pink_rose_bush",
             () -> new DoubleHighBlockItem(ModBlocks.PINK_LILY.get(), new Item.Properties()));
+
+    public static final DeferredItem<BlockItem> KING_PROTEA = ITEMS.register("king_protea",
+            () -> new BlockItem(ModBlocks.KING_PROTEA.get(), new Item.Properties()));
+
+    public static final DeferredItem<BlockItem> HEATH_ASTER = ITEMS.register("heath_aster",
+            () -> new BlockItem(ModBlocks.HEATH_ASTER.get(), new Item.Properties()));
 
     public static final DeferredItem<BlockItem> LAVENDER_CANDLE = ITEMS.register("lavender_candle",
             () -> new BlockItem(ModBlocks.LAVENDER_CANDLE.get(), new Item.Properties()));

@@ -55,12 +55,19 @@ public class ClientSetup {
             level != null && pos != null ? BiomeColors.getAverageFoliageColor(level, pos) : FoliageColor.getDefaultColor(),
             ModBlocks.REDWOOD_LEAVES.get()
         );
+        event.register((state, level, pos, tint) ->
+            level != null && pos != null ? BiomeColors.getAverageFoliageColor(level, pos) : FoliageColor.getDefaultColor(),
+            ModBlocks.OAT_GRASS.get()
+        );
     }
 
     @SubscribeEvent
     public static void registerItemColors(RegisterColorHandlersEvent.Item event) {
         event.register((stack, tint) -> FoliageColor.getDefaultColor(),
             ModBlocks.REDWOOD_LEAVES.get()
+        );
+        event.register((stack, tint) -> 0xAEA42A,
+                ModBlocks.OAT_GRASS.get()
         );
     }
 }

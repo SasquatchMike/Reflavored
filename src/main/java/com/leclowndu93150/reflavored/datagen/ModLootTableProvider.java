@@ -5,14 +5,10 @@ import com.leclowndu93150.reflavored.init.ModBlocks;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.flag.FeatureFlags;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BedPart;
@@ -21,13 +17,11 @@ import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.ApplyExplosionDecay;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
-import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 import java.util.List;
 import java.util.Set;
@@ -122,11 +116,16 @@ public class ModLootTableProvider extends LootTableProvider {
             add(ModBlocks.REDWOOD_HANGING_SIGN.get(), block -> createSingleItemTable(block));
             add(ModBlocks.REDWOOD_WALL_HANGING_SIGN.get(), block -> createSingleItemTable(ModBlocks.REDWOOD_HANGING_SIGN.get()));
 
+            add(ModBlocks.OAT_GRASS.get(), createDoublePlantShearsDrop(ModBlocks.OAT_GRASS.get()));
+
             dropSelf(ModBlocks.DOUGLAS_IRIS.get());
             dropSelf(ModBlocks.TRILLIUM.get());
 
             dropSelf(ModBlocks.GLACIER_LILY.get());
             dropSelf(ModBlocks.PAINTBRUSH_FLOWER.get());
+
+            dropSelf(ModBlocks.KING_PROTEA.get());
+            dropSelf(ModBlocks.HEATH_ASTER.get());
             
             add(ModBlocks.ALPINE_LILY.get(), block ->
                     LootTable.lootTable()
@@ -187,6 +186,10 @@ public class ModLootTableProvider extends LootTableProvider {
                     block -> createPotFlowerItemTable(ModBlocks.GLACIER_LILY.get()));
             add(ModBlocks.POTTED_PAINTBRUSH_FLOWER.get(),
                     block -> createPotFlowerItemTable(ModBlocks.PAINTBRUSH_FLOWER.get()));
+            add(ModBlocks.POTTED_KING_PROTEA.get(),
+                    block -> createPotFlowerItemTable(ModBlocks.KING_PROTEA.get()));
+            add(ModBlocks.POTTED_HEATH_ASTER.get(),
+                    block -> createPotFlowerItemTable(ModBlocks.HEATH_ASTER.get()));
 
 //            add(FDCompat.REDWOOD_CABINET.get(), this::createNameableBlockEntityTable);
 

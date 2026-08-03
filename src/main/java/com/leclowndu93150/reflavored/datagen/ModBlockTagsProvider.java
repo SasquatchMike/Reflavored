@@ -93,7 +93,9 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.TRILLIUM.get())
                 .add(ModBlocks.LAVENDER.get())
                 .add(ModBlocks.GLACIER_LILY.get())
-                .add(ModBlocks.PAINTBRUSH_FLOWER.get());
+                .add(ModBlocks.PAINTBRUSH_FLOWER.get())
+                .add(ModBlocks.KING_PROTEA.get())
+                .add(ModBlocks.HEATH_ASTER.get());
 
         tag(BlockTags.TALL_FLOWERS)
                 .add(ModBlocks.ALPINE_LILY.get())
@@ -110,7 +112,9 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.ALPINE_LILY.get())
                 .add(ModBlocks.ORANGE_LILY.get())
                 .add(ModBlocks.YELLOW_LILY.get())
-                .add(ModBlocks.PINK_LILY.get());
+                .add(ModBlocks.PINK_LILY.get())
+                .add(ModBlocks.KING_PROTEA.get())
+                .add(ModBlocks.HEATH_ASTER.get());
 
         tag(BlockTags.FLOWER_POTS)
                 .add(ModBlocks.POTTED_DOUGLAS_IRIS.get())
@@ -118,7 +122,9 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.POTTED_TRILLIUM.get())
                 .add(ModBlocks.POTTED_LAVENDER.get())
                 .add(ModBlocks.POTTED_GLACIER_LILY.get())
-                .add(ModBlocks.POTTED_PAINTBRUSH_FLOWER.get());
+                .add(ModBlocks.POTTED_PAINTBRUSH_FLOWER.get())
+                .add(ModBlocks.POTTED_KING_PROTEA.get())
+                .add(ModBlocks.POTTED_HEATH_ASTER.get());
 
         tag(BlockTags.COMPLETES_FIND_TREE_TUTORIAL)
                 .add(ModBlocks.REDWOOD_LOG.get());

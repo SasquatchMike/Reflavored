@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:remove_features",
+  "biomes": "#c:is_savanna",
+  "features": "minecraft:patch_tall_grass",
+  "steps": "vegetal_decoration"
+}

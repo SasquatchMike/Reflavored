@@ -75,6 +75,14 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 ModBlocks.REDWOOD_WALL_HANGING_SIGN.get(),
                 blockTexture(ModBlocks.REDWOOD_PLANKS.get()));
 
+        getVariantBuilder(ModBlocks.OAT_GRASS.get())
+                .partialState().with(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER)
+                    .modelForState().modelFile(models().withExistingParent("oat_grass_bottom",
+                        mcLoc("tinted_cross")).texture("cross", modLoc("block/oat_grass_bottom")).renderType("cutout")).addModel()
+                .partialState().with(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER)
+                    .modelForState().modelFile(models().withExistingParent("oat_grass_top",
+                        mcLoc("tinted_cross")).texture("cross", modLoc("block/oat_grass_top")).renderType("cutout")).addModel();
+
         simpleBlock(ModBlocks.DOUGLAS_IRIS.get(),
                 models().cross(blockTexture(ModBlocks.DOUGLAS_IRIS.get()).getPath(),
                         blockTexture(ModBlocks.DOUGLAS_IRIS.get())).renderType("cutout"));
@@ -125,6 +133,14 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlock(ModBlocks.PAINTBRUSH_FLOWER.get(),
                 models().cross(blockTexture(ModBlocks.PAINTBRUSH_FLOWER.get()).getPath(),
                         blockTexture(ModBlocks.PAINTBRUSH_FLOWER.get())).renderType("cutout"));
+
+        simpleBlock(ModBlocks.KING_PROTEA.get(),
+                models().cross(blockTexture(ModBlocks.KING_PROTEA.get()).getPath(),
+                        blockTexture(ModBlocks.KING_PROTEA.get())).renderType("cutout"));
+
+        simpleBlock(ModBlocks.HEATH_ASTER.get(),
+                models().cross(blockTexture(ModBlocks.HEATH_ASTER.get()).getPath(),
+                        blockTexture(ModBlocks.HEATH_ASTER.get())).renderType("cutout"));
 
 //        // Normal lavender glass
 //        simpleBlockWithItem(ModBlocks.LAVENDER_GLASS.get(),

@@ -7,6 +7,7 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -71,6 +72,9 @@ public class ModBlocks {
     public static final DeferredBlock<SaplingBlock> REDWOOD_SAPLING = BLOCKS.register("redwood_sapling",
             () -> new SaplingBlock(ModTreeGrowers.REDWOOD, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
 
+    public static final DeferredBlock<DoublePlantBlock> OAT_GRASS = BLOCKS.register("oat_grass",
+            () -> new DoublePlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS)));
+
     public static final DeferredBlock<FlowerBlock> DOUGLAS_IRIS = BLOCKS.register("douglas_iris",
             () -> new FlowerBlock(BuiltInRegistries.MOB_EFFECT.wrapAsHolder(MobEffects.ABSORPTION.value()), 6.0F, BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY)));
 
@@ -98,6 +102,11 @@ public class ModBlocks {
     public static final DeferredBlock<FlowerBlock> PAINTBRUSH_FLOWER = BLOCKS.register("paintbrush_flower",
             () -> new FlowerBlock(BuiltInRegistries.MOB_EFFECT.wrapAsHolder(MobEffects.NIGHT_VISION.value()), 6.0F, BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY)));
 
+    public static final DeferredBlock<FlowerBlock> KING_PROTEA = BLOCKS.register("king_protea",
+            () -> new FlowerBlock(MobEffects.CONFUSION, 6.0F, BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY)));
+
+    public static final DeferredBlock<FlowerBlock> HEATH_ASTER = BLOCKS.register("heath_aster",
+            () -> new FlowerBlock(MobEffects.SATURATION, 6.0F, BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY)));
 
     public static final DeferredBlock<Block> LAVENDER_WOOL = BLOCKS.registerSimpleBlock(
             "lavender_wool",
@@ -201,6 +210,18 @@ public class ModBlocks {
                     () -> new FlowerPotBlock(
                             () -> (FlowerPotBlock) Blocks.FLOWER_POT,
                             ModBlocks.PAINTBRUSH_FLOWER,
+                            BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_POPPY)));
+    public static final DeferredBlock<FlowerPotBlock> POTTED_KING_PROTEA =
+            BLOCKS.register("potted_king_protea",
+                    () -> new FlowerPotBlock(
+                            () -> (FlowerPotBlock) Blocks.FLOWER_POT,
+                            ModBlocks.KING_PROTEA,
+                            BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_POPPY)));
+    public static final DeferredBlock<FlowerPotBlock> POTTED_HEATH_ASTER =
+            BLOCKS.register("potted_heath_aster",
+                    () -> new FlowerPotBlock(
+                            () -> (FlowerPotBlock) Blocks.FLOWER_POT,
+                            ModBlocks.HEATH_ASTER,
                             BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_POPPY)));
 
     public static final DeferredBlock<Block> MOSSY_STONE = BLOCKS.registerSimpleBlock("mossy_stone",

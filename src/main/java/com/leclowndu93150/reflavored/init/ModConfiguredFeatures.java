@@ -46,6 +46,10 @@ public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_DOUGLAS_IRIS = createKey("patch_douglas_iris");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_TRILLIUM = createKey("patch_trillium");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_ALPINE_LILY = createKey("patch_alpine_lily");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_KING_PROTEA = createKey("patch_king_protea");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_HEATH_ASTER = createKey("patch_heath_aster");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_OAT_GRASS = createKey("patch_oat_grass");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_LAVENDER = createKey("patch_lavender");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_FIELD_FLOWERS = createKey("patch_field_flowers");
@@ -153,6 +157,45 @@ public class ModConfiguredFeatures {
                                 Feature.SIMPLE_BLOCK,
                                 new SimpleBlockConfiguration(
                                         BlockStateProvider.simple(ModBlocks.ALPINE_LILY.get())
+                                )
+                        )
+                ));
+
+        register(context, PATCH_KING_PROTEA, Feature.FLOWER,
+                new RandomPatchConfiguration(
+                        16,
+                        6,
+                        2,
+                        PlacementUtils.onlyWhenEmpty(
+                                Feature.SIMPLE_BLOCK,
+                                new SimpleBlockConfiguration(
+                                        BlockStateProvider.simple(ModBlocks.KING_PROTEA.get())
+                                )
+                        )
+                ));
+
+        register(context, PATCH_HEATH_ASTER, Feature.FLOWER,
+                new RandomPatchConfiguration(
+                        16,
+                        6,
+                        2,
+                        PlacementUtils.onlyWhenEmpty(
+                                Feature.SIMPLE_BLOCK,
+                                new SimpleBlockConfiguration(
+                                        BlockStateProvider.simple(ModBlocks.HEATH_ASTER.get())
+                                )
+                        )
+                ));
+
+        register(context, PATCH_OAT_GRASS, Feature.RANDOM_PATCH,
+                new RandomPatchConfiguration(
+                        96,
+                        7,
+                        3,
+                        PlacementUtils.onlyWhenEmpty(
+                                Feature.SIMPLE_BLOCK,
+                                new SimpleBlockConfiguration(
+                                        BlockStateProvider.simple(ModBlocks.OAT_GRASS.get())
                                 )
                         )
                 ));

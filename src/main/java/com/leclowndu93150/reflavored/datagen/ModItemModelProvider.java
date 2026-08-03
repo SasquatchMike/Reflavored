@@ -41,6 +41,10 @@ public class ModItemModelProvider extends ItemModelProvider {
         blockItem(ModBlocks.MOSSY_ANDESITE.get());
         blockItem(ModBlocks.MOSSY_GRANITE.get());
 
+        flatBlockItem(ModBlocks.OAT_GRASS.get(), "_top");
+        flatBlockItem(ModBlocks.KING_PROTEA.get());
+        flatBlockItem(ModBlocks.HEATH_ASTER.get());
+
         OurfenceInventory("redwood_fence", modLoc("block/redwood_planks"));
         OurbuttonInventory("redwood_button", modLoc("block/redwood_planks"));
 
@@ -86,6 +90,16 @@ public class ModItemModelProvider extends ItemModelProvider {
     private void blockItemWithSuffix(Block block, String suffix) {
         String name = BuiltInRegistries.BLOCK.getKey(block).getPath();
         withExistingParent(name, modLoc("block/" + name + suffix));
+    }
+
+    private void flatBlockItem(Block block, String suffix) {
+        String name = BuiltInRegistries.BLOCK.getKey(block).getPath();
+        withExistingParent(name, mcLoc("item/generated"))
+                .texture("layer0", modLoc("block/" + name + suffix));
+    }
+
+    private void flatBlockItem(Block block) {
+        this.flatBlockItem(block, "");
     }
 
     private ItemModelBuilder OurfenceInventory(String name, ResourceLocation texture) {

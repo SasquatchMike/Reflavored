@@ -40,6 +40,10 @@ public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> PATCH_DOUGLAS_IRIS = createKey("patch_douglas_iris");
     public static final ResourceKey<PlacedFeature> PATCH_TRILLIUM = createKey("patch_trillium");
     public static final ResourceKey<PlacedFeature> PATCH_ALPINE_LILY = createKey("patch_alpine_lily");
+    public static final ResourceKey<PlacedFeature> PATCH_KING_PROTEA = createKey("patch_king_protea");
+    public static final ResourceKey<PlacedFeature> PATCH_HEATH_ASTER = createKey("patch_heath_aster");
+
+    public static final ResourceKey<PlacedFeature> PATCH_OAT_GRASS = createKey("patch_oat_grass");
 
     public static final ResourceKey<PlacedFeature> LAVENDER_PATCH = createKey("lavender_patch");
 
@@ -163,6 +167,27 @@ public class ModPlacedFeatures {
                 RarityFilter.onAverageOnceEvery(6),
                 InSquarePlacement.spread(),
                 PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                BiomeFilter.biome());
+
+        register(context, PATCH_KING_PROTEA,
+                configuredFeatures.getOrThrow(ModConfiguredFeatures.PATCH_KING_PROTEA),
+                RarityFilter.onAverageOnceEvery(4),
+                InSquarePlacement.spread(),
+                PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                BiomeFilter.biome());
+
+        register(context, PATCH_HEATH_ASTER,
+                configuredFeatures.getOrThrow(ModConfiguredFeatures.PATCH_HEATH_ASTER),
+                RarityFilter.onAverageOnceEvery(4),
+                InSquarePlacement.spread(),
+                PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                BiomeFilter.biome());
+
+        register(context, PATCH_OAT_GRASS,
+                configuredFeatures.getOrThrow(ModConfiguredFeatures.PATCH_OAT_GRASS),
+                RarityFilter.onAverageOnceEvery(5),
+                InSquarePlacement.spread(),
+                PlacementUtils.HEIGHTMAP_TOP_SOLID,
                 BiomeFilter.biome());
 
         register(context, LAVENDER_PATCH,
