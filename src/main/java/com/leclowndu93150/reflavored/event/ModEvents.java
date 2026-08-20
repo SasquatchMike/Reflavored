@@ -4,11 +4,7 @@ import com.leclowndu93150.reflavored.Reflavored;
 import com.leclowndu93150.reflavored.duck.IGreyFoxAccessor;
 import com.leclowndu93150.reflavored.effect.goal.AvoidStinkyGoal;
 import com.leclowndu93150.reflavored.entity.BisonEntity;
-import com.leclowndu93150.reflavored.init.ModBiomes;
-import com.leclowndu93150.reflavored.init.ModBlocks;
-import com.leclowndu93150.reflavored.init.ModEffects;
-import com.leclowndu93150.reflavored.init.ModEntities;
-import com.leclowndu93150.reflavored.init.ModItems;
+import com.leclowndu93150.reflavored.init.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.tags.BlockTags;
@@ -42,6 +38,7 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
+import net.neoforged.neoforge.event.level.BlockGrowFeatureEvent;
 import net.neoforged.neoforge.event.tick.EntityTickEvent;
 
 @EventBusSubscriber(modid = Reflavored.MODID)
@@ -139,6 +136,14 @@ public class ModEvents {
             event.accept((ItemLike) ModItems.SKUNK_SPAWN_EGG.get());
             event.accept((ItemLike) ModItems.CUTTHROAT_TROUT_SPAWN_EGG.get());
             event.accept((ItemLike) ModItems.BISON_SPAWN_EGG.get());
+        }
+    }
+
+    @SubscribeEvent
+    public static void  onTreeGrow(BlockGrowFeatureEvent event) {
+        BlockState sapling = event.getLevel().getBlockState(event.getPos());
+        if (sapling.is(Blocks.ACACIA_SAPLING) && (int) (Math.random() * 10) == 0) {
+            event.setFeature(ModConfiguredFeatures.FLOWERING_ACACIA);
         }
     }
 

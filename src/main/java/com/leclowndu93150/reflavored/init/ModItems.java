@@ -1,12 +1,16 @@
 package com.leclowndu93150.reflavored.init;
 
 import com.leclowndu93150.reflavored.Reflavored;
+import com.leclowndu93150.reflavored.entity.ModBoatEntity;
 import com.leclowndu93150.reflavored.item.CustomSpawnEggItem;
 import com.leclowndu93150.reflavored.item.ModBoatItem;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Fluids;
+import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -31,6 +35,8 @@ public class ModItems {
     public static final DeferredItem<BlockItem> REDWOOD_BUTTON = ITEMS.registerSimpleBlockItem("redwood_button", ModBlocks.REDWOOD_BUTTON);
     public static final DeferredItem<BlockItem> REDWOOD_SAPLING = ITEMS.registerSimpleBlockItem("redwood_sapling", ModBlocks.REDWOOD_SAPLING);
 
+    public static final DeferredItem<BlockItem> FLOWERING_ACACIA_LEAVES = ITEMS.registerSimpleBlockItem("flowering_acacia_leaves", ModBlocks.FLOWERING_ACACIA_LEAVES);
+
     public static final DeferredItem<Item> LAVENDER_DYE = ITEMS.registerItem("lavender_dye", Item::new);
 
     public static final DeferredItem<SignItem> REDWOOD_SIGN = ITEMS.register("redwood_sign",
@@ -40,10 +46,36 @@ public class ModItems {
             () -> new HangingSignItem(ModBlocks.REDWOOD_HANGING_SIGN.get(), ModBlocks.REDWOOD_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
 
     public static final DeferredItem<ModBoatItem> REDWOOD_BOAT = ITEMS.register("redwood_boat",
-            () -> new ModBoatItem(false, new Item.Properties().stacksTo(1)));
+            () -> new ModBoatItem(false, new Item.Properties().stacksTo(1), ModBoatEntity.Type.REDWOOD));
 
     public static final DeferredItem<ModBoatItem> REDWOOD_CHEST_BOAT = ITEMS.register("redwood_chest_boat",
-            () -> new ModBoatItem(true, new Item.Properties().stacksTo(1)));
+            () -> new ModBoatItem(true, new Item.Properties().stacksTo(1), ModBoatEntity.Type.REDWOOD));
+
+    public static final DeferredItem<BlockItem> BAOBAB_LOG = ITEMS.registerSimpleBlockItem(ModBlocks.BAOBAB_LOG, new Item.Properties());
+    public static final DeferredItem<BlockItem> BAOBAB_WOOD = ITEMS.registerSimpleBlockItem(ModBlocks.BAOBAB_WOOD, new Item.Properties());
+    public static final DeferredItem<BlockItem> STRIPPED_BAOBAB_LOG = ITEMS.registerSimpleBlockItem(ModBlocks.STRIPPED_BAOBAB_LOG, new Item.Properties());
+    public static final DeferredItem<BlockItem> STRIPPED_BAOBAB_WOOD = ITEMS.registerSimpleBlockItem(ModBlocks.STRIPPED_BAOBAB_WOOD, new Item.Properties());
+    public static final DeferredItem<BlockItem> BAOBAB_PLANKS = ITEMS.registerSimpleBlockItem(ModBlocks.BAOBAB_PLANKS, new Item.Properties());
+    public static final DeferredItem<BlockItem> BAOBAB_LEAVES = ITEMS.registerSimpleBlockItem(ModBlocks.BAOBAB_LEAVES, new Item.Properties());
+    public static final DeferredItem<BlockItem> BAOBAB_SAPLING = ITEMS.registerSimpleBlockItem(ModBlocks.BAOBAB_SAPLING, new Item.Properties());
+    public static final DeferredItem<BlockItem> BAOBAB_SLAB = ITEMS.registerSimpleBlockItem(ModBlocks.BAOBAB_SLAB, new Item.Properties());
+    public static final DeferredItem<BlockItem> BAOBAB_STAIRS = ITEMS.registerSimpleBlockItem(ModBlocks.BAOBAB_STAIRS, new Item.Properties());
+    public static final DeferredItem<BlockItem> BAOBAB_DOOR = ITEMS.registerSimpleBlockItem(ModBlocks.BAOBAB_DOOR, new Item.Properties());
+    public static final DeferredItem<BlockItem> BAOBAB_TRAPDOOR = ITEMS.registerSimpleBlockItem(ModBlocks.BAOBAB_TRAPDOOR, new Item.Properties());
+    public static final DeferredItem<BlockItem> BAOBAB_FENCE = ITEMS.registerSimpleBlockItem(ModBlocks.BAOBAB_FENCE, new Item.Properties());
+    public static final DeferredItem<BlockItem> BAOBAB_FENCE_GATE = ITEMS.registerSimpleBlockItem(ModBlocks.BAOBAB_FENCE_GATE, new Item.Properties());
+    public static final DeferredItem<BlockItem> BAOBAB_PRESSURE_PLATE = ITEMS.registerSimpleBlockItem(ModBlocks.BAOBAB_PRESSURE_PLATE, new Item.Properties());
+    public static final DeferredItem<BlockItem> BAOBAB_BUTTON = ITEMS.registerSimpleBlockItem(ModBlocks.BAOBAB_BUTTON, new Item.Properties());
+
+    public static final DeferredItem<SignItem> BAOBAB_SIGN = ITEMS.register("baobab_sign",
+            () -> new SignItem(new Item.Properties().stacksTo(16), ModBlocks.BAOBAB_SIGN.get(), ModBlocks.BAOBAB_WALL_SIGN.get()));
+    public static final DeferredItem<HangingSignItem> BAOBAB_HANGING_SIGN = ITEMS.register("baobab_hanging_sign",
+            () -> new HangingSignItem(ModBlocks.BAOBAB_HANGING_SIGN.get(), ModBlocks.BAOBAB_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
+
+    public static final DeferredItem<ModBoatItem> BAOBAB_BOAT = ITEMS.register("baobab_boat",
+            () -> new ModBoatItem(false, new Item.Properties().stacksTo(1), ModBoatEntity.Type.BAOBAB));
+    public static final DeferredItem<ModBoatItem> BAOBAB_CHEST_BOAT = ITEMS.register("baobab_chest_boat",
+            () -> new ModBoatItem(true, new Item.Properties().stacksTo(1), ModBoatEntity.Type.BAOBAB));
 
     public static final DeferredItem<BlockItem> OAT_GRASS = ITEMS.registerItem("oat_grass", properties -> new DoubleHighBlockItem(ModBlocks.OAT_GRASS.get(), properties));
 

@@ -17,11 +17,11 @@ public class ModBlockEntities {
 
     public static final Supplier<BlockEntityType<ModSignBlockEntity>> MOD_SIGN = BLOCK_ENTITIES.register("mod_sign",
             () -> BlockEntityType.Builder.of(ModSignBlockEntity::new,
-                    ModBlocks.REDWOOD_SIGN.get(), ModBlocks.REDWOOD_WALL_SIGN.get()).build(null));
+                    ModBlocks.REDWOOD_SIGN.get(), ModBlocks.REDWOOD_WALL_SIGN.get(), ModBlocks.BAOBAB_SIGN.get(), ModBlocks.BAOBAB_WALL_SIGN.get()).build(null));
 
     public static final Supplier<BlockEntityType<ModHangingSignBlockEntity>> MOD_HANGING_SIGN = BLOCK_ENTITIES.register("mod_hanging_sign",
             () -> BlockEntityType.Builder.of(ModHangingSignBlockEntity::new,
-                    ModBlocks.REDWOOD_HANGING_SIGN.get(), ModBlocks.REDWOOD_WALL_HANGING_SIGN.get()).build(null));
+                    ModBlocks.REDWOOD_HANGING_SIGN.get(), ModBlocks.REDWOOD_WALL_HANGING_SIGN.get(), ModBlocks.BAOBAB_HANGING_SIGN.get(), ModBlocks.BAOBAB_WALL_HANGING_SIGN.get()).build(null));
 
     public static final Supplier<BlockEntityType<LavenderShulkerBoxBlockEntity>> LAVENDER_SHULKER_BOX =
             BLOCK_ENTITIES.register(

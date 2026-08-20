@@ -26,6 +26,7 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.RuleBasedBlockS
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.feature.treedecorators.AlterGroundDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.BeehiveDecorator;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.ForkingTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.GiantTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
@@ -39,6 +40,7 @@ public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> CYPRESSE = createKey("cypresse");
     public static final ResourceKey<ConfiguredFeature<?, ?>> MEGA_REDWOOD = createKey("mega_redwood");
     public static final ResourceKey<ConfiguredFeature<?, ?>> REDWOOD_TREES = createKey("redwood_trees");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWERING_ACACIA = createKey("flowering_acacia");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_BROWN_MUSHROOM = ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.parse("minecraft:patch_brown_mushroom"));
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_RED_MUSHROOM = ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.parse("minecraft:patch_red_mushroom"));
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_TAIGA_GRASS = ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.parse("minecraft:patch_taiga_grass"));
@@ -120,6 +122,15 @@ public class ModConfiguredFeatures {
                 )
                         .decorators(List.of(new BeehiveDecorator(0.05F))).ignoreVines().build()
                         );
+
+        register(context, FLOWERING_ACACIA, Feature.TREE,
+                new TreeConfiguration.TreeConfigurationBuilder(
+                        BlockStateProvider.simple(Blocks.ACACIA_LOG),
+                        new ForkingTrunkPlacer(5, 2, 2),
+                        new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.ACACIA_LEAVES.defaultBlockState(), 5).add(ModBlocks.FLOWERING_ACACIA_LEAVES.get().defaultBlockState(), 1).build()),
+                        new AcaciaFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0)),
+                        new TwoLayersFeatureSize(1, 0, 2)).ignoreVines().build()
+                );
 
 
         register(context, PATCH_DOUGLAS_IRIS, Feature.FLOWER,

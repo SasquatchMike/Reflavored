@@ -2,6 +2,7 @@ package com.leclowndu93150.reflavored.datagen;
 
 //import com.leclowndu93150.reflavored.compat.fd.FDCompat;
 import com.leclowndu93150.reflavored.init.ModBlocks;
+import com.leclowndu93150.reflavored.init.ModItems;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
@@ -11,6 +12,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
@@ -22,6 +24,7 @@ import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.neoforged.fml.common.Mod;
 
 import java.util.List;
 import java.util.Set;
@@ -111,10 +114,33 @@ public class ModLootTableProvider extends LootTableProvider {
             add(ModBlocks.REDWOOD_LEAVES.get(), block -> 
                 createLeavesDrops(block, ModBlocks.REDWOOD_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
 
-            add(ModBlocks.REDWOOD_SIGN.get(), block -> createSingleItemTable(block));
+            add(ModBlocks.REDWOOD_SIGN.get(), this::createSingleItemTable);
             add(ModBlocks.REDWOOD_WALL_SIGN.get(), block -> createSingleItemTable(ModBlocks.REDWOOD_SIGN.get()));
-            add(ModBlocks.REDWOOD_HANGING_SIGN.get(), block -> createSingleItemTable(block));
+            add(ModBlocks.REDWOOD_HANGING_SIGN.get(), this::createSingleItemTable);
             add(ModBlocks.REDWOOD_WALL_HANGING_SIGN.get(), block -> createSingleItemTable(ModBlocks.REDWOOD_HANGING_SIGN.get()));
+
+            dropSelf(ModBlocks.BAOBAB_LOG.get());
+            dropSelf(ModBlocks.BAOBAB_WOOD.get());
+            dropSelf(ModBlocks.STRIPPED_BAOBAB_LOG.get());
+            dropSelf(ModBlocks.STRIPPED_BAOBAB_WOOD.get());
+            dropSelf(ModBlocks.BAOBAB_PLANKS.get());
+            dropSelf(ModBlocks.BAOBAB_STAIRS.get());
+            dropSelf(ModBlocks.BAOBAB_SLAB.get());
+            add(ModBlocks.BAOBAB_DOOR.get(), createDoorTable(ModBlocks.BAOBAB_DOOR.get()));
+            dropSelf(ModBlocks.BAOBAB_TRAPDOOR.get());
+            dropSelf(ModBlocks.BAOBAB_FENCE.get());
+            dropSelf(ModBlocks.BAOBAB_FENCE_GATE.get());
+            dropSelf(ModBlocks.BAOBAB_PRESSURE_PLATE.get());
+            dropSelf(ModBlocks.BAOBAB_BUTTON.get());
+            dropSelf(ModBlocks.BAOBAB_SAPLING.get());
+            add(ModBlocks.BAOBAB_LEAVES.get(), createLeavesDrops(ModBlocks.BAOBAB_LEAVES.get(), ModBlocks.BAOBAB_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+
+            add(ModBlocks.BAOBAB_SIGN.get(), this::createSingleItemTable);
+            add(ModBlocks.BAOBAB_WALL_SIGN.get(), block -> createSingleItemTable(ModItems.BAOBAB_SIGN));
+            add(ModBlocks.BAOBAB_HANGING_SIGN.get(), this::createSingleItemTable);
+            add(ModBlocks.BAOBAB_WALL_HANGING_SIGN.get(), block -> createSingleItemTable(ModItems.BAOBAB_HANGING_SIGN));
+
+            add(ModBlocks.FLOWERING_ACACIA_LEAVES.get(), createLeavesDrops(ModBlocks.FLOWERING_ACACIA_LEAVES.get(), Blocks.ACACIA_SAPLING, NORMAL_LEAVES_SAPLING_CHANCES));
 
             add(ModBlocks.OAT_GRASS.get(), createDoublePlantShearsDrop(ModBlocks.OAT_GRASS.get()));
 

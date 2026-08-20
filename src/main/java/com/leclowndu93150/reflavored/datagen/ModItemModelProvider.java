@@ -32,6 +32,18 @@ public class ModItemModelProvider extends ItemModelProvider {
         blockItem(ModBlocks.REDWOOD_PRESSURE_PLATE.get());
         blockItemWithSuffix(ModBlocks.REDWOOD_TRAPDOOR.get(), "_bottom");
 
+        blockItem(ModBlocks.BAOBAB_LOG.get());
+        blockItem(ModBlocks.BAOBAB_WOOD.get());
+        blockItem(ModBlocks.STRIPPED_BAOBAB_LOG.get());
+        blockItem(ModBlocks.STRIPPED_BAOBAB_WOOD.get());
+        blockItem(ModBlocks.BAOBAB_PLANKS.get());
+        blockItem(ModBlocks.BAOBAB_STAIRS.get());
+        blockItem(ModBlocks.BAOBAB_SLAB.get());
+        blockItem(ModBlocks.BAOBAB_FENCE_GATE.get());
+        blockItem(ModBlocks.BAOBAB_PRESSURE_PLATE.get());
+        blockItemWithSuffix(ModBlocks.BAOBAB_TRAPDOOR.get(), "_bottom");
+        blockItem(ModBlocks.BAOBAB_LEAVES.get());
+
         blockItem(ModBlocks.LAVENDER_WOOL.get());
         blockItem(ModBlocks.LAVENDER_TERRACOTTA.get());
         blockItem(ModBlocks.LAVENDER_GLAZED_TERRACOTTA.get());
@@ -41,12 +53,18 @@ public class ModItemModelProvider extends ItemModelProvider {
         blockItem(ModBlocks.MOSSY_ANDESITE.get());
         blockItem(ModBlocks.MOSSY_GRANITE.get());
 
+        blockItem(ModBlocks.FLOWERING_ACACIA_LEAVES.get());
+
+        flatBlockItem(ModBlocks.BAOBAB_SAPLING.get());
         flatBlockItem(ModBlocks.OAT_GRASS.get(), "_top");
         flatBlockItem(ModBlocks.KING_PROTEA.get());
         flatBlockItem(ModBlocks.HEATH_ASTER.get());
 
-        OurfenceInventory("redwood_fence", modLoc("block/redwood_planks"));
-        OurbuttonInventory("redwood_button", modLoc("block/redwood_planks"));
+        ourFenceInventory("redwood_fence", modLoc("block/redwood_planks"));
+        ourButtonInventory("redwood_button", modLoc("block/redwood_planks"));
+
+        fenceInventory("baobab_fence", modLoc("block/baobab_planks"));
+        buttonInventory("baobab_button", modLoc("block/baobab_planks"));
 
         generatedItem(ModItems.REDWOOD_DOOR);
         generatedItem(ModItems.REDWOOD_SAPLING);
@@ -54,6 +72,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         generatedItem(ModItems.REDWOOD_HANGING_SIGN);
         generatedItem(ModItems.REDWOOD_BOAT);
         generatedItem(ModItems.REDWOOD_CHEST_BOAT);
+
+        generatedItem(ModItems.BAOBAB_DOOR);
+        generatedItem(ModItems.BAOBAB_SIGN);
+        generatedItem(ModItems.BAOBAB_HANGING_SIGN);
+        generatedItem(ModItems.BAOBAB_BOAT);
+        generatedItem(ModItems.BAOBAB_CHEST_BOAT);
 
         generatedItem(ModItems.DOUGLAS_IRIS);
         generatedItem(ModItems.TRILLIUM);
@@ -102,12 +126,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         this.flatBlockItem(block, "");
     }
 
-    private ItemModelBuilder OurfenceInventory(String name, ResourceLocation texture) {
+    private ItemModelBuilder ourFenceInventory(String name, ResourceLocation texture) {
         return withExistingParent(name, mcLoc("block/fence_inventory"))
                 .texture("texture", texture);
     }
 
-    private ItemModelBuilder OurbuttonInventory(String name, ResourceLocation texture) {
+    private ItemModelBuilder ourButtonInventory(String name, ResourceLocation texture) {
         return withExistingParent(name, mcLoc("block/button_inventory"))
                 .texture("texture", texture);
     }

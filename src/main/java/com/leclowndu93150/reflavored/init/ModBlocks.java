@@ -40,10 +40,10 @@ public class ModBlocks {
                     BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_STAIRS)));
 
     public static final DeferredBlock<DoorBlock> REDWOOD_DOOR = BLOCKS.register("redwood_door",
-            () -> new DoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_DOOR)));
+            () -> new DoorBlock(ModWoodTypes.REDWOOD_SET, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_DOOR)));
 
     public static final DeferredBlock<TrapDoorBlock> REDWOOD_TRAPDOOR = BLOCKS.register("redwood_trapdoor",
-            () -> new TrapDoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_TRAPDOOR)));
+            () -> new TrapDoorBlock(ModWoodTypes.REDWOOD_SET, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_TRAPDOOR)));
 
     public static final DeferredBlock<FenceBlock> REDWOOD_FENCE = BLOCKS.register("redwood_fence",
             () -> new FenceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_FENCE)));
@@ -52,10 +52,10 @@ public class ModBlocks {
             () -> new FenceGateBlock(ModWoodTypes.REDWOOD, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_FENCE_GATE)));
 
     public static final DeferredBlock<PressurePlateBlock> REDWOOD_PRESSURE_PLATE = BLOCKS.register("redwood_pressure_plate",
-            () -> new PressurePlateBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PRESSURE_PLATE)));
+            () -> new PressurePlateBlock(ModWoodTypes.REDWOOD_SET, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PRESSURE_PLATE)));
 
     public static final DeferredBlock<ButtonBlock> REDWOOD_BUTTON = BLOCKS.register("redwood_button",
-            () -> new ButtonBlock(BlockSetType.OAK, 30, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_BUTTON)));
+            () -> new ButtonBlock(ModWoodTypes.REDWOOD_SET, 30, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_BUTTON)));
 
     public static final DeferredBlock<ModStandingSignBlock> REDWOOD_SIGN = BLOCKS.register("redwood_sign",
             () -> new ModStandingSignBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SIGN), ModWoodTypes.REDWOOD));
@@ -71,6 +71,66 @@ public class ModBlocks {
 
     public static final DeferredBlock<SaplingBlock> REDWOOD_SAPLING = BLOCKS.register("redwood_sapling",
             () -> new SaplingBlock(ModTreeGrowers.REDWOOD, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
+
+    public static final DeferredBlock<LeavesBlock> BAOBAB_LEAVES = BLOCKS.register("baobab_leaves",
+            () -> new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)));
+
+    public static final DeferredBlock<RotatedPillarBlock> BAOBAB_LOG = BLOCKS.register("baobab_log",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG)));
+
+    public static final DeferredBlock<RotatedPillarBlock> BAOBAB_WOOD = BLOCKS.register("baobab_wood",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)));
+
+    public static final DeferredBlock<RotatedPillarBlock> STRIPPED_BAOBAB_LOG = BLOCKS.register("stripped_baobab_log",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_LOG)));
+
+    public static final DeferredBlock<RotatedPillarBlock> STRIPPED_BAOBAB_WOOD = BLOCKS.register("stripped_baobab_wood",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD)));
+
+    public static final DeferredBlock<Block> BAOBAB_PLANKS = BLOCKS.register("baobab_planks",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+
+    public static final DeferredBlock<SlabBlock> BAOBAB_SLAB = BLOCKS.register("baobab_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SLAB)));
+
+    public static final DeferredBlock<StairBlock> BAOBAB_STAIRS = BLOCKS.register("baobab_stairs",
+            () -> new StairBlock(BAOBAB_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_STAIRS)));
+
+    public static final DeferredBlock<DoorBlock> BAOBAB_DOOR = BLOCKS.register("baobab_door",
+            () -> new DoorBlock(ModWoodTypes.BAOBAB_SET, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_DOOR)));
+
+    public static final DeferredBlock<TrapDoorBlock> BAOBAB_TRAPDOOR = BLOCKS.register("baobab_trapdoor",
+            () -> new TrapDoorBlock(ModWoodTypes.BAOBAB_SET, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_TRAPDOOR)));
+
+    public static final DeferredBlock<FenceBlock> BAOBAB_FENCE = BLOCKS.register("baobab_fence",
+            () -> new FenceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_FENCE)));
+
+    public static final DeferredBlock<FenceGateBlock> BAOBAB_FENCE_GATE = BLOCKS.register("baobab_fence_gate",
+            () -> new FenceGateBlock(ModWoodTypes.BAOBAB, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_FENCE_GATE)));
+
+    public static final DeferredBlock<PressurePlateBlock> BAOBAB_PRESSURE_PLATE = BLOCKS.register("baobab_pressure_plate",
+            () -> new PressurePlateBlock(ModWoodTypes.BAOBAB_SET, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PRESSURE_PLATE)));
+
+    public static final DeferredBlock<ButtonBlock> BAOBAB_BUTTON = BLOCKS.register("baobab_button",
+            () -> new ButtonBlock(ModWoodTypes.BAOBAB_SET, 30, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_BUTTON)));
+
+    public static final DeferredBlock<SaplingBlock> BAOBAB_SAPLING = BLOCKS.register("baobab_sapling",
+            () -> new SaplingBlock(null, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
+
+    public static final DeferredBlock<ModStandingSignBlock> BAOBAB_SIGN = BLOCKS.register("baobab_sign",
+            () -> new ModStandingSignBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SIGN), ModWoodTypes.BAOBAB));
+
+    public static final DeferredBlock<ModWallSignBlock> BAOBAB_WALL_SIGN = BLOCKS.register("baobab_wall_sign",
+            () -> new ModWallSignBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_SIGN), ModWoodTypes.BAOBAB));
+
+    public static final DeferredBlock<ModCeilingHangingSignBlock> BAOBAB_HANGING_SIGN = BLOCKS.register("baobab_hanging_sign",
+            () -> new ModCeilingHangingSignBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_HANGING_SIGN), ModWoodTypes.BAOBAB));
+
+    public static final DeferredBlock<ModWallHangingSignBlock> BAOBAB_WALL_HANGING_SIGN = BLOCKS.register("baobab_wall_hanging_sign",
+            () -> new ModWallHangingSignBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_HANGING_SIGN), ModWoodTypes.BAOBAB));
+
+    public static final DeferredBlock<LeavesBlock> FLOWERING_ACACIA_LEAVES = BLOCKS.register("flowering_acacia_leaves",
+            () -> new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ACACIA_LEAVES)));
 
     public static final DeferredBlock<DoublePlantBlock> OAT_GRASS = BLOCKS.register("oat_grass",
             () -> new DoublePlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS)));

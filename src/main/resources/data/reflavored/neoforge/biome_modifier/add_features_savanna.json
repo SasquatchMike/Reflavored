@@ -4,7 +4,8 @@
   "features": [
     "reflavored:patch_oat_grass",
     "reflavored:patch_king_protea",
-    "reflavored:patch_heath_aster"
+    "reflavored:patch_heath_aster",
+    "reflavored:flowering_acacia"
   ],
   "step": "vegetal_decoration"
 }

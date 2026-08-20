@@ -21,52 +21,72 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.REDWOOD_LOG.get())
                 .add(ModBlocks.REDWOOD_WOOD.get())
                 .add(ModBlocks.STRIPPED_REDWOOD_LOG.get())
-                .add(ModBlocks.STRIPPED_REDWOOD_WOOD.get());
+                .add(ModBlocks.STRIPPED_REDWOOD_WOOD.get())
+                .add(ModBlocks.BAOBAB_LOG.get())
+                .add(ModBlocks.BAOBAB_WOOD.get())
+                .add(ModBlocks.STRIPPED_BAOBAB_LOG.get())
+                .add(ModBlocks.STRIPPED_BAOBAB_WOOD.get());
 
         tag(BlockTags.PLANKS)
-                .add(ModBlocks.REDWOOD_PLANKS.get());
+                .add(ModBlocks.REDWOOD_PLANKS.get())
+                .add(ModBlocks.BAOBAB_PLANKS.get());
 
         tag(BlockTags.WOODEN_STAIRS)
-                .add(ModBlocks.REDWOOD_STAIRS.get());
+                .add(ModBlocks.REDWOOD_STAIRS.get())
+                .add(ModBlocks.BAOBAB_STAIRS.get());
 
         tag(BlockTags.WOODEN_SLABS)
-                .add(ModBlocks.REDWOOD_SLAB.get());
+                .add(ModBlocks.REDWOOD_SLAB.get())
+                .add(ModBlocks.BAOBAB_SLAB.get());
 
         tag(BlockTags.WOODEN_FENCES)
-                .add(ModBlocks.REDWOOD_FENCE.get());
+                .add(ModBlocks.REDWOOD_FENCE.get())
+                .add(ModBlocks.BAOBAB_FENCE.get());
 
         tag(BlockTags.FENCE_GATES)
-                .add(ModBlocks.REDWOOD_FENCE_GATE.get());
+                .add(ModBlocks.REDWOOD_FENCE_GATE.get())
+                .add(ModBlocks.BAOBAB_FENCE_GATE.get());
 
         tag(BlockTags.WOODEN_DOORS)
-                .add(ModBlocks.REDWOOD_DOOR.get());
+                .add(ModBlocks.REDWOOD_DOOR.get())
+                .add(ModBlocks.BAOBAB_DOOR.get());
 
         tag(BlockTags.WOODEN_TRAPDOORS)
-                .add(ModBlocks.REDWOOD_TRAPDOOR.get());
+                .add(ModBlocks.REDWOOD_TRAPDOOR.get())
+                .add(ModBlocks.BAOBAB_TRAPDOOR.get());
 
         tag(BlockTags.WOODEN_PRESSURE_PLATES)
-                .add(ModBlocks.REDWOOD_PRESSURE_PLATE.get());
+                .add(ModBlocks.REDWOOD_PRESSURE_PLATE.get())
+                .add(ModBlocks.BAOBAB_PRESSURE_PLATE.get());
 
         tag(BlockTags.WOODEN_BUTTONS)
-                .add(ModBlocks.REDWOOD_BUTTON.get());
+                .add(ModBlocks.REDWOOD_BUTTON.get())
+                .add(ModBlocks.BAOBAB_BUTTON.get());
 
         tag(BlockTags.STANDING_SIGNS)
-                .add(ModBlocks.REDWOOD_SIGN.get());
+                .add(ModBlocks.REDWOOD_SIGN.get())
+                .add(ModBlocks.BAOBAB_SIGN.get());
 
         tag(BlockTags.WALL_SIGNS)
-                .add(ModBlocks.REDWOOD_WALL_SIGN.get());
+                .add(ModBlocks.REDWOOD_WALL_SIGN.get())
+                .add(ModBlocks.BAOBAB_WALL_SIGN.get());
 
         tag(BlockTags.CEILING_HANGING_SIGNS)
-                .add(ModBlocks.REDWOOD_HANGING_SIGN.get());
+                .add(ModBlocks.REDWOOD_HANGING_SIGN.get())
+                .add(ModBlocks.BAOBAB_HANGING_SIGN.get());
 
         tag(BlockTags.WALL_HANGING_SIGNS)
-                .add(ModBlocks.REDWOOD_WALL_HANGING_SIGN.get());
+                .add(ModBlocks.REDWOOD_WALL_HANGING_SIGN.get())
+                .add(ModBlocks.BAOBAB_WALL_HANGING_SIGN.get());
 
         tag(BlockTags.LEAVES)
-                .add(ModBlocks.REDWOOD_LEAVES.get());
+                .add(ModBlocks.REDWOOD_LEAVES.get())
+                .add(ModBlocks.FLOWERING_ACACIA_LEAVES.get())
+                .add(ModBlocks.BAOBAB_LEAVES.get());
 
         tag(BlockTags.SAPLINGS)
-                .add(ModBlocks.REDWOOD_SAPLING.get());
+                .add(ModBlocks.REDWOOD_SAPLING.get())
+                .add(ModBlocks.BAOBAB_SAPLING.get());
 
         tag(BlockTags.MINEABLE_WITH_AXE)
                 .add(ModBlocks.REDWOOD_LOG.get())
@@ -81,12 +101,30 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.REDWOOD_DOOR.get())
                 .add(ModBlocks.REDWOOD_TRAPDOOR.get())
                 .add(ModBlocks.REDWOOD_PRESSURE_PLATE.get())
-                .add(ModBlocks.REDWOOD_BUTTON.get());
+                .add(ModBlocks.REDWOOD_BUTTON.get())
+                .add(ModBlocks.BAOBAB_LOG.get())
+                .add(ModBlocks.BAOBAB_WOOD.get())
+                .add(ModBlocks.STRIPPED_BAOBAB_LOG.get())
+                .add(ModBlocks.STRIPPED_BAOBAB_WOOD.get())
+                .add(ModBlocks.BAOBAB_PLANKS.get())
+                .add(ModBlocks.BAOBAB_SLAB.get())
+                .add(ModBlocks.BAOBAB_STAIRS.get())
+                .add(ModBlocks.BAOBAB_DOOR.get())
+                .add(ModBlocks.BAOBAB_TRAPDOOR.get())
+                .add(ModBlocks.BAOBAB_FENCE.get())
+                .add(ModBlocks.BAOBAB_FENCE_GATE.get())
+                .add(ModBlocks.BAOBAB_PRESSURE_PLATE.get())
+                .add(ModBlocks.BAOBAB_BUTTON.get());
 
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.MOSSY_STONE.get())
                 .add(ModBlocks.MOSSY_ANDESITE.get())
                 .add(ModBlocks.MOSSY_GRANITE.get());
+
+        tag(BlockTags.MINEABLE_WITH_HOE)
+                .add(ModBlocks.REDWOOD_LEAVES.get())
+                .add(ModBlocks.FLOWERING_ACACIA_LEAVES.get())
+                .add(ModBlocks.BAOBAB_LEAVES.get());
 
         tag(BlockTags.SMALL_FLOWERS)
                 .add(ModBlocks.DOUGLAS_IRIS.get())
@@ -127,6 +165,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.POTTED_HEATH_ASTER.get());
 
         tag(BlockTags.COMPLETES_FIND_TREE_TUTORIAL)
-                .add(ModBlocks.REDWOOD_LOG.get());
+                .add(ModBlocks.REDWOOD_LOG.get())
+                .add(ModBlocks.BAOBAB_LOG.get());
     }
 }

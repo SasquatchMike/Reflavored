@@ -73,7 +73,80 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         hangingSignBlock(ModBlocks.REDWOOD_HANGING_SIGN.get(),
                 ModBlocks.REDWOOD_WALL_HANGING_SIGN.get(),
-                blockTexture(ModBlocks.REDWOOD_PLANKS.get()));
+                blockTexture(ModBlocks.STRIPPED_REDWOOD_LOG.get()));
+
+        logBlock(ModBlocks.BAOBAB_LOG.get());
+        woodBlock(ModBlocks.BAOBAB_WOOD.get(), "baobab_log");
+
+        logBlock(ModBlocks.STRIPPED_BAOBAB_LOG.get());
+        woodBlock(ModBlocks.STRIPPED_BAOBAB_WOOD.get(), "stripped_baobab_log");
+
+        simpleBlockWithItem(ModBlocks.BAOBAB_PLANKS.get(), cubeAll(ModBlocks.BAOBAB_PLANKS.get()));
+
+        slabBlock(ModBlocks.BAOBAB_SLAB.get(),
+                blockTexture(ModBlocks.BAOBAB_PLANKS.get()),
+                blockTexture(ModBlocks.BAOBAB_PLANKS.get())
+        );
+
+        stairsBlock(ModBlocks.BAOBAB_STAIRS.get(), blockTexture(ModBlocks.BAOBAB_PLANKS.get()));
+
+        doorBlock(ModBlocks.BAOBAB_DOOR.get(), modLoc("block/baobab_door_bottom"), modLoc("block/baobab_door_top"));
+        trapdoorBlockWithRenderType(ModBlocks.BAOBAB_TRAPDOOR.get(), blockTexture(ModBlocks.BAOBAB_TRAPDOOR.get()), false, mcLoc("cutout"));
+
+        fenceBlock(ModBlocks.BAOBAB_FENCE.get(), blockTexture(ModBlocks.BAOBAB_PLANKS.get()));
+        fenceGateBlock(ModBlocks.BAOBAB_FENCE_GATE.get(), blockTexture(ModBlocks.BAOBAB_PLANKS.get()));
+
+        pressurePlateBlock(ModBlocks.BAOBAB_PRESSURE_PLATE.get(), blockTexture(ModBlocks.BAOBAB_PLANKS.get()));
+
+        buttonBlock(ModBlocks.BAOBAB_BUTTON.get(), blockTexture(ModBlocks.BAOBAB_PLANKS.get()));
+
+        signBlock(ModBlocks.BAOBAB_SIGN.get(),
+                ModBlocks.BAOBAB_WALL_SIGN.get(),
+                blockTexture(ModBlocks.BAOBAB_PLANKS.get())
+        );
+        hangingSignBlock(
+                ModBlocks.BAOBAB_HANGING_SIGN.get(),
+                ModBlocks.BAOBAB_WALL_HANGING_SIGN.get(),
+                blockTexture(ModBlocks.STRIPPED_BAOBAB_LOG.get())
+        );
+
+        simpleBlock(ModBlocks.BAOBAB_LEAVES.get(),
+                models().singleTexture("baobab_leaves",
+                                mcLoc("block/leaves"),
+                                "all",
+                                blockTexture(ModBlocks.BAOBAB_LEAVES.get()))
+                        .renderType("cutout_mipped")
+                        .element()
+                        .from(0, 0, 0).to(16, 16, 16)
+                        .allFaces((direction, faceBuilder) -> faceBuilder
+                                .texture("#all")
+                                .tintindex(0)
+                                .cullface(direction))
+                        .end());
+
+        simpleBlock(ModBlocks.BAOBAB_SAPLING.get(),
+                models().cross(blockTexture(ModBlocks.BAOBAB_SAPLING.get()).getPath(),
+                        blockTexture(ModBlocks.BAOBAB_SAPLING.get())).renderType("cutout"));
+
+        simpleBlock(ModBlocks.FLOWERING_ACACIA_LEAVES.get(),
+                models().withExistingParent("flowering_acacia_leaves",
+                        mcLoc("block/leaves"))
+                        .texture("leaves", blockTexture(ModBlocks.FLOWERING_ACACIA_LEAVES.get()))
+                        .texture("flowers", modLoc("block/acacia_flowers"))
+                .renderType("cutout_mipped")
+                .element()
+                .from(0, 0, 0).to(16, 16, 16)
+                .allFaces((direction, faceBuilder) -> faceBuilder
+                        .texture("#leaves")
+                        .tintindex(0)
+                        .cullface(direction))
+                .end().element()
+                        .from(0, 0, 0).to(16, 16, 16)
+                        .allFaces((direction, faceBuilder) -> faceBuilder
+                                .texture("#flowers")
+                                .tintindex(1)
+                                .cullface(direction))
+                        .end());
 
         getVariantBuilder(ModBlocks.OAT_GRASS.get())
                 .partialState().with(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER)

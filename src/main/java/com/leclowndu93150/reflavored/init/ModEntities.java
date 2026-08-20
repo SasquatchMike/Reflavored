@@ -16,19 +16,19 @@ public class ModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = 
             DeferredRegister.create(Registries.ENTITY_TYPE, Reflavored.MODID);
 
-    public static final DeferredHolder<EntityType<?>, EntityType<ModBoatEntity>> REDWOOD_BOAT = 
-            ENTITY_TYPES.register("redwood_boat", 
+    public static final DeferredHolder<EntityType<?>, EntityType<ModBoatEntity>> MOD_BOAT =
+            ENTITY_TYPES.register("mod_boat",
                     () -> EntityType.Builder.<ModBoatEntity>of(ModBoatEntity::new, MobCategory.MISC)
                             .sized(1.375F, 0.5625F)
                             .clientTrackingRange(10)
-                            .build("redwood_boat"));
+                            .build("mod_boat"));
 
-    public static final DeferredHolder<EntityType<?>, EntityType<ModChestBoatEntity>> REDWOOD_CHEST_BOAT = 
-            ENTITY_TYPES.register("redwood_chest_boat", 
+    public static final DeferredHolder<EntityType<?>, EntityType<ModChestBoatEntity>> MOD_CHEST_BOAT =
+            ENTITY_TYPES.register("mod_chest_boat",
                     () -> EntityType.Builder.<ModChestBoatEntity>of(ModChestBoatEntity::new, MobCategory.MISC)
                             .sized(1.375F, 0.5625F)
                             .clientTrackingRange(10)
-                            .build("redwood_chest_boat"));
+                            .build("mod_chest_boat"));
 
     public static final DeferredHolder<EntityType<?>, EntityType<SkunkEntity>> SKUNK =
             ENTITY_TYPES.register("skunk",

@@ -24,11 +24,13 @@ import java.util.function.Predicate;
 
 public class ModBoatItem extends Item {
     private static final Predicate<Entity> ENTITY_PREDICATE = EntitySelector.NO_SPECTATORS.and(Entity::isPickable);
+    private final ModBoatEntity.Type type;
     private final boolean hasChest;
 
-    public ModBoatItem(boolean hasChest, Properties properties) {
+    public ModBoatItem(boolean hasChest, Properties properties, ModBoatEntity.Type type) {
         super(properties);
         this.hasChest = hasChest;
+        this.type = type;
     }
 
     @Override
@@ -58,6 +60,11 @@ public class ModBoatItem extends Item {
         if (hitResult.getType() == HitResult.Type.BLOCK) {
             Boat boat = getBoat(level, hitResult);
             boat.setYRot(player.getYRot());
+            if (this.hasChest) {
+                ((ModChestBoatEntity) boat).setModdedVariant(this.type);
+            } else {
+                ((ModBoatEntity) boat).setModdedType(this.type);
+            }
 
             if (!level.noCollision(boat, boat.getBoundingBox())) {
                 return InteractionResultHolder.fail(itemStack);
@@ -80,15 +87,6 @@ public class ModBoatItem extends Item {
 
     private Boat getBoat(Level level, HitResult hitResult) {
         Vec3 location = hitResult.getLocation();
-        Boat boat;
-        
-        if (hasChest) {
-            boat = new ModChestBoatEntity(ModEntities.REDWOOD_CHEST_BOAT.get(), level);
-        } else {
-            boat = new ModBoatEntity(ModEntities.REDWOOD_BOAT.get(), level);
-        }
-        
-        boat.setPos(location.x, location.y, location.z);
-        return boat;
+        return this.hasChest ? new ModChestBoatEntity(level, location.x, location.y, location.z) : new ModBoatEntity(level, location.x, location.y, location.z);
     }
 }

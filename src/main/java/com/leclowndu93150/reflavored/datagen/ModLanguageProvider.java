@@ -49,6 +49,33 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.REDWOOD_HANGING_SIGN, "Redwood Hanging Sign");
         addItem(ModItems.REDWOOD_BOAT, "Redwood Boat");
         addItem(ModItems.REDWOOD_CHEST_BOAT, "Redwood Boat with Chest");
+        add("entity." + Reflavored.MODID + ".mod_boat.redwood", "Redwood Boat");
+        add("entity." + Reflavored.MODID + ".mod_chest_boat.redwood", "Redwood Boat with Chest");
+
+        addBlock(ModBlocks.BAOBAB_LOG, "Baobab Log");
+        addBlock(ModBlocks.BAOBAB_WOOD, "Baobab Wood");
+        addBlock(ModBlocks.STRIPPED_BAOBAB_LOG, "Stripped Baobab Log");
+        addBlock(ModBlocks.STRIPPED_BAOBAB_WOOD, "Stripped Baobab Wood");
+        addBlock(ModBlocks.BAOBAB_PLANKS, "Baobab Planks");
+        addBlock(ModBlocks.BAOBAB_LEAVES, "Baobab Leaves");
+        addBlock(ModBlocks.BAOBAB_SAPLING, "Baobab Sapling");
+        addBlock(ModBlocks.BAOBAB_STAIRS, "Baobab Stairs");
+        addBlock(ModBlocks.BAOBAB_SLAB, "Baobab Slab");
+        addBlock(ModBlocks.BAOBAB_DOOR, "Baobab Door");
+        addBlock(ModBlocks.BAOBAB_TRAPDOOR, "Baobab Trapdoor");
+        addBlock(ModBlocks.BAOBAB_FENCE, "Baobab Fence");
+        addBlock(ModBlocks.BAOBAB_FENCE_GATE, "Baobab Fence Gate");
+        addBlock(ModBlocks.BAOBAB_PRESSURE_PLATE, "Baobab Pressure Plate");
+        addBlock(ModBlocks.BAOBAB_BUTTON, "Baobab Button");
+
+        addItem(ModItems.BAOBAB_SIGN, "Baobab Sign");
+        addItem(ModItems.BAOBAB_HANGING_SIGN, "Baobab Hanging Sign");
+        addItem(ModItems.BAOBAB_BOAT, "Baobab Boat");
+        addItem(ModItems.BAOBAB_CHEST_BOAT, "Baobab Boat with Chest");
+        add("entity." + Reflavored.MODID + ".mod_boat.baobab", "Baobab Boat");
+        add("entity." + Reflavored.MODID + ".mod_chest_boat.baobab", "Baobab Boat with Chest");
+
+        addBlock(ModBlocks.FLOWERING_ACACIA_LEAVES, "Flowering Acacia Leaves");
 
         addBlock(ModBlocks.OAT_GRASS, "Oat Grass");
 

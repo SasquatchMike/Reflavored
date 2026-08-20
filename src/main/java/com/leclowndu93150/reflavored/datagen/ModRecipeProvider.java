@@ -9,6 +9,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.ItemLike;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -18,7 +19,7 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     @Override
-    protected void buildRecipes(RecipeOutput recipeOutput) {
+    protected void buildRecipes(@NotNull RecipeOutput recipeOutput) {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModItems.REDWOOD_PLANKS.get(), 4)
                 .requires(ModBlocks.REDWOOD_LOG.get())
                 .group("planks")
@@ -63,10 +64,61 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(getHasName(ModBlocks.REDWOOD_PLANKS.get()), has(ModBlocks.REDWOOD_PLANKS.get()))
                 .save(recipeOutput);
 
-        hangingSign(recipeOutput, ModItems.REDWOOD_HANGING_SIGN.get(), ModBlocks.REDWOOD_PLANKS.get());
+        hangingSign(recipeOutput, ModItems.REDWOOD_HANGING_SIGN.get(), ModBlocks.STRIPPED_REDWOOD_LOG.get());
         
         woodenBoat(recipeOutput, ModItems.REDWOOD_BOAT.get(), ModBlocks.REDWOOD_PLANKS.get());
         chestBoat(recipeOutput, ModItems.REDWOOD_CHEST_BOAT.get(), ModItems.REDWOOD_BOAT.get());
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BAOBAB_PLANKS, 4)
+                .requires(ModBlocks.BAOBAB_LOG.get())
+                .group("planks")
+                .unlockedBy("has_log", has(ModBlocks.BAOBAB_LOG.get()))
+                .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BAOBAB_PLANKS, 4)
+                .requires(ModBlocks.BAOBAB_WOOD.get())
+                .group("planks")
+                .unlockedBy("has_log", has(ModBlocks.BAOBAB_LOG.get()))
+                .save(recipeOutput, "baobab_planks_from_baobab_wood");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BAOBAB_PLANKS, 4)
+                .requires(ModBlocks.STRIPPED_BAOBAB_LOG.get())
+                .group("planks")
+                .unlockedBy("has_log", has(ModBlocks.BAOBAB_LOG.get()))
+                .save(recipeOutput, "baobab_planks_from_stripped_baobab_log");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BAOBAB_PLANKS, 4)
+                .requires(ModBlocks.STRIPPED_BAOBAB_WOOD.get())
+                .group("planks")
+                .unlockedBy("has_log", has(ModBlocks.BAOBAB_LOG.get()))
+                .save(recipeOutput, "baobab_planks_from_stripped_baobab_wood");
+
+        woodFromLogs(recipeOutput, ModItems.BAOBAB_WOOD.get(), ModItems.BAOBAB_LOG.get());
+        woodFromLogs(recipeOutput, ModItems.STRIPPED_BAOBAB_WOOD.get(), ModItems.STRIPPED_BAOBAB_LOG.get());
+
+        slab(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModItems.BAOBAB_SLAB.get(), ModItems.BAOBAB_PLANKS.get());
+        stairBuilder(ModItems.BAOBAB_STAIRS, Ingredient.of(ModItems.BAOBAB_PLANKS.get()))
+                .unlockedBy(getHasName(ModItems.BAOBAB_PLANKS.get()), has(ModItems.BAOBAB_PLANKS.get()))
+                .save(recipeOutput);
+
+        fence(recipeOutput, ModItems.BAOBAB_FENCE.get(), ModItems.BAOBAB_PLANKS.get());
+        fenceGate(recipeOutput, ModItems.BAOBAB_FENCE_GATE.get(), ModItems.BAOBAB_PLANKS.get());
+
+        door(recipeOutput, ModItems.BAOBAB_DOOR.get(), ModItems.BAOBAB_PLANKS.get());
+        trapdoor(recipeOutput, ModItems.BAOBAB_TRAPDOOR.get(), ModItems.BAOBAB_PLANKS.get());
+
+        pressurePlate(recipeOutput, ModItems.BAOBAB_PRESSURE_PLATE.get(), ModItems.BAOBAB_PLANKS.get());
+        buttonBuilder(ModItems.BAOBAB_BUTTON.get(), Ingredient.of(ModItems.BAOBAB_PLANKS.get()))
+                .unlockedBy(getHasName(ModItems.BAOBAB_PLANKS.get()), has(ModItems.BAOBAB_PLANKS.get()))
+                .save(recipeOutput);
+
+        signBuilder(ModItems.BAOBAB_SIGN, Ingredient.of(ModItems.BAOBAB_PLANKS.get()))
+                .unlockedBy(getHasName(ModItems.BAOBAB_PLANKS.get()), has(ModItems.BAOBAB_PLANKS.get()))
+                .save(recipeOutput);
+        hangingSign(recipeOutput, ModItems.BAOBAB_HANGING_SIGN.get(), ModBlocks.STRIPPED_BAOBAB_LOG.get());
+
+        woodenBoat(recipeOutput, ModItems.BAOBAB_BOAT.get(), ModBlocks.BAOBAB_PLANKS.get());
+        chestBoat(recipeOutput, ModItems.BAOBAB_CHEST_BOAT.get(), ModBlocks.BAOBAB_PLANKS.get());
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.PURPLE_DYE)
                 .requires(ModBlocks.DOUGLAS_IRIS.get())

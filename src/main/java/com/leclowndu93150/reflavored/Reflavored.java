@@ -58,6 +58,8 @@ public class Reflavored {
         event.enqueueWork(() -> {
             MOD_STRIPPABLES.put(ModBlocks.REDWOOD_LOG.get(), ModBlocks.STRIPPED_REDWOOD_LOG.get());
             MOD_STRIPPABLES.put(ModBlocks.REDWOOD_WOOD.get(), ModBlocks.STRIPPED_REDWOOD_WOOD.get());
+            MOD_STRIPPABLES.put(ModBlocks.BAOBAB_LOG.get(), ModBlocks.STRIPPED_BAOBAB_LOG.get());
+            MOD_STRIPPABLES.put(ModBlocks.BAOBAB_WOOD.get(), ModBlocks.STRIPPED_BAOBAB_WOOD.get());
 
             FlowerPotBlock pot = (FlowerPotBlock) Blocks.FLOWER_POT;
 
@@ -67,6 +69,8 @@ public class Reflavored {
             pot.addPlant(ModBlocks.LAVENDER.getId(), ModBlocks.POTTED_LAVENDER);
             pot.addPlant(ModBlocks.GLACIER_LILY.getId(), ModBlocks.POTTED_GLACIER_LILY);
             pot.addPlant(ModBlocks.PAINTBRUSH_FLOWER.getId(), ModBlocks.POTTED_PAINTBRUSH_FLOWER);
+            pot.addPlant(ModBlocks.KING_PROTEA.getId(), ModBlocks.POTTED_KING_PROTEA);
+            pot.addPlant(ModBlocks.HEATH_ASTER.getId(), ModBlocks.POTTED_HEATH_ASTER);
 
             FireBlock fire = (FireBlock) Blocks.FIRE;
 
@@ -86,6 +90,15 @@ public class Reflavored {
             fire.setFlammable(ModBlocks.REDWOOD_PRESSURE_PLATE.get(), 20, 5);
 
             fire.setFlammable(ModBlocks.REDWOOD_LEAVES.get(), 60, 30);
+
+            fire.setFlammable(ModBlocks.BAOBAB_LOG.get(), 5, 5);
+            fire.setFlammable(ModBlocks.BAOBAB_WOOD.get(), 5, 5);
+            fire.setFlammable(ModBlocks.STRIPPED_BAOBAB_LOG.get(), 5, 5);
+            fire.setFlammable(ModBlocks.STRIPPED_BAOBAB_WOOD.get(), 5, 5);
+
+            fire.setFlammable(ModBlocks.BAOBAB_PLANKS.get(), 20, 5);
+
+            fire.setFlammable(ModBlocks.BAOBAB_LEAVES.get(), 60, 30);
 
             Regions.register(new ModRegion(2));
         });
