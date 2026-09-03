@@ -4,10 +4,8 @@ import com.leclowndu93150.reflavored.Reflavored;
 import com.leclowndu93150.reflavored.client.renderer.*;
 import com.leclowndu93150.reflavored.entity.ModBoatEntity;
 import com.leclowndu93150.reflavored.entity.client.skunk.SkunkRenderer;
-import com.leclowndu93150.reflavored.init.ModBlockEntities;
-import com.leclowndu93150.reflavored.init.ModBlocks;
-import com.leclowndu93150.reflavored.init.ModEntities;
-import com.leclowndu93150.reflavored.init.ModWoodTypes;
+import com.leclowndu93150.reflavored.init.*;
+import com.leclowndu93150.reflavored.particle.SkunkSprayParticle;
 import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.renderer.BiomeColors;
@@ -23,6 +21,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
+import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 
 @EventBusSubscriber(modid = Reflavored.MODID, value = Dist.CLIENT)
 public class ClientSetup {
@@ -31,6 +30,7 @@ public class ClientSetup {
         event.enqueueWork(() -> {
             Sheets.addWoodType(ModWoodTypes.REDWOOD);
             Sheets.addWoodType(ModWoodTypes.BAOBAB);
+            Sheets.addWoodType(ModWoodTypes.EUCALYPTUS);
         });
     }
 
@@ -65,6 +65,10 @@ public class ClientSetup {
             ModBlocks.BAOBAB_LEAVES.get()
         );
         event.register((state, level, pos, tint) ->
+            level != null && pos != null ? BiomeColors.getAverageFoliageColor(level, pos) : FoliageColor.getDefaultColor(),
+            ModBlocks.EUCALYPTUS_LEAVES.get()
+        );
+        event.register((state, level, pos, tint) ->
             level != null && pos != null ? BiomeColors.getAverageGrassColor(level, pos) : GrassColor.getDefaultColor(),
             ModBlocks.OAT_GRASS.get()
         );
@@ -88,6 +92,9 @@ public class ClientSetup {
         event.register((stack, tint) -> FoliageColor.getDefaultColor(),
             ModBlocks.FLOWERING_ACACIA_LEAVES.get()
         );
+        event.register((stack, tint) -> FoliageColor.getDefaultColor(),
+            ModBlocks.EUCALYPTUS_LEAVES.get()
+        );
     }
 
     @SubscribeEvent
@@ -96,5 +103,10 @@ public class ClientSetup {
             event.registerLayerDefinition(ModBoatRenderer.createBoatModelLocation(type), BoatModel::createBodyModel);
             event.registerLayerDefinition(ModBoatRenderer.createChestBoatModelLocation(type), ChestBoatModel::createBodyModel);
         }
+    }
+
+    @SubscribeEvent
+    public static void registerParticleProviders(RegisterParticleProvidersEvent event) {
+        event.registerSpriteSet(ModParticles.SKUNK_SPRAY.get(), SkunkSprayParticle.Provider::new);
     }
 }

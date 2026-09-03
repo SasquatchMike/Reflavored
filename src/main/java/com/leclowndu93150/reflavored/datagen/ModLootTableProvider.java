@@ -140,6 +140,29 @@ public class ModLootTableProvider extends LootTableProvider {
             add(ModBlocks.BAOBAB_HANGING_SIGN.get(), this::createSingleItemTable);
             add(ModBlocks.BAOBAB_WALL_HANGING_SIGN.get(), block -> createSingleItemTable(ModItems.BAOBAB_HANGING_SIGN));
 
+            dropSelf(ModBlocks.EUCALYPTUS_LOG.get());
+            dropSelf(ModBlocks.EUCALYPTUS_WOOD.get());
+            dropSelf(ModBlocks.RAINBOW_EUCALYPTUS_LOG.get());
+            dropSelf(ModBlocks.RAINBOW_EUCALYPTUS_WOOD.get());
+            dropSelf(ModBlocks.STRIPPED_EUCALYPTUS_LOG.get());
+            dropSelf(ModBlocks.STRIPPED_EUCALYPTUS_WOOD.get());
+            dropSelf(ModBlocks.EUCALYPTUS_PLANKS.get());
+            dropSelf(ModBlocks.EUCALYPTUS_STAIRS.get());
+            dropSelf(ModBlocks.EUCALYPTUS_SLAB.get());
+            add(ModBlocks.EUCALYPTUS_DOOR.get(), createDoorTable(ModBlocks.EUCALYPTUS_DOOR.get()));
+            dropSelf(ModBlocks.EUCALYPTUS_TRAPDOOR.get());
+            dropSelf(ModBlocks.EUCALYPTUS_FENCE.get());
+            dropSelf(ModBlocks.EUCALYPTUS_FENCE_GATE.get());
+            dropSelf(ModBlocks.EUCALYPTUS_PRESSURE_PLATE.get());
+            dropSelf(ModBlocks.EUCALYPTUS_BUTTON.get());
+            dropSelf(ModBlocks.EUCALYPTUS_SAPLING.get());
+            add(ModBlocks.EUCALYPTUS_LEAVES.get(), createLeavesDrops(ModBlocks.EUCALYPTUS_LEAVES.get(), ModBlocks.EUCALYPTUS_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+
+            add(ModBlocks.EUCALYPTUS_SIGN.get(), this::createSingleItemTable);
+            add(ModBlocks.EUCALYPTUS_WALL_SIGN.get(), block -> createSingleItemTable(ModItems.EUCALYPTUS_SIGN.get()));
+            add(ModBlocks.EUCALYPTUS_HANGING_SIGN.get(), this::createSingleItemTable);
+            add(ModBlocks.EUCALYPTUS_WALL_HANGING_SIGN.get(), block -> createSingleItemTable(ModItems.EUCALYPTUS_HANGING_SIGN.get()));
+
             add(ModBlocks.FLOWERING_ACACIA_LEAVES.get(), createLeavesDrops(ModBlocks.FLOWERING_ACACIA_LEAVES.get(), Blocks.ACACIA_SAPLING, NORMAL_LEAVES_SAPLING_CHANCES));
 
             add(ModBlocks.OAT_GRASS.get(), createDoublePlantShearsDrop(ModBlocks.OAT_GRASS.get()));

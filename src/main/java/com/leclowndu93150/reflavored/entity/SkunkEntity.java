@@ -2,8 +2,10 @@ package com.leclowndu93150.reflavored.entity;
 
 import com.leclowndu93150.reflavored.init.ModEffects;
 import com.leclowndu93150.reflavored.init.ModEntities;
+import com.leclowndu93150.reflavored.init.ModParticles;
 import com.leclowndu93150.reflavored.init.ModPotions;
 import net.minecraft.commands.arguments.EntityAnchorArgument;
+import net.minecraft.core.Vec3i;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.world.InteractionHand;
@@ -26,13 +28,13 @@ import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
-import software.bernie.geckolib.animatable.GeoAnimatable;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animation.AnimatableManager;
 import software.bernie.geckolib.animation.AnimationController;
 import software.bernie.geckolib.animation.PlayState;
 import software.bernie.geckolib.animation.RawAnimation;
+import software.bernie.geckolib.util.ClientUtil;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.function.Predicate;
@@ -92,10 +94,29 @@ public class SkunkEntity extends Animal implements GeoEntity {
         return ModEntities.SKUNK.get().create(level);
     }
 
+    private Vec3i getRotationExits() {
+        float rot = this.getYRot();
+        if (rot <= 90) {
+            return new Vec3i(-1, 0, -1);
+        } else if (rot <= 180) {
+            return new Vec3i(-1, 0, 1);
+        } else if (rot <= 270) {
+            return new Vec3i(1, 0, 1);
+        }
+        return new Vec3i(1, 0, -1);
+    }
+
     @Override
     public void registerControllers(final AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new AnimationController<GeoEntity>(this, "Walking", animationState -> animationState.isMoving() ? animationState.setAndContinue(WALK) : PlayState.STOP));
-        controllers.add(new AnimationController<GeoAnimatable>(this, "Spray", animationState -> PlayState.STOP).triggerableAnim("spray", SPRAY));
+        controllers.add(new AnimationController<>(this, "Spray", animationState -> PlayState.STOP).triggerableAnim("spray", SPRAY).setParticleKeyframeHandler(particleKeyframeEvent -> {
+            Level level = ClientUtil.getLevel();
+            Vec3i exits = this.getRotationExits();
+            double tan = Math.tan(this.getYRot());
+            double xDiff = 0.3125F / Math.sqrt(1 + tan * tan) * exits.getX();
+            double zDiff = Math.sqrt(Math.abs(0.09765625F - xDiff * xDiff)) * exits.getZ();
+            level.addParticle(ModParticles.SKUNK_SPRAY.get(), this.getX() + xDiff, this.getY() + 0.25F, this.getZ() + zDiff, 0, 0.1F, 0);
+        }));
     }
 
     @Override

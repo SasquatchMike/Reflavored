@@ -1328,6 +1328,20 @@
 						}
 					}
 				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "spray_particles"
+				},
+				"0.1": {
+					"effect": "spray_particles"
+				},
+				"0.2": {
+					"effect": "spray_particles"
+				},
+				"0.3": {
+					"effect": "spray_particles"
+				}
 			}
 		}
 	}

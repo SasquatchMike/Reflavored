@@ -6,8 +6,6 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.block.state.properties.BlockSetType;
-import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -128,6 +126,69 @@ public class ModBlocks {
 
     public static final DeferredBlock<ModWallHangingSignBlock> BAOBAB_WALL_HANGING_SIGN = BLOCKS.register("baobab_wall_hanging_sign",
             () -> new ModWallHangingSignBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_HANGING_SIGN), ModWoodTypes.BAOBAB));
+
+    public static final DeferredBlock<LeavesBlock> EUCALYPTUS_LEAVES = BLOCKS.register("eucalyptus_leaves",
+            () -> new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)));
+
+    public static final DeferredBlock<RotatedPillarBlock> EUCALYPTUS_LOG = BLOCKS.register("eucalyptus_log",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG)));
+
+    public static final DeferredBlock<RotatedPillarBlock> EUCALYPTUS_WOOD = BLOCKS.register("eucalyptus_wood",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)));
+
+    public static final DeferredBlock<RotatedPillarBlock> STRIPPED_EUCALYPTUS_LOG = BLOCKS.register("stripped_eucalyptus_log",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_LOG)));
+
+    public static final DeferredBlock<RotatedPillarBlock> STRIPPED_EUCALYPTUS_WOOD = BLOCKS.register("stripped_eucalyptus_wood",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD)));
+
+    public static final DeferredBlock<RotatedPillarBlock> RAINBOW_EUCALYPTUS_LOG = BLOCKS.register("rainbow_eucalyptus_log",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG)));
+
+    public static final DeferredBlock<RotatedPillarBlock> RAINBOW_EUCALYPTUS_WOOD = BLOCKS.register("rainbow_eucalyptus_wood",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)));
+
+    public static final DeferredBlock<Block> EUCALYPTUS_PLANKS = BLOCKS.register("eucalyptus_planks",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+
+    public static final DeferredBlock<SlabBlock> EUCALYPTUS_SLAB = BLOCKS.register("eucalyptus_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SLAB)));
+
+    public static final DeferredBlock<StairBlock> EUCALYPTUS_STAIRS = BLOCKS.register("eucalyptus_stairs",
+            () -> new StairBlock(EUCALYPTUS_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_STAIRS)));
+
+    public static final DeferredBlock<DoorBlock> EUCALYPTUS_DOOR = BLOCKS.register("eucalyptus_door",
+            () -> new DoorBlock(ModWoodTypes.EUCALYPTUS_SET, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_DOOR)));
+
+    public static final DeferredBlock<TrapDoorBlock> EUCALYPTUS_TRAPDOOR = BLOCKS.register("eucalyptus_trapdoor",
+            () -> new TrapDoorBlock(ModWoodTypes.EUCALYPTUS_SET, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_TRAPDOOR)));
+
+    public static final DeferredBlock<FenceBlock> EUCALYPTUS_FENCE = BLOCKS.register("eucalyptus_fence",
+            () -> new FenceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_FENCE)));
+
+    public static final DeferredBlock<FenceGateBlock> EUCALYPTUS_FENCE_GATE = BLOCKS.register("eucalyptus_fence_gate",
+            () -> new FenceGateBlock(ModWoodTypes.EUCALYPTUS, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_FENCE_GATE)));
+
+    public static final DeferredBlock<PressurePlateBlock> EUCALYPTUS_PRESSURE_PLATE = BLOCKS.register("eucalyptus_pressure_plate",
+            () -> new PressurePlateBlock(ModWoodTypes.EUCALYPTUS_SET, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PRESSURE_PLATE)));
+
+    public static final DeferredBlock<ButtonBlock> EUCALYPTUS_BUTTON = BLOCKS.register("eucalyptus_button",
+            () -> new ButtonBlock(ModWoodTypes.EUCALYPTUS_SET, 30, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_BUTTON)));
+
+    public static final DeferredBlock<SaplingBlock> EUCALYPTUS_SAPLING = BLOCKS.register("eucalyptus_sapling",
+            () -> new SaplingBlock(null, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
+
+    public static final DeferredBlock<ModStandingSignBlock> EUCALYPTUS_SIGN = BLOCKS.register("eucalyptus_sign",
+            () -> new ModStandingSignBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SIGN), ModWoodTypes.EUCALYPTUS));
+
+    public static final DeferredBlock<ModWallSignBlock> EUCALYPTUS_WALL_SIGN = BLOCKS.register("eucalyptus_wall_sign",
+            () -> new ModWallSignBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_SIGN), ModWoodTypes.EUCALYPTUS));
+
+    public static final DeferredBlock<ModCeilingHangingSignBlock> EUCALYPTUS_HANGING_SIGN = BLOCKS.register("eucalyptus_hanging_sign",
+            () -> new ModCeilingHangingSignBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_HANGING_SIGN), ModWoodTypes.EUCALYPTUS));
+
+    public static final DeferredBlock<ModWallHangingSignBlock> EUCALYPTUS_WALL_HANGING_SIGN = BLOCKS.register("eucalyptus_wall_hanging_sign",
+            () -> new ModWallHangingSignBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_HANGING_SIGN), ModWoodTypes.EUCALYPTUS));
 
     public static final DeferredBlock<LeavesBlock> FLOWERING_ACACIA_LEAVES = BLOCKS.register("flowering_acacia_leaves",
             () -> new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ACACIA_LEAVES)));

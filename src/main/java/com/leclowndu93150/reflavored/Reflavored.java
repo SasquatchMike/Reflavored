@@ -43,6 +43,7 @@ public class Reflavored {
         ModPotions.POTIONS.register(modEventBus);
         ModCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
         ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
+        ModParticles.PARTICLES_TYPES.register(modEventBus);
         ModEntities.ENTITY_TYPES.register(modEventBus);
         ModSounds.SOUND_EVENTS.register(modEventBus);
         ModLootModifiers.LOOT_MODIFIER_SERIALIZERS.register(modEventBus);
@@ -60,6 +61,10 @@ public class Reflavored {
             MOD_STRIPPABLES.put(ModBlocks.REDWOOD_WOOD.get(), ModBlocks.STRIPPED_REDWOOD_WOOD.get());
             MOD_STRIPPABLES.put(ModBlocks.BAOBAB_LOG.get(), ModBlocks.STRIPPED_BAOBAB_LOG.get());
             MOD_STRIPPABLES.put(ModBlocks.BAOBAB_WOOD.get(), ModBlocks.STRIPPED_BAOBAB_WOOD.get());
+            MOD_STRIPPABLES.put(ModBlocks.EUCALYPTUS_LOG.get(), ModBlocks.STRIPPED_EUCALYPTUS_LOG.get());
+            MOD_STRIPPABLES.put(ModBlocks.EUCALYPTUS_WOOD.get(), ModBlocks.STRIPPED_EUCALYPTUS_WOOD.get());
+            MOD_STRIPPABLES.put(ModBlocks.RAINBOW_EUCALYPTUS_LOG.get(), ModBlocks.STRIPPED_EUCALYPTUS_LOG.get());
+            MOD_STRIPPABLES.put(ModBlocks.RAINBOW_EUCALYPTUS_WOOD.get(), ModBlocks.STRIPPED_EUCALYPTUS_WOOD.get());
 
             FlowerPotBlock pot = (FlowerPotBlock) Blocks.FLOWER_POT;
 
@@ -97,8 +102,35 @@ public class Reflavored {
             fire.setFlammable(ModBlocks.STRIPPED_BAOBAB_WOOD.get(), 5, 5);
 
             fire.setFlammable(ModBlocks.BAOBAB_PLANKS.get(), 20, 5);
+            fire.setFlammable(ModBlocks.BAOBAB_SLAB.get(), 20, 5);
+            fire.setFlammable(ModBlocks.BAOBAB_STAIRS.get(), 20, 5);
+            fire.setFlammable(ModBlocks.BAOBAB_FENCE.get(), 20, 5);
+            fire.setFlammable(ModBlocks.BAOBAB_FENCE_GATE.get(), 20, 5);
+            fire.setFlammable(ModBlocks.BAOBAB_DOOR.get(), 20, 5);
+            fire.setFlammable(ModBlocks.BAOBAB_TRAPDOOR.get(), 20, 5);
+            fire.setFlammable(ModBlocks.BAOBAB_PRESSURE_PLATE.get(), 20, 5);
+            fire.setFlammable(ModBlocks.BAOBAB_BUTTON.get(), 20, 5);
 
             fire.setFlammable(ModBlocks.BAOBAB_LEAVES.get(), 60, 30);
+
+            fire.setFlammable(ModBlocks.EUCALYPTUS_LOG.get(), 5, 5);
+            fire.setFlammable(ModBlocks.EUCALYPTUS_WOOD.get(), 5, 5);
+            fire.setFlammable(ModBlocks.STRIPPED_EUCALYPTUS_LOG.get(), 5, 5);
+            fire.setFlammable(ModBlocks.STRIPPED_EUCALYPTUS_WOOD.get(), 5, 5);
+            fire.setFlammable(ModBlocks.RAINBOW_EUCALYPTUS_LOG.get(), 5, 5);
+            fire.setFlammable(ModBlocks.RAINBOW_EUCALYPTUS_WOOD.get(), 5, 5);
+
+            fire.setFlammable(ModBlocks.EUCALYPTUS_PLANKS.get(), 20, 5);
+            fire.setFlammable(ModBlocks.EUCALYPTUS_SLAB.get(), 20, 5);
+            fire.setFlammable(ModBlocks.EUCALYPTUS_STAIRS.get(), 20, 5);
+            fire.setFlammable(ModBlocks.EUCALYPTUS_FENCE.get(), 20, 5);
+            fire.setFlammable(ModBlocks.EUCALYPTUS_FENCE_GATE.get(), 20, 5);
+            fire.setFlammable(ModBlocks.EUCALYPTUS_DOOR.get(), 20, 5);
+            fire.setFlammable(ModBlocks.EUCALYPTUS_TRAPDOOR.get(), 20, 5);
+            fire.setFlammable(ModBlocks.EUCALYPTUS_PRESSURE_PLATE.get(), 20, 5);
+            fire.setFlammable(ModBlocks.EUCALYPTUS_BUTTON.get(), 20, 5);
+
+            fire.setFlammable(ModBlocks.EUCALYPTUS_LEAVES.get(), 60, 30);
 
             Regions.register(new ModRegion(2));
         });

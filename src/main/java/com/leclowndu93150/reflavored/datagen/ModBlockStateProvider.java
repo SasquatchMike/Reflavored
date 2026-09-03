@@ -128,6 +128,60 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 models().cross(blockTexture(ModBlocks.BAOBAB_SAPLING.get()).getPath(),
                         blockTexture(ModBlocks.BAOBAB_SAPLING.get())).renderType("cutout"));
 
+        logBlock(ModBlocks.EUCALYPTUS_LOG.get());
+        woodBlock(ModBlocks.EUCALYPTUS_WOOD.get(), "eucalyptus_log");
+
+        logBlock(ModBlocks.RAINBOW_EUCALYPTUS_LOG.get());
+        woodBlock(ModBlocks.RAINBOW_EUCALYPTUS_WOOD.get(), "eucalyptus_log");
+
+        logBlock(ModBlocks.STRIPPED_EUCALYPTUS_LOG.get());
+        woodBlock(ModBlocks.STRIPPED_EUCALYPTUS_WOOD.get(), "stripped_eucalyptus_log");
+
+        simpleBlockWithItem(ModBlocks.EUCALYPTUS_PLANKS.get(), cubeAll(ModBlocks.EUCALYPTUS_PLANKS.get()));
+
+        slabBlock(ModBlocks.EUCALYPTUS_SLAB.get(),
+                blockTexture(ModBlocks.EUCALYPTUS_PLANKS.get()),
+                blockTexture(ModBlocks.EUCALYPTUS_PLANKS.get())
+        );
+
+        stairsBlock(ModBlocks.EUCALYPTUS_STAIRS.get(), blockTexture(ModBlocks.EUCALYPTUS_PLANKS.get()));
+
+        doorBlockWithRenderType(ModBlocks.EUCALYPTUS_DOOR.get(), modLoc("block/eucalyptus_door_bottom"), modLoc("block/eucalyptus_door_top"), mcLoc("cutout"));
+        trapdoorBlockWithRenderType(ModBlocks.EUCALYPTUS_TRAPDOOR.get(), blockTexture(ModBlocks.EUCALYPTUS_TRAPDOOR.get()), true, mcLoc("cutout"));
+
+        fenceBlock(ModBlocks.EUCALYPTUS_FENCE.get(), blockTexture(ModBlocks.EUCALYPTUS_PLANKS.get()));
+        fenceGateBlock(ModBlocks.EUCALYPTUS_FENCE_GATE.get(), blockTexture(ModBlocks.EUCALYPTUS_PLANKS.get()));
+
+        pressurePlateBlock(ModBlocks.EUCALYPTUS_PRESSURE_PLATE.get(), blockTexture(ModBlocks.EUCALYPTUS_PLANKS.get()));
+
+        buttonBlock(ModBlocks.EUCALYPTUS_BUTTON.get(), blockTexture(ModBlocks.EUCALYPTUS_PLANKS.get()));
+
+        signBlock(ModBlocks.EUCALYPTUS_SIGN.get(),
+                ModBlocks.EUCALYPTUS_WALL_SIGN.get(),
+                blockTexture(ModBlocks.EUCALYPTUS_PLANKS.get()));
+        hangingSignBlock(ModBlocks.EUCALYPTUS_HANGING_SIGN.get(),
+                ModBlocks.EUCALYPTUS_WALL_HANGING_SIGN.get(),
+                blockTexture(ModBlocks.STRIPPED_EUCALYPTUS_LOG.get()));
+
+        simpleBlock(ModBlocks.EUCALYPTUS_LEAVES.get(),
+                models().singleTexture("eucalyptus_leaves",
+                                mcLoc("block/leaves"),
+                                "all",
+                                blockTexture(ModBlocks.EUCALYPTUS_LEAVES.get()))
+                        .renderType("cutout_mipped")
+                        .element()
+                        .from(0, 0, 0).to(16, 16, 16)
+                        .allFaces((direction, faceBuilder) -> faceBuilder
+                                .texture("#all")
+                                .tintindex(0)
+                                .cullface(direction))
+                        .end());
+
+        simpleBlock(ModBlocks.EUCALYPTUS_SAPLING.get(),
+                models().cross(blockTexture(ModBlocks.EUCALYPTUS_SAPLING.get()).getPath(),
+                        blockTexture(ModBlocks.EUCALYPTUS_SAPLING.get())).renderType("cutout"));
+
+
         simpleBlock(ModBlocks.FLOWERING_ACACIA_LEAVES.get(),
                 models().withExistingParent("flowering_acacia_leaves",
                         mcLoc("block/leaves"))

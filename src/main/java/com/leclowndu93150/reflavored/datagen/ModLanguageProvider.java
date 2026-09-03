@@ -75,6 +75,31 @@ public class ModLanguageProvider extends LanguageProvider {
         add("entity." + Reflavored.MODID + ".mod_boat.baobab", "Baobab Boat");
         add("entity." + Reflavored.MODID + ".mod_chest_boat.baobab", "Baobab Boat with Chest");
 
+        addBlock(ModBlocks.EUCALYPTUS_LOG, "Eucalyptus Log");
+        addBlock(ModBlocks.EUCALYPTUS_WOOD, "Eucalyptus Wood");
+        addBlock(ModBlocks.RAINBOW_EUCALYPTUS_LOG, "Rainbow Eucalyptus Log");
+        addBlock(ModBlocks.RAINBOW_EUCALYPTUS_WOOD, "Rainbow Eucalyptus Wood");
+        addBlock(ModBlocks.STRIPPED_EUCALYPTUS_LOG, "Stripped Eucalyptus Log");
+        addBlock(ModBlocks.STRIPPED_EUCALYPTUS_WOOD, "Stripped Eucalyptus Wood");
+        addBlock(ModBlocks.EUCALYPTUS_PLANKS, "Eucalyptus Planks");
+        addBlock(ModBlocks.EUCALYPTUS_LEAVES, "Eucalyptus Leaves");
+        addBlock(ModBlocks.EUCALYPTUS_SAPLING, "Eucalyptus Sapling");
+        addBlock(ModBlocks.EUCALYPTUS_STAIRS, "Eucalyptus Stairs");
+        addBlock(ModBlocks.EUCALYPTUS_SLAB, "Eucalyptus Slab");
+        addBlock(ModBlocks.EUCALYPTUS_DOOR, "Eucalyptus Door");
+        addBlock(ModBlocks.EUCALYPTUS_TRAPDOOR, "Eucalyptus Trapdoor");
+        addBlock(ModBlocks.EUCALYPTUS_FENCE, "Eucalyptus Fence");
+        addBlock(ModBlocks.EUCALYPTUS_FENCE_GATE, "Eucalyptus Fence Gate");
+        addBlock(ModBlocks.EUCALYPTUS_PRESSURE_PLATE, "Eucalyptus Pressure Plate");
+        addBlock(ModBlocks.EUCALYPTUS_BUTTON, "Eucalyptus Button");
+
+        addItem(ModItems.EUCALYPTUS_SIGN, "Eucalyptus Sign");
+        addItem(ModItems.EUCALYPTUS_HANGING_SIGN, "Eucalyptus Hanging Sign");
+        addItem(ModItems.EUCALYPTUS_BOAT, "Eucalyptus Boat");
+        addItem(ModItems.EUCALYPTUS_CHEST_BOAT, "Eucalyptus Chest Boat");
+        add("entity." + Reflavored.MODID + ".mod_boat.eucalyptus", "Eucalyptus Boat");
+        add("entity." + Reflavored.MODID + ".mod_chest_boat.eucalyptus", "Eucalyptus Boat with Chest");
+
         addBlock(ModBlocks.FLOWERING_ACACIA_LEAVES, "Flowering Acacia Leaves");
 
         addBlock(ModBlocks.OAT_GRASS, "Oat Grass");

@@ -36,7 +36,7 @@ public class ModBoatEntity extends Boat {
     }
 
     @Override
-    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+    protected void defineSynchedData(SynchedEntityData.@NotNull Builder builder) {
         super.defineSynchedData(builder);
         builder.define(DATA_ID_TYPE, Type.REDWOOD.ordinal());
     }
@@ -60,6 +60,7 @@ public class ModBoatEntity extends Boat {
         return switch (this.getModdedType()) {
             case REDWOOD -> ModItems.REDWOOD_BOAT.get();
             case BAOBAB -> ModItems.BAOBAB_BOAT.get();
+            case EUCALYPTUS -> ModItems.EUCALYPTUS_BOAT.get();
         };
     }
 
@@ -83,7 +84,8 @@ public class ModBoatEntity extends Boat {
 
     public enum Type implements StringRepresentable {
         REDWOOD(ModBlocks.REDWOOD_PLANKS.get(), "redwood"),
-        BAOBAB(ModBlocks.BAOBAB_PLANKS.get(), "baobab");
+        BAOBAB(ModBlocks.BAOBAB_PLANKS.get(), "baobab"),
+        EUCALYPTUS(ModBlocks.EUCALYPTUS_PLANKS.get(), "eucalyptus");
 
         private static final IntFunction<ModBoatEntity.Type> BY_ID = ByIdMap.continuous(Enum::ordinal, ModBoatEntity.Type.values(), ByIdMap.OutOfBoundsStrategy.ZERO);
         private final Block planks;

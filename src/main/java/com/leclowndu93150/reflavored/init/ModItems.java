@@ -7,10 +7,7 @@ import com.leclowndu93150.reflavored.item.ModBoatItem;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Fluids;
-import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -76,6 +73,34 @@ public class ModItems {
             () -> new ModBoatItem(false, new Item.Properties().stacksTo(1), ModBoatEntity.Type.BAOBAB));
     public static final DeferredItem<ModBoatItem> BAOBAB_CHEST_BOAT = ITEMS.register("baobab_chest_boat",
             () -> new ModBoatItem(true, new Item.Properties().stacksTo(1), ModBoatEntity.Type.BAOBAB));
+
+    public static final DeferredItem<BlockItem> EUCALYPTUS_LOG = ITEMS.registerSimpleBlockItem(ModBlocks.EUCALYPTUS_LOG, new Item.Properties());
+    public static final DeferredItem<BlockItem> EUCALYPTUS_WOOD = ITEMS.registerSimpleBlockItem(ModBlocks.EUCALYPTUS_WOOD, new Item.Properties());
+    public static final DeferredItem<BlockItem> STRIPPED_EUCALYPTUS_LOG = ITEMS.registerSimpleBlockItem(ModBlocks.STRIPPED_EUCALYPTUS_LOG, new Item.Properties());
+    public static final DeferredItem<BlockItem> STRIPPED_EUCALYPTUS_WOOD = ITEMS.registerSimpleBlockItem(ModBlocks.STRIPPED_EUCALYPTUS_WOOD, new Item.Properties());
+    public static final DeferredItem<BlockItem> RAINBOW_EUCALYPTUS_LOG = ITEMS.registerSimpleBlockItem(ModBlocks.RAINBOW_EUCALYPTUS_LOG, new Item.Properties());
+    public static final DeferredItem<BlockItem> RAINBOW_EUCALYPTUS_WOOD = ITEMS.registerSimpleBlockItem(ModBlocks.RAINBOW_EUCALYPTUS_WOOD, new Item.Properties());
+    public static final DeferredItem<BlockItem> EUCALYPTUS_PLANKS = ITEMS.registerSimpleBlockItem(ModBlocks.EUCALYPTUS_PLANKS, new Item.Properties());
+    public static final DeferredItem<BlockItem> EUCALYPTUS_LEAVES = ITEMS.registerSimpleBlockItem(ModBlocks.EUCALYPTUS_LEAVES, new Item.Properties());
+    public static final DeferredItem<BlockItem> EUCALYPTUS_SAPLING = ITEMS.registerSimpleBlockItem(ModBlocks.EUCALYPTUS_SAPLING, new Item.Properties());
+    public static final DeferredItem<BlockItem> EUCALYPTUS_SLAB = ITEMS.registerSimpleBlockItem(ModBlocks.EUCALYPTUS_SLAB, new Item.Properties());
+    public static final DeferredItem<BlockItem> EUCALYPTUS_STAIRS = ITEMS.registerSimpleBlockItem(ModBlocks.EUCALYPTUS_STAIRS, new Item.Properties());
+    public static final DeferredItem<BlockItem> EUCALYPTUS_DOOR = ITEMS.registerSimpleBlockItem(ModBlocks.EUCALYPTUS_DOOR, new Item.Properties());
+    public static final DeferredItem<BlockItem> EUCALYPTUS_TRAPDOOR = ITEMS.registerSimpleBlockItem(ModBlocks.EUCALYPTUS_TRAPDOOR, new Item.Properties());
+    public static final DeferredItem<BlockItem> EUCALYPTUS_FENCE = ITEMS.registerSimpleBlockItem(ModBlocks.EUCALYPTUS_FENCE, new Item.Properties());
+    public static final DeferredItem<BlockItem> EUCALYPTUS_FENCE_GATE = ITEMS.registerSimpleBlockItem(ModBlocks.EUCALYPTUS_FENCE_GATE, new Item.Properties());
+    public static final DeferredItem<BlockItem> EUCALYPTUS_PRESSURE_PLATE = ITEMS.registerSimpleBlockItem(ModBlocks.EUCALYPTUS_PRESSURE_PLATE, new Item.Properties());
+    public static final DeferredItem<BlockItem> EUCALYPTUS_BUTTON = ITEMS.registerSimpleBlockItem(ModBlocks.EUCALYPTUS_BUTTON, new Item.Properties());
+
+    public static final DeferredItem<SignItem> EUCALYPTUS_SIGN = ITEMS.registerItem("eucalyptus_sign",
+            properties -> new SignItem(properties.stacksTo(16), ModBlocks.EUCALYPTUS_SIGN.get(), ModBlocks.EUCALYPTUS_WALL_SIGN.get()));
+    public static final DeferredItem<HangingSignItem> EUCALYPTUS_HANGING_SIGN = ITEMS.registerItem("eucalyptus_hanging_sign",
+            properties -> new HangingSignItem(ModBlocks.EUCALYPTUS_HANGING_SIGN.get(), ModBlocks.EUCALYPTUS_WALL_HANGING_SIGN.get(), properties.stacksTo(16)));
+
+    public static final DeferredItem<ModBoatItem> EUCALYPTUS_BOAT = ITEMS.registerItem("eucalyptus_boat",
+            properties -> new ModBoatItem(false, properties.stacksTo(1), ModBoatEntity.Type.EUCALYPTUS));
+    public static final DeferredItem<ModBoatItem> EUCALYPTUS_CHEST_BOAT = ITEMS.registerItem("eucalyptus_chest_boat",
+            properties -> new ModBoatItem(true, properties.stacksTo(1), ModBoatEntity.Type.EUCALYPTUS));
 
     public static final DeferredItem<BlockItem> OAT_GRASS = ITEMS.registerItem("oat_grass", properties -> new DoubleHighBlockItem(ModBlocks.OAT_GRASS.get(), properties));
 

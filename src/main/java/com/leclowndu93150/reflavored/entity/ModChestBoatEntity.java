@@ -63,6 +63,7 @@ public class ModChestBoatEntity extends ChestBoat {
         return switch (this.getModdedType()) {
             case REDWOOD -> ModItems.REDWOOD_CHEST_BOAT.get();
             case BAOBAB -> ModItems.BAOBAB_CHEST_BOAT.get();
+            case EUCALYPTUS -> ModItems.EUCALYPTUS_CHEST_BOAT.get();
         };
     }
 

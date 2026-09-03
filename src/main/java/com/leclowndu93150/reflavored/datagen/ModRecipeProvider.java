@@ -72,25 +72,25 @@ public class ModRecipeProvider extends RecipeProvider {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BAOBAB_PLANKS, 4)
                 .requires(ModBlocks.BAOBAB_LOG.get())
                 .group("planks")
-                .unlockedBy("has_log", has(ModBlocks.BAOBAB_LOG.get()))
+                .unlockedBy("has_baobab_log", has(ModBlocks.BAOBAB_LOG.get()))
                 .save(recipeOutput);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BAOBAB_PLANKS, 4)
                 .requires(ModBlocks.BAOBAB_WOOD.get())
                 .group("planks")
-                .unlockedBy("has_log", has(ModBlocks.BAOBAB_LOG.get()))
+                .unlockedBy("has_baobab_log", has(ModBlocks.BAOBAB_LOG.get()))
                 .save(recipeOutput, "baobab_planks_from_baobab_wood");
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BAOBAB_PLANKS, 4)
                 .requires(ModBlocks.STRIPPED_BAOBAB_LOG.get())
                 .group("planks")
-                .unlockedBy("has_log", has(ModBlocks.BAOBAB_LOG.get()))
+                .unlockedBy("has_baobab_log", has(ModBlocks.BAOBAB_LOG.get()))
                 .save(recipeOutput, "baobab_planks_from_stripped_baobab_log");
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BAOBAB_PLANKS, 4)
                 .requires(ModBlocks.STRIPPED_BAOBAB_WOOD.get())
                 .group("planks")
-                .unlockedBy("has_log", has(ModBlocks.BAOBAB_LOG.get()))
+                .unlockedBy("has_baobab_log", has(ModBlocks.BAOBAB_LOG.get()))
                 .save(recipeOutput, "baobab_planks_from_stripped_baobab_wood");
 
         woodFromLogs(recipeOutput, ModItems.BAOBAB_WOOD.get(), ModItems.BAOBAB_LOG.get());
@@ -119,6 +119,70 @@ public class ModRecipeProvider extends RecipeProvider {
 
         woodenBoat(recipeOutput, ModItems.BAOBAB_BOAT.get(), ModBlocks.BAOBAB_PLANKS.get());
         chestBoat(recipeOutput, ModItems.BAOBAB_CHEST_BOAT.get(), ModBlocks.BAOBAB_PLANKS.get());
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.EUCALYPTUS_PLANKS, 4)
+                .requires(ModBlocks.EUCALYPTUS_LOG.get())
+                .group("planks")
+                .unlockedBy("has_eucalyptus_log", has(ModBlocks.EUCALYPTUS_LOG.get()))
+                .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.EUCALYPTUS_PLANKS, 4)
+                .requires(ModBlocks.EUCALYPTUS_WOOD.get())
+                .group("planks")
+                .unlockedBy("has_eucalyptus_log", has(ModBlocks.EUCALYPTUS_LOG.get()))
+                .save(recipeOutput, "eucalyptus_planks_from_eucalyptus_wood");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.EUCALYPTUS_PLANKS, 4)
+                .requires(ModBlocks.RAINBOW_EUCALYPTUS_LOG.get())
+                .group("planks")
+                .unlockedBy("has_eucalyptus_log", has(ModBlocks.RAINBOW_EUCALYPTUS_LOG.get()))
+                .save(recipeOutput, "eucalyptus_planks_from_rainbow_eucalyptus_log");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.EUCALYPTUS_PLANKS, 4)
+                .requires(ModBlocks.RAINBOW_EUCALYPTUS_WOOD.get())
+                .group("planks")
+                .unlockedBy("has_eucalyptus_log", has(ModBlocks.RAINBOW_EUCALYPTUS_WOOD.get()))
+                .save(recipeOutput, "eucalyptus_planks_from_rainbow_eucalyptus_wood");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.EUCALYPTUS_PLANKS, 4)
+                .requires(ModBlocks.STRIPPED_EUCALYPTUS_LOG.get())
+                .group("planks")
+                .unlockedBy("has_eucalyptus_log", has(ModBlocks.EUCALYPTUS_LOG.get()))
+                .save(recipeOutput, "eucalyptus_planks_from_stripped_eucalyptus_log");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.EUCALYPTUS_PLANKS, 4)
+                .requires(ModBlocks.STRIPPED_EUCALYPTUS_WOOD.get())
+                .group("planks")
+                .unlockedBy("has_eucalyptus_log", has(ModBlocks.EUCALYPTUS_LOG.get()))
+                .save(recipeOutput, "eucalyptus_planks_from_stripped_eucalyptus_wood");
+
+        woodFromLogs(recipeOutput, ModItems.EUCALYPTUS_WOOD.get(), ModItems.EUCALYPTUS_LOG.get());
+        woodFromLogs(recipeOutput, ModItems.STRIPPED_EUCALYPTUS_WOOD.get(), ModItems.STRIPPED_EUCALYPTUS_LOG.get());
+        woodFromLogs(recipeOutput, ModItems.RAINBOW_EUCALYPTUS_WOOD.get(), ModItems.RAINBOW_EUCALYPTUS_LOG.get());
+
+        slab(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModItems.EUCALYPTUS_SLAB.get(), ModItems.EUCALYPTUS_PLANKS.get());
+        stairBuilder(ModItems.EUCALYPTUS_STAIRS, Ingredient.of(ModItems.EUCALYPTUS_PLANKS.get()))
+                .unlockedBy(getHasName(ModItems.EUCALYPTUS_PLANKS.get()), has(ModItems.EUCALYPTUS_PLANKS.get()))
+                .save(recipeOutput);
+
+        fence(recipeOutput, ModItems.EUCALYPTUS_FENCE.get(), ModItems.EUCALYPTUS_PLANKS.get());
+        fenceGate(recipeOutput, ModItems.EUCALYPTUS_FENCE_GATE.get(), ModItems.EUCALYPTUS_PLANKS.get());
+
+        door(recipeOutput, ModItems.EUCALYPTUS_DOOR.get(), ModItems.EUCALYPTUS_PLANKS.get());
+        trapdoor(recipeOutput, ModItems.EUCALYPTUS_TRAPDOOR.get(), ModItems.EUCALYPTUS_PLANKS.get());
+
+        pressurePlate(recipeOutput, ModItems.EUCALYPTUS_PRESSURE_PLATE.get(), ModItems.EUCALYPTUS_PLANKS.get());
+        buttonBuilder(ModItems.EUCALYPTUS_BUTTON.get(), Ingredient.of(ModItems.EUCALYPTUS_PLANKS.get()))
+                .unlockedBy(getHasName(ModItems.EUCALYPTUS_PLANKS.get()), has(ModItems.EUCALYPTUS_PLANKS.get()))
+                .save(recipeOutput);
+
+        signBuilder(ModItems.EUCALYPTUS_SIGN.get(), Ingredient.of(ModItems.EUCALYPTUS_PLANKS.get()))
+                .unlockedBy(getHasName(ModItems.EUCALYPTUS_PLANKS.get()), has(ModItems.EUCALYPTUS_PLANKS.get()))
+                .save(recipeOutput);
+        hangingSign(recipeOutput, ModItems.EUCALYPTUS_HANGING_SIGN.get(), ModBlocks.STRIPPED_EUCALYPTUS_LOG.get());
+
+        woodenBoat(recipeOutput, ModItems.EUCALYPTUS_BOAT.get(), ModItems.EUCALYPTUS_PLANKS.get());
+        chestBoat(recipeOutput, ModItems.EUCALYPTUS_CHEST_BOAT.get(), ModItems.EUCALYPTUS_PLANKS.get());
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.PURPLE_DYE)
                 .requires(ModBlocks.DOUGLAS_IRIS.get())

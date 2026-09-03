@@ -44,6 +44,20 @@ public class ModItemModelProvider extends ItemModelProvider {
         blockItemWithSuffix(ModBlocks.BAOBAB_TRAPDOOR.get(), "_bottom");
         blockItem(ModBlocks.BAOBAB_LEAVES.get());
 
+        blockItem(ModBlocks.EUCALYPTUS_LOG.get());
+        blockItem(ModBlocks.EUCALYPTUS_WOOD.get());
+        blockItem(ModBlocks.RAINBOW_EUCALYPTUS_LOG.get());
+        blockItem(ModBlocks.RAINBOW_EUCALYPTUS_WOOD.get());
+        blockItem(ModBlocks.STRIPPED_EUCALYPTUS_LOG.get());
+        blockItem(ModBlocks.STRIPPED_EUCALYPTUS_WOOD.get());
+        blockItem(ModBlocks.EUCALYPTUS_PLANKS.get());
+        blockItem(ModBlocks.EUCALYPTUS_STAIRS.get());
+        blockItem(ModBlocks.EUCALYPTUS_SLAB.get());
+        blockItem(ModBlocks.EUCALYPTUS_FENCE_GATE.get());
+        blockItem(ModBlocks.EUCALYPTUS_PRESSURE_PLATE.get());
+        blockItemWithSuffix(ModBlocks.EUCALYPTUS_TRAPDOOR.get(), "_bottom");
+        blockItem(ModBlocks.EUCALYPTUS_LEAVES.get());
+
         blockItem(ModBlocks.LAVENDER_WOOL.get());
         blockItem(ModBlocks.LAVENDER_TERRACOTTA.get());
         blockItem(ModBlocks.LAVENDER_GLAZED_TERRACOTTA.get());
@@ -56,6 +70,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         blockItem(ModBlocks.FLOWERING_ACACIA_LEAVES.get());
 
         flatBlockItem(ModBlocks.BAOBAB_SAPLING.get());
+        flatBlockItem(ModBlocks.EUCALYPTUS_SAPLING.get());
         flatBlockItem(ModBlocks.OAT_GRASS.get(), "_top");
         flatBlockItem(ModBlocks.KING_PROTEA.get());
         flatBlockItem(ModBlocks.HEATH_ASTER.get());
@@ -65,6 +80,8 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         fenceInventory("baobab_fence", modLoc("block/baobab_planks"));
         buttonInventory("baobab_button", modLoc("block/baobab_planks"));
+        fenceInventory("eucalyptus_fence", modLoc("block/eucalyptus_planks"));
+        buttonInventory("eucalyptus_button", modLoc("block/eucalyptus_planks"));
 
         generatedItem(ModItems.REDWOOD_DOOR);
         generatedItem(ModItems.REDWOOD_SAPLING);
@@ -78,6 +95,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         generatedItem(ModItems.BAOBAB_HANGING_SIGN);
         generatedItem(ModItems.BAOBAB_BOAT);
         generatedItem(ModItems.BAOBAB_CHEST_BOAT);
+
+        generatedItem(ModItems.EUCALYPTUS_DOOR);
+        generatedItem(ModItems.EUCALYPTUS_SIGN);
+        generatedItem(ModItems.EUCALYPTUS_HANGING_SIGN);
+        generatedItem(ModItems.EUCALYPTUS_BOAT);
+        generatedItem(ModItems.EUCALYPTUS_CHEST_BOAT);
 
         generatedItem(ModItems.DOUGLAS_IRIS);
         generatedItem(ModItems.TRILLIUM);

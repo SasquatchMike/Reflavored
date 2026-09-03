@@ -9,6 +9,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -43,6 +44,7 @@ import net.neoforged.neoforge.event.tick.EntityTickEvent;
 
 @EventBusSubscriber(modid = Reflavored.MODID)
 public class ModEvents {
+    private static final RandomSource RANDOM = RandomSource.create();
 
     @SubscribeEvent
     public static void onEntityJoinLevel(EntityJoinLevelEvent event) {
@@ -142,7 +144,7 @@ public class ModEvents {
     @SubscribeEvent
     public static void  onTreeGrow(BlockGrowFeatureEvent event) {
         BlockState sapling = event.getLevel().getBlockState(event.getPos());
-        if (sapling.is(Blocks.ACACIA_SAPLING) && (int) (Math.random() * 10) == 0) {
+        if (sapling.is(Blocks.ACACIA_SAPLING) && RANDOM.nextInt(10) == 0) {
             event.setFeature(ModConfiguredFeatures.FLOWERING_ACACIA);
         }
     }

@@ -10,4 +10,7 @@ public class ModWoodTypes {
 
     public static final BlockSetType BAOBAB_SET = BlockSetType.register(new BlockSetType(Reflavored.MODID + ":baobab"));
     public static final WoodType BAOBAB = WoodType.register(new WoodType(Reflavored.MODID + ":baobab", BAOBAB_SET));
+
+    public static final BlockSetType EUCALYPTUS_SET = BlockSetType.register(new BlockSetType(Reflavored.MODID + ":eucalyptus"));
+    public static final WoodType EUCALYPTUS = WoodType.register(new WoodType(Reflavored.MODID + ":eucalyptus", EUCALYPTUS_SET));
 }
