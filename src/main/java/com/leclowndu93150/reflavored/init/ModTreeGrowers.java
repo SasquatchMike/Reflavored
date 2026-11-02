@@ -27,4 +27,15 @@ public class ModTreeGrowers {
             Optional.empty(),
             Optional.empty()
     );
+
+    public static final TreeGrower BAOBAB = new TreeGrower(
+            Reflavored.MODID + ":baobab",
+            0.04F,
+            Optional.of(ModConfiguredFeatures.BAOBAB),
+            Optional.of(ModConfiguredFeatures.BAOBAB_LARGE),
+            Optional.empty(),
+            Optional.empty(),
+            Optional.empty(),
+            Optional.empty()
+    );
 }

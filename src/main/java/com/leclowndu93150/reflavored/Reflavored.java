@@ -47,6 +47,8 @@ public class Reflavored {
         ModEntities.ENTITY_TYPES.register(modEventBus);
         ModSounds.SOUND_EVENTS.register(modEventBus);
         ModLootModifiers.LOOT_MODIFIER_SERIALIZERS.register(modEventBus);
+        ModFoliagePlacers.FOLIAGE_PLACERS.register(modEventBus);
+        ModTrunkPlacers.TRUNK_PLACERS.register(modEventBus);
         ModFeatures.FEATURES.register(modEventBus);
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
 //        com.leclowndu93150.reflavored.compat.fd.FDCompatBootstrap.init(modEventBus);

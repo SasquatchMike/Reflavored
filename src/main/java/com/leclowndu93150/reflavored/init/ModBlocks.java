@@ -113,7 +113,7 @@ public class ModBlocks {
             () -> new ButtonBlock(ModWoodTypes.BAOBAB_SET, 30, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_BUTTON)));
 
     public static final DeferredBlock<SaplingBlock> BAOBAB_SAPLING = BLOCKS.register("baobab_sapling",
-            () -> new SaplingBlock(null, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
+            () -> new SaplingBlock(ModTreeGrowers.BAOBAB, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
 
     public static final DeferredBlock<ModStandingSignBlock> BAOBAB_SIGN = BLOCKS.register("baobab_sign",
             () -> new ModStandingSignBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SIGN), ModWoodTypes.BAOBAB));

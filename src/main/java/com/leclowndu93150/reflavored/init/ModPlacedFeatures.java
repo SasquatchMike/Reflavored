@@ -30,6 +30,8 @@ public class ModPlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> SPARSE_OLD_GROWTH_SPRUCE_TREES = createKey("sparse_old_growth_spruce_trees");
 
+    public static final ResourceKey<PlacedFeature> BAOBAB = createKey("baobab");
+    public static final ResourceKey<PlacedFeature> BAOBAB_LARGE = createKey("large_baobab");
     public static final ResourceKey<PlacedFeature> FLOWERING_ACACIA = createKey("flowering_acacia");
 
     public static final ResourceKey<PlacedFeature> BROWN_MUSHROOM_REDWOOD = createKey("brown_mushroom_redwood");
@@ -120,6 +122,14 @@ public class ModPlacedFeatures {
                 SurfaceWaterDepthFilter.forMaxDepth(0),
                 PlacementUtils.HEIGHTMAP_OCEAN_FLOOR,
                 PlacementUtils.filteredByBlockSurvival(Blocks.SPRUCE_SAPLING),
+                BiomeFilter.biome());
+
+        register(context, BAOBAB,
+                configuredFeatures.getOrThrow(ModConfiguredFeatures.BAOBAB),
+                RarityFilter.onAverageOnceEvery(12),
+                InSquarePlacement.spread(),
+                PlacementUtils.HEIGHTMAP,
+                PlacementUtils.filteredByBlockSurvival(ModBlocks.BAOBAB_SAPLING.get()),
                 BiomeFilter.biome());
 
         register(context, FLOWERING_ACACIA, configuredFeatures.getOrThrow(ModConfiguredFeatures.FLOWERING_ACACIA),

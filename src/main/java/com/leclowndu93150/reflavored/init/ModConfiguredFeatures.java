@@ -1,6 +1,9 @@
 package com.leclowndu93150.reflavored.init;
 
 import com.leclowndu93150.reflavored.Reflavored;
+import com.leclowndu93150.reflavored.tree.foliage.BaobabFoliagePlacer;
+import com.leclowndu93150.reflavored.tree.trunk.BaobabTrunkPlacer;
+import com.leclowndu93150.reflavored.tree.trunk.LargeBaobabTrunkPlacer;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -41,6 +44,8 @@ public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> MEGA_REDWOOD = createKey("mega_redwood");
     public static final ResourceKey<ConfiguredFeature<?, ?>> REDWOOD_TREES = createKey("redwood_trees");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWERING_ACACIA = createKey("flowering_acacia");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BAOBAB = createKey("baobab");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BAOBAB_LARGE = createKey("large_baobab");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_BROWN_MUSHROOM = ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.parse("minecraft:patch_brown_mushroom"));
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_RED_MUSHROOM = ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.parse("minecraft:patch_red_mushroom"));
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_TAIGA_GRASS = ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.parse("minecraft:patch_taiga_grass"));
@@ -129,9 +134,28 @@ public class ModConfiguredFeatures {
                         new ForkingTrunkPlacer(5, 2, 2),
                         new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.ACACIA_LEAVES.defaultBlockState(), 5).add(ModBlocks.FLOWERING_ACACIA_LEAVES.get().defaultBlockState(), 1).build()),
                         new AcaciaFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0)),
-                        new TwoLayersFeatureSize(1, 0, 2)).ignoreVines().build()
-                );
+                        new TwoLayersFeatureSize(1, 0, 2)
+                ).ignoreVines().build()
+        );
 
+        register(context, BAOBAB, Feature.TREE,
+                new TreeConfiguration.TreeConfigurationBuilder(
+                        BlockStateProvider.simple(ModBlocks.BAOBAB_LOG.get()),
+                        new BaobabTrunkPlacer(4, 1, 2),
+                        BlockStateProvider.simple(ModBlocks.BAOBAB_LEAVES.get()),
+                        new BaobabFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0)),
+                        new TwoLayersFeatureSize(1, 1, 1)
+                ).ignoreVines().forceDirt().build()
+        );
+
+        register(context, BAOBAB_LARGE, Feature.TREE,
+                new TreeConfiguration.TreeConfigurationBuilder(
+                        BlockStateProvider.simple(ModBlocks.BAOBAB_LOG.get()),
+                        new LargeBaobabTrunkPlacer(23, 1, 2),
+                        BlockStateProvider.simple(ModBlocks.BAOBAB_LEAVES.get()),
+                        new BaobabFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0)),
+                        new TwoLayersFeatureSize(1, 1, 1)
+                ).ignoreVines().forceDirt().build());
 
         register(context, PATCH_DOUGLAS_IRIS, Feature.FLOWER,
                 new RandomPatchConfiguration(
