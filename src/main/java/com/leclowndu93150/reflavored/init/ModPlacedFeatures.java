@@ -128,7 +128,15 @@ public class ModPlacedFeatures {
                 configuredFeatures.getOrThrow(ModConfiguredFeatures.BAOBAB),
                 RarityFilter.onAverageOnceEvery(12),
                 InSquarePlacement.spread(),
-                PlacementUtils.HEIGHTMAP,
+                PlacementUtils.HEIGHTMAP_TOP_SOLID,
+                PlacementUtils.filteredByBlockSurvival(ModBlocks.BAOBAB_SAPLING.get()),
+                BiomeFilter.biome());
+
+        register(context, BAOBAB_LARGE,
+                configuredFeatures.getOrThrow(ModConfiguredFeatures.BAOBAB_LARGE),
+                RarityFilter.onAverageOnceEvery(36),
+                InSquarePlacement.spread(),
+                PlacementUtils.HEIGHTMAP_TOP_SOLID,
                 PlacementUtils.filteredByBlockSurvival(ModBlocks.BAOBAB_SAPLING.get()),
                 BiomeFilter.biome());
 

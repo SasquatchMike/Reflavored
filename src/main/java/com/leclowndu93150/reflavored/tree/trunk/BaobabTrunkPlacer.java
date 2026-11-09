@@ -37,7 +37,7 @@ public class BaobabTrunkPlacer extends TrunkPlacer {
         short additionalIndexes = -1;
         for (y = 0; y < i; y++) {
             BlockPos currentPos = blockPos.above(y);
-            if (TreeFeature.isAirOrLeaves(levelSimulatedReader, currentPos)) {
+            if (TreeFeature.isAirOrLeaves(levelSimulatedReader, currentPos) || y == 0) {
                 BlockPos[] placementPositions = {currentPos, currentPos.south(), currentPos.east(), currentPos.south().east(), currentPos.north(), currentPos.west(), currentPos.south().west(), currentPos.east().north(), currentPos.east(2), currentPos.south(2), currentPos.east(2).south(), currentPos.south(2).east()};
                 BlockPos[] additionalPlacementPositions = {currentPos.north().west(), currentPos.north().east(2), currentPos.west().south(2), currentPos.east(2).south(2)};
                 for (int index = 0; index < placementPositions.length; index++) {
@@ -45,7 +45,7 @@ public class BaobabTrunkPlacer extends TrunkPlacer {
                         this.placeLog(levelSimulatedReader, biConsumer, randomSource, placementPositions[index], treeConfiguration);
                     }
                 }
-                if (y > 0 && randomSource.nextBoolean()) {
+                if (additionalIndexes < 3 && y > 0 && randomSource.nextBoolean()) {
                     additionalIndexes++;
                 }
                 for (short index = additionalIndexes; index > 0; index--) {
@@ -82,5 +82,10 @@ public class BaobabTrunkPlacer extends TrunkPlacer {
         this.placeLog(level, blockSetter, randomSource, thinBranchPos.relative(direction).above(), treeConfiguration);
         this.placeLog(level, blockSetter, randomSource, thinBranchPos.relative(direction, 2).above(), treeConfiguration);
         return new FoliagePlacer.FoliageAttachment(thinBranchPos.relative(direction, 2).above(), 2, true);
+    }
+
+    @Override
+    protected boolean validTreePos(LevelSimulatedReader level, BlockPos pos) {
+        return super.validTreePos(level, pos);
     }
 }

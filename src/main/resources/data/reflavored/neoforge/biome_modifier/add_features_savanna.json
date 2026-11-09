@@ -6,7 +6,8 @@
     "reflavored:patch_king_protea",
     "reflavored:patch_heath_aster",
     "reflavored:flowering_acacia",
-    "reflavored:baobab"
+    "reflavored:baobab",
+    "reflavored:large_baobab"
   ],
   "step": "vegetal_decoration"
 }

@@ -38,7 +38,7 @@ public class LargeBaobabTrunkPlacer extends TrunkPlacer {
         int y;
         for (y = 0; y < i; y++) {
             BlockPos currentPos = blockPos.above(y);
-            if (TreeFeature.isAirOrLeaves(levelSimulatedReader, currentPos)) {
+            if (TreeFeature.isAirOrLeaves(levelSimulatedReader, currentPos) || y == 0) {
                 BlockPos[] placementPositions = {currentPos, currentPos.south(), currentPos.east(), currentPos.south().east(), currentPos.north(), currentPos.west(), currentPos.south().west(), currentPos.east().north(), currentPos.east(2), currentPos.south(2), currentPos.east(2).south(), currentPos.south(2).east()};
                 BlockPos[] additionalPlacementPositions = {currentPos.north().west(), currentPos.north().east(2), currentPos.west().south(2), currentPos.east(2).south(2)};
                 for (int index = 0; index < placementPositions.length - (y >= i - 6 ? 8 : 0); index++) {
